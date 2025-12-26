@@ -14,6 +14,7 @@ eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh --cmd cd)"
 
+alias open='xdg-open'
 alias ls='lsd'
 alias docker-compose='docker compose'
 alias default-ssh-agent='eval "$(ssh-agent -s)"'
