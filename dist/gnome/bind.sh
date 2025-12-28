@@ -47,3 +47,5 @@ gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-8 "['<Super><Sh
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-9 "['<Super><Shift>8']"
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-10 "['<Super><Shift>9']"
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-11 "['<Super><Shift>0']"
+
+gsettings set org.gnome.desktop.wm.keybindings close "['<Super>Cyrillic_shorti', '<Super>q']"
