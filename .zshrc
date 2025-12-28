@@ -129,7 +129,7 @@ share() {
 	local pass=$(openssl rand 32 | base64)
 	zip -e -rq9 "$zip_file" "$input" -P "$pass"
 
-	local url=$(curl --silent -F "file=@${zip_file}" https://temp.sh/upload | sed 's/http:/https:/')
+	local url=$(proxychains4 -q curl -F "file=@${zip_file}" https://temp.sh/upload | sed 's/http:/https:/')
 
 	echo "Password: $pass"
 	echo "Download:
