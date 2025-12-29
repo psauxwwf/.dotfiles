@@ -48,6 +48,11 @@ _get_ssh_hosts() {
 	echo -e "$opts\n$history_hosts" | sort -u
 }
 
+_trans_completion() {
+	_files
+}
+compdef _trans_completion trans
+
 ssh() {
 	if [[ -z $1 ]]; then
 		host=$(fzf --reverse <<<"$(_get_ssh_hosts)")
