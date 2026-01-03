@@ -16,7 +16,9 @@ gsettings set org.gnome.shell.extensions.tiling-assistant tile-maximize "[]"
 gsettings set org.gnome.shell.extensions.tiling-assistant restore-window "[]"
 
 gsettings set org.freedesktop.ibus.general.hotkey triggers "[]"
+gsettings set org.gnome.desktop.wm.keybindings unmaximize "['<Super>n']"
 gsettings set org.gnome.desktop.wm.keybindings minimize "[]"
+gsettings set org.gnome.desktop.wm.keybindings maximize "['<Super>m']"
 
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-up "[]"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-down "[]"
