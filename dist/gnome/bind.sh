@@ -51,3 +51,6 @@ gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-10 "['<Super><S
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-11 "['<Super><Shift>0']"
 
 gsettings set org.gnome.desktop.wm.keybindings close "['<Super>Cyrillic_shorti', '<Super>q']"
+
+gsettings set org.gnome.shell.keybindings toggle-application-view "['<Super>d']"
+gsettings set org.gnome.shell.keybindings toggle-overview "['<Super>a']"
