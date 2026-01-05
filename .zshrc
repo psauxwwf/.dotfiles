@@ -106,12 +106,12 @@ k() {
 
 clip() {
 	if [[ -z $1 ]]; then
-		if ! xclip -selection clipboard; then
+		if ! wl-copy; then
 			echo "Failed: copy from stdin."
 			return 1
 		fi
 	else
-		if ! cat "$1" | xclip -selection clipboard; then
+		if ! cat "$1" | wl-copy; then
 			echo "Failed: copy file \"$1\"."
 			return 1
 		fi
