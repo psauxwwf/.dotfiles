@@ -54,3 +54,5 @@ gsettings set org.gnome.desktop.wm.keybindings close "['<Super>Cyrillic_shorti',
 
 gsettings set org.gnome.shell.keybindings toggle-application-view "['<Super>d']"
 gsettings set org.gnome.shell.keybindings toggle-overview "['<Super>a']"
+
+gsettings set org.gnome.mutter auto-maximize 'true'
