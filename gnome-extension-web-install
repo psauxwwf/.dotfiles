@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+if [ -z "$1" ]; then
+	echo "Использование: $0 <extension-uuid>"
+	echo "Например: $0 window-title-is-back@fthx"
+	exit 1
+fi
+
+EXT_UUID="$1"
+SHELL_VER=$(gnome-shell --version | awk '{print $3}' | cut -d. -f1,2)
+INFO_URL="https://extensions.gnome.org/extension-info/?uuid=${EXT_UUID}&shell_version=${SHELL_VER}"
+DOWNLOAD_URL=$(curl -s "$INFO_URL" |
+	python3 -c "import sys, json; print('https://extensions.gnome.org' + json.load(sys.stdin)['download_url'])")
+
+wget "$DOWNLOAD_URL" -O "${EXT_UUID}.zip"
+
+gnome-extensions install --force "${EXT_UUID}.zip"
+
+rm "${EXT_UUID}.zip"
