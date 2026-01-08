@@ -3,6 +3,37 @@
   "instructions": [
     "AGENTS.md",
   ],
+  "provider": {
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "http://127.0.0.1:11434/v1"
+      },
+      "models": {
+        "qwen3:1.7b": {
+          "attachment": true,
+          // 1.7b может галюцинировать с tools
+          "tool_call": false,
+          "reasoning": false,
+          "limit": {
+            "context": 40000,
+            "output": 4096
+          },
+          "options": {
+            // отключает thinking
+            "reasoningEffort": "none", // вместо high/medium/low
+            "reasoningSummary": "none",
+            "textVerbosity": "low",
+            // - 0.0 — максимально детерминированно, сухо, без креатива.
+            // - 0.1 – 0.2 — чуть гибкости, но всё ещё “по фактам”.
+            // - 0.3 – 0.6 — сбалансированный режим.
+            // - > 0.7 — креатив, болтовня, вариативность.
+            "temperature": 0.0,
+          }
+        }
+      }
+    }
+  },
   "mcp": {
     "perplexity": {
       "type": "local",
