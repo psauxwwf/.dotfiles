@@ -7,4 +7,5 @@ sudo apt-get autoremove --purge \
 	gnome-user-docs \
 	gnome-system-monitor \
 	baobab \
-	seahorse
+	seahorse \
+	cockpit\*

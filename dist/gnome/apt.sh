@@ -8,7 +8,7 @@ sudo apt update --yes
 sudo apt upgrade --yes
 sudo apt-get install gnome-tweaks gnome-shell-extension-manager gnome-shell-extensions dconf-editor curl \
 	remmina remmina-plugin-rdp remmina-plugin-secret remmina-plugin-spice zsh \
-	qt6-style-kvantum qt5ct qt6ct
+	qt6-style-kvantum qt5ct qt6ct file-roller
 
 sudo add-apt-repository ppa:mozillateam/ppa
 sudo apt update
