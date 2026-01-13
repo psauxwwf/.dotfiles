@@ -7,7 +7,8 @@ QT_QPA_PLATFORM=wayland
 # QT_QPA_PLATFORMTHEME=kde
 QT_QPA_PLATFORMTHEME=qt5ct
 # ELECTRON_OZONE_PLATFORM_HINT=auto
+QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 
 GIT_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
 SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
-SSH_ASKPASS_REQUIRE=prefer
+# SSH_ASKPASS_REQUIRE=prefer
