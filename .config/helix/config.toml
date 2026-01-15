@@ -65,6 +65,7 @@ X = "extend_line_above"
 "A-left" = ":buffer-previous"
 "A-right" = ":buffer-next"
 "A-r" = ":reload-all"
+"A-y" = ":yank-diagnostic"
 S-down = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 S-up = [
   "extend_to_line_bounds",

@@ -1,14 +1,13 @@
 export ZSH="$HOME/.oh-my-zsh"
 
-plugins=(
+export plugins=(
 	git
 	zsh-autosuggestions
 )
 
-source $ZSH/oh-my-zsh.sh
-
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-[[ ! -f ~/.local/bin/env ]] || source ~/.local/bin/env
+[[ ! -f $ZSH/oh-my-zsh.sh ]] || source "$ZSH/oh-my-zsh.sh"
+[[ ! -f $HOME/.local/bin/env ]] || source "$HOME/.local/bin/env"
+[[ ! -f $HOME/.env ]] || source "$HOME/.env"
 
 eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
@@ -22,31 +21,31 @@ alias laz='lazygit'
 alias lad='lazydocker'
 alias pr='proxychains4 -q'
 
-proxy_run() {
+proxy() {
 	HTTP_PROXY=$PROXY HTTPS_PROXY=$PROXY ALL_PROXY=$PROXY NO_PROXY=$NO_PROXY "$@"
 }
-proxychains_run() {
+proxych() {
 	pr "$@"
 }
 
-alias crush='proxy_run crush'
-alias aider='proxy_run aider'
-alias opencode='proxychains_run opencode'
-alias aider-no-git='proxy_run aider --no-git'
+alias crush='proxy crush'
+alias aider='proxy aider'
+alias opencode='proxych opencode'
+alias aider-no-git='proxy aider --no-git'
 
 alias ai='cd ~/.ai && aider-no-git'
 alias oc='cd ~/.ai && opencode'
 alias cr='cd ~/.ai && crush'
 
 _get_ssh_hosts() {
-	local opts history_hosts
+	local opts hist
 	opts=$(
 		awk '/^Host / {
             for (i=2; i<=NF; i++) print $i
-        }' ~/.ssh/config ~/.ssh/config.d/*.conf 2>/dev/null | grep -v '\*' | sort -u
+        }' ~/.ssh/config ~/.ssh/config.d/*.conf 2>/dev/null | grep -v '\*'
 	)
-	history_hosts=$(history | tail -n 1000 | grep -oP 'ssh \K[^\s]+' | sort -u)
-	echo -e "$opts\n$history_hosts" | sort -u
+	hist=$(history | tail -n 1000 | grep -oP 'ssh \K[^\s]+')
+	echo -e "$opts\n$hist" | sort -u
 }
 
 _trans_completion() {
@@ -67,16 +66,18 @@ ssh() {
 _ssh_complete() {
 	local cur
 	cur="${COMP_WORDS[COMP_CWORD]}"
-	COMPREPLY=($(compgen -W "$(_get_ssh_hosts)" -- "$cur"))
+	COMPREPLY=()
+	mapfile -t COMPREPLY < <(compgen -W "$(_get_ssh_hosts)" -- "$cur")
 }
-
 complete -F _ssh_complete ssh
 
 y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	local tmp cwd
+	tmp="$(mktemp -t 'yazi-cwd.XXXXXX')" || return
 	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		builtin cd -- "$cwd"
+	cwd="$(command cat -- "$tmp")" || true
+	if [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd" || return
 	fi
 	rm -f -- "$tmp"
 }
@@ -101,7 +102,8 @@ n() {
 compdef _o_completion n
 
 k() {
-	local session=$(find ~/ -maxdepth 4 -type f -name "*.kitty-session" | fzf --reverse)
+	local session
+	session=$(find ~/ -maxdepth 4 -type f -name "*.kitty-session" | fzf --reverse)
 	o kitty --session "$session"
 }
 
@@ -132,10 +134,11 @@ share() {
 
 	local input="$1"
 	local zip_file="$input".zip
-	local pass=$(openssl rand 32 | base64)
+	local pass url
+	pass=$(openssl rand 32 | base64)
 	zip -e -rq9 "$zip_file" "$input" -P "$pass"
 
-	local url=$(proxychains4 -q curl -F "file=@${zip_file}" https://temp.sh/upload | sed 's/http:/https:/')
+	url=$(proxychains4 -q curl -F "file=@${zip_file}" https://temp.sh/upload | sed 's/http:/https:/')
 
 	echo "Password: $pass"
 	echo "Download:
@@ -215,7 +218,8 @@ yubi() {
 		return 1
 	fi
 	local phrase="$1"
-	local password=$(echo "$phrase" | xxd -p | ykman otp calculate 1)
+	local password
+	password=$(echo "$phrase" | xxd -p | ykman otp calculate 1)
 	echo "$password"
 	echo "$phrase"
 	echo "$password" >"$phrase.pass"
@@ -226,7 +230,8 @@ yubi-zip() {
 		return 1
 	fi
 	local phrase="$1"
-	local password=$(echo "$phrase" | xxd -p | ykman otp calculate 1)
+	local password
+	password=$(echo "$phrase" | xxd -p | ykman otp calculate 1)
 	echo "$password"
 	echo "$phrase"
 	echo "$password" >"$phrase.pass"
@@ -244,10 +249,12 @@ ssh-copy-id-all() {
 complete -F _ssh_complete ssh-copy-id-all
 
 _start_gpg_agent() {
-	pgrep -u "$USER" gpg-agent >/dev/null || gpgconf --launch gpg-agent
-	export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+	pgrep -u "$USER" gpg-agent >/dev/null || gpgconf --launch gpg-agent || return
+	local sock
+	sock=$(gpgconf --list-dirs agent-ssh-socket) || return
+	export SSH_AUTH_SOCK="$sock"
 }
-_start_gpg_agent
+# _start_gpg_agent
 
 _gen_fzf_default_opts() {
 	local theme=${1:-'default'}
@@ -309,5 +316,3 @@ export OPENCODE_DISABLE_LSP_DOWNLOAD=True
 export AIDER_ANALYTICS=False
 export CRUSH_DISABLE_METRICS=1
 export DO_NOT_TRACK=1
-
-[[ ! -f ~/.env ]] || source ~/.env
