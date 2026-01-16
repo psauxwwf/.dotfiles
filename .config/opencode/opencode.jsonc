@@ -3,6 +3,11 @@
   "instructions": [
     "AGENTS.md",
   ],
+  "server": {
+    "port": 4096,
+    "hostname": "127.0.0.1",
+    "mdns": false,
+  },
   "provider": {
     "ollama": {
       "npm": "@ai-sdk/openai-compatible",

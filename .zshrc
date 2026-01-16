@@ -30,7 +30,7 @@ proxych() {
 
 alias crush='proxy crush'
 alias aider='proxy aider'
-alias opencode='proxych opencode --port 4096'
+alias opencode='proxych opencode'
 alias aider-no-git='proxy aider --no-git'
 
 alias ai='cd ~/.ai && aider-no-git'
