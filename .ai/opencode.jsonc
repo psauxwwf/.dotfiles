@@ -52,16 +52,10 @@
         "docker",
         "mcp",
         "gateway",
-        "run"
+        "run",
+        "--secrets",
+        "$HOME/.env.docker",
       ],
-    },
-    "MCP_PERPLEXITY": {
-      "type": "local",
-      "enabled": true,
-      "command": [
-        "perplexity-mcp",
-      ],
-      "environment": {},
     },
     "MCP_CHROME": {
       "type": "local",
@@ -74,5 +68,13 @@
         "socks5://127.0.0.1:1080"
       ],
     },
+    // "MCP_PERPLEXITY": {
+    //   "type": "local",
+    //   "enabled": true,
+    //   "command": [
+    //     "perplexity-mcp",
+    //   ],
+    //   "environment": {},
+    // },
   },
 }
