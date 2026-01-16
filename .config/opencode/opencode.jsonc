@@ -54,7 +54,7 @@
         "gateway",
         "run",
         "--secrets",
-        "$HOME/.env.docker",
+        "/home/d6f/.env.docker",
       ],
     },
     "MCP_CHROME": {
