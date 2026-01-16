@@ -53,6 +53,15 @@ _trans_completion() {
 }
 compdef _trans_completion trans
 
+Resume() {
+	fg
+	zle push-input
+	BUFFER=""
+	zle accept-line
+}
+zle -N Resume
+bindkey "^Z" Resume
+
 ssh() {
 	if [[ -z $1 ]]; then
 		host=$(fzf --reverse <<<"$(_get_ssh_hosts)")

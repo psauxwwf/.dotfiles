@@ -48,27 +48,23 @@ tab = '│'
 tabpad = ' '
 
 [keys.insert]
-"A-h" = "move_char_left"
-"A-j" = "move_line_down"
-"A-k" = "move_line_up"
-"A-l" = "move_char_right"
+A-h = "move_char_left"
+A-j = "move_line_down"
+A-k = "move_line_up"
+A-l = "move_char_right"
 
 [keys.normal]
 esc = ["collapse_selection", "keep_primary_selection"]
 X = "extend_line_above"
-"A-c" = ":clipboard-yank"
-"A-v" = ":clipboard-paste-replace"
-"A-w" = [":write", ":line-ending lf"]
-"A-q" = ":buffer-close!"
-"A-n" = ":new"
-# "A-h" = ":buffer-previous"
-# "A-l" = ":buffer-next"
-"A-left" = ":buffer-previous"
-"A-right" = ":buffer-next"
-"A-r" = ":reload-all"
-"A-y" = ":yank-diagnostic"
-"A-l" = "extend_to_line_end"
-"A-s" = "extend_to_line_start"
+A-w = [":write", ":line-ending lf"]
+A-q = ":buffer-close!"
+A-n = ":new"
+A-left = ":buffer-previous"
+A-right = ":buffer-next"
+A-r = ":reload-all"
+A-y = ":yank-diagnostic"
+S-h = "extend_to_line_start"
+S-l = "extend_to_line_end"
 S-down = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 S-up = [
   "extend_to_line_bounds",
@@ -77,6 +73,10 @@ S-up = [
   "paste_before",
 ]
 g = { a = "code_action" }
+# "A-c" = ":clipboard-yank"
+# "A-v" = ":clipboard-paste-replace"
+# "A-h" = ":buffer-previous"
+# "A-l" = ":buffer-next"
 # "A-g" = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
 # C-f = [
 #   ":new",
