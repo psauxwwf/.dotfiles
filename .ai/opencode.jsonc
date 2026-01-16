@@ -45,16 +45,27 @@
     }
   },
   "mcp": {
-    "perplexity": {
+    "MCP_DOCKER": {
       "type": "local",
+      "enabled": true,
+      "command": [
+        "docker",
+        "mcp",
+        "gateway",
+        "run"
+      ],
+    },
+    "MCP_PERPLEXITY": {
+      "type": "local",
+      "enabled": true,
       "command": [
         "perplexity-mcp",
       ],
-      "enabled": true,
       "environment": {},
     },
-    "chrome": {
+    "MCP_CHROME": {
       "type": "local",
+      "enabled": true,
       "command": [
         "chrome-devtools-mcp",
         "-e",
