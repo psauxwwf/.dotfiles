@@ -61,12 +61,14 @@ X = "extend_line_above"
 "A-w" = [":write", ":line-ending lf"]
 "A-q" = ":buffer-close!"
 "A-n" = ":new"
-"A-h" = ":buffer-previous"
-"A-l" = ":buffer-next"
+# "A-h" = ":buffer-previous"
+# "A-l" = ":buffer-next"
 "A-left" = ":buffer-previous"
 "A-right" = ":buffer-next"
 "A-r" = ":reload-all"
 "A-y" = ":yank-diagnostic"
+"A-l" = "extend_to_line_end"
+"A-s" = "extend_to_line_start"
 S-down = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 S-up = [
   "extend_to_line_bounds",
