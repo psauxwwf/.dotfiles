@@ -1,5 +1,6 @@
 \.git
 \.env
+\.env\.docker
 \.env\.aider
 dist
 gnome-remove-unused\.sh

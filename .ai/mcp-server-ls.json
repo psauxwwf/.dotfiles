@@ -1,0 +1,16 @@
+[
+  {
+    "name": "duckduckgo",
+    "description": "A Model Context Protocol (MCP) server that provides web search capabilities through DuckDuckGo, with additional features for content fetching and parsing.",
+    "secrets": "none",
+    "config": "none",
+    "oauth": "none"
+  },
+  {
+    "name": "perplexity-ask",
+    "description": "Connector for Perplexity API, to enable real-time, web-wide research.",
+    "secrets": "required",
+    "config": "none",
+    "oauth": "none"
+  }
+]
