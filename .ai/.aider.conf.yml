@@ -1,5 +1,6 @@
 read:
-  - aider.json
+  - AGENTS.md
+
 # mcp-servers: |
 #   {
 #     "mcpServers": {
