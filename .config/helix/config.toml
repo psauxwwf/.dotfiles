@@ -17,6 +17,10 @@ true-color = true
 end-of-line-diagnostics = "hint"
 shell = ["zsh", "-c", "source \"$HOME/.zshrc\"; eval \"$0\" 2>&1"]
 
+[editor.soft-wrap]
+enable = true
+max-wrap = 5
+
 # https://docs.helix-editor.com/master/editor.html?highlight=auto-pairs#editorauto-pairs-section
 [editor.auto-pairs]
 '(' = ')'
