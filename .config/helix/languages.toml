@@ -62,6 +62,24 @@ auto-format = true
 formatter = { command = "prettier", args = ["--parser", "markdown"] }
 
 [[language]]
+name = "css"
+language-servers = ["some-sass-language-server", "vscode-css-language-server"]
+formatter = { command = "prettier", args = ["--parser", "css"] }
+auto-format = true
+
+[[language]]
+name = "scss"
+language-servers = ["some-sass-language-server", "vscode-css-language-server"]
+formatter = { command = "prettier", args = ["--parser", "scss"] }
+auto-format = true
+
+[language-server.some-sass-language-server]
+command = "some-sass-language-server"
+args = ["--stdio"]
+# see https://wkillerud.github.io/some-sass/language-server/settings.html for all available settings
+config = { somesass = { workspace = { loadPaths = [] } } }
+
+[[language]]
 name = "javascript"
 language-servers = [
   "typescript-language-server",
