@@ -1,5 +1,5 @@
 pysocks
 # aider-ce
-aider-chat
+git+https://github.com/Aider-AI/aider # aider-chat
 git+https://github.com/Pennyw0rth/NetExec
 # git+https://github.com/brightio/penelope
