@@ -19,7 +19,7 @@ alias docker-compose='docker compose'
 alias default-ssh-agent='eval "$(ssh-agent -s)"'
 alias laz='lazygit'
 alias lad='lazydocker'
-alias pr='proxychains4 -q'
+alias pr='proxychains4 -q -f /etc/proxychains.conf'
 
 proxy() {
 	HTTP_PROXY=$PROXY HTTPS_PROXY=$PROXY ALL_PROXY=$PROXY NO_PROXY=$NO_PROXY "$@"
@@ -30,8 +30,8 @@ proxych() {
 
 alias crush='proxy crush'
 alias aider='proxy aider'
-alias opencode='proxych opencode'
 alias aider-no-git='proxy aider --no-git'
+alias opencode='proxychains4 -q -f ~/.ai/proxychains.conf opencode'
 
 alias ai='cd ~/.ai && aider-no-git'
 alias oc='cd ~/.ai && opencode'
@@ -263,7 +263,7 @@ _start_gpg_agent() {
 	sock=$(gpgconf --list-dirs agent-ssh-socket) || return
 	export SSH_AUTH_SOCK="$sock"
 }
-# _start_gpg_agent
+_start_gpg_agent
 
 _gen_fzf_default_opts() {
 	local theme=${1:-'default'}
