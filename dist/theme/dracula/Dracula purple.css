@@ -6,7 +6,7 @@
 
 @define-color success_color #78e9ab;
 @define-color success_bg_color #26a269;
-@define-color success_fg_color #ffffff;
+@define-color success_fg_color #f8f8f2;
 
 @define-color warning_color #ffc252;
 @define-color warning_bg_color #cd9309;
@@ -20,7 +20,7 @@
 @define-color error_bg_color #c01c28;
 @define-color error_fg_color #ffffff;
 
-@define-color headerbar_bg_color #282a36;
+@define-color headerbar_bg_color #44475a;
 @define-color headerbar_fg_color #f8f8f2;
 
 @define-color popover_bg_color #282a36;

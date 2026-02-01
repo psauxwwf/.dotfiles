@@ -1,0 +1,3 @@
+#!/bin/bash
+sudo apt-get autoremove --purge baobab com.github.donadigo.eddy geary gedit gnome-calendar gnome-characters gnome-clocks gnome-contacts gnome-disk-utility gnome-font-viewer gnome-logs gnome-system-monitor gnome-user-docs gnome-weather gucharmap pop-shop seahorse simple-scan totem yelp decibels gnome-maps gnome-boxes showtime gnome-tour mediawriter gnome-connections cockpit\*
+sudo dnf remove baobab com.github.donadigo.eddy geary gedit gnome-calendar gnome-characters gnome-clocks gnome-contacts gnome-disk-utility gnome-font-viewer gnome-logs gnome-system-monitor gnome-user-docs gnome-weather gucharmap pop-shop seahorse simple-scan totem yelp decibels gnome-maps gnome-boxes showtime gnome-tour mediawriter gnome-connections cockpit\*
