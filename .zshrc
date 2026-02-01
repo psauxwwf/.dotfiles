@@ -284,8 +284,6 @@ source /etc/bash_completion.d/ykman
 # task --completion zsh > task
 source /etc/bash_completion.d/task
 
-source /etc/bash_completion.d/sluhach
-
 export GOPATH=~/.go
 
 export EDITOR=hx
