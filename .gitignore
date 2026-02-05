@@ -1,3 +1,4 @@
 .aider*
 .env
 .config/helix/runtime
+.ai/proxychains.conf

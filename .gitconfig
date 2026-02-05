@@ -1,14 +1,19 @@
 [user]
 	email = in@d6f.ru
 	name = devil666face
+	signingkey = devil666face
 [credential]
 	helper = store
 [core]
 	autocrlf = false
-	editor = /opt/helix/hx
+	editor = hx
 [http]
 	sslVerify = false
+[commit]
+	gpgSign = false
+[init]
+	defaultBranch = master
 [diff]
 	algorithm = histogram
 [color]
-    ui = true
+	ui = true
