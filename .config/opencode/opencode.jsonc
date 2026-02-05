@@ -3,12 +3,29 @@
   "instructions": [
     "AGENTS.md",
   ],
-  "server": {
-    "port": 4096,
-    "hostname": "127.0.0.1",
-    "mdns": false,
-  },
+  // "server": {
+  //   "port": 4096,
+  //   "hostname": "127.0.0.1",
+  //   "mdns": false,
+  // },
   "provider": {
+    "lmstudio": {
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "http://127.0.0.1:1234/v1"
+      },
+      "models": {
+        "qwen/qwen3-vl-4b": {
+          "attachment": true,
+          "tool_call": true,
+          "reasoning": true,
+          "limit": {
+            "context": 3000,
+            "output": 512
+          },
+        }
+      }
+    },
     "ollama": {
       "npm": "@ai-sdk/openai-compatible",
       "options": {
@@ -64,7 +81,7 @@
     },
     "MCP_CHROME": {
       "type": "local",
-      "enabled": true,
+      "enabled": false,
       "command": [
         "chrome-devtools-mcp",
         "-e",
