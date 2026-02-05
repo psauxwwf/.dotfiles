@@ -8,3 +8,5 @@ README\.md
 \.aider\.input\.history
 \.aider\.tags\.cache\.v4
 \.gitignore
+\.config\/opencode\/node_modules
+\.config\/opencode\/bun\.lock

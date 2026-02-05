@@ -2,3 +2,6 @@
 .env
 .config/helix/runtime
 .ai/proxychains.conf
+.config/mise/node_modules
+.config/opencode/node_modules
+.config/opencode/bun.lock
