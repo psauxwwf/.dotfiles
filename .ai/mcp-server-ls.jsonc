@@ -1,0 +1,30 @@
+[
+  {
+    "name": "duckduckgo",
+    "description": "A Model Context Protocol (MCP) server that provides web search capabilities through DuckDuckGo, with additional features for content fetching and parsing.",
+    "secrets": "none",
+    "config": "none",
+    "oauth": "none"
+  },
+  {
+    "name": "microsoft-learn",
+    "description": "Add trusted and up-to-date content from Microsoft Learn to your AI agent.",
+    "secrets": "none",
+    "config": "none",
+    "oauth": "none"
+  },
+  // {
+  //   "name": "git",
+  //   "description": "Git repository interaction and automation.",
+  //   "secrets": "none",
+  //   "config": "required",
+  //   "oauth": "none"
+  // },
+  // {
+  //   "name": "perplexity-ask",
+  //   "description": "Connector for Perplexity API, to enable real-time, web-wide research.",
+  //   "secrets": "required",
+  //   "config": "none",
+  //   "oauth": "none"
+  // }
+]
