@@ -1,7 +1,10 @@
-.aider*
+# .aider*
 .env
 .config/helix/runtime
 .ai/proxychains.conf
 .config/mise/node_modules
 .config/opencode/node_modules
 .config/opencode/bun.lock
+.aider.tags.cache.v4
+.aider.chat.history.md
+.aider.input.history
