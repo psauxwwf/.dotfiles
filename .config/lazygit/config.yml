@@ -1,2 +1,6 @@
 gui:
   showIcons: true
+
+git:
+  log:
+    showWholeGraph: true # брать все ветки, а не только текущую
