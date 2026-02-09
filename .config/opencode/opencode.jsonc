@@ -90,6 +90,22 @@
         "socks5://127.0.0.1:1080"
       ],
     },
+    // https://opencode.ai/docs/mcp-servers/
+    "MCP_EXA": {
+      "type": "remote",
+      "enabled": true,
+      "url": "https://mcp.exa.ai/mcp"
+    },
+    "MCP_CONTEXT7": {
+      "type": "remote",
+      "enabled": true,
+      "url": "https://mcp.context7.com/mcp"
+    },
+    "MCP_GH_GREP": {
+      "type": "remote",
+      "enabled": true,
+      "url": "https://mcp.grep.app"
+    }
     // "MCP_PERPLEXITY": {
     //   "type": "local",
     //   "enabled": true,
