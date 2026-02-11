@@ -11,4 +11,5 @@ QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 
 GIT_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
 SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
+GNOME_SSH_ASKPASS_GRAB_SERVER=1
 # SSH_ASKPASS_REQUIRE=prefer
