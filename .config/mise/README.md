@@ -24,7 +24,7 @@ go install github.com/go-delve/delve/cmd/dlv@latest
 go install golang.org/x/tools/cmd/goimports@latest
 go install github.com/nametake/golangci-lint-langserver@latest
 go install github.com/a-h/templ/cmd/templ@latest
-curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/HEAD/install.sh | sh -s -- -b $(go env GOPATH)/bin v2.6.2
+curl -sSfL https://golangci-lint.run/install.sh | sh -s -- -b $(go env GOPATH)/bin v2.9.0
 ```
 
 ### Clear caches
