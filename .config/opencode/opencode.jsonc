@@ -9,6 +9,19 @@
   //   "mdns": false,
   // },
   "provider": {
+    "ZAI_proxy": {
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "http://127.0.0.1:5000/v1"
+      },
+      "models": {
+        "glm-4.7-flash": {
+          "attachment": true,
+          "tool_call": true,
+          "reasoning": true,
+        }
+      }
+    },
     "LMStudio": {
       "npm": "@ai-sdk/openai-compatible",
       "options": {
