@@ -9,10 +9,11 @@
   //   "mdns": false,
   // },
   "provider": {
-    "ZAI_proxy": {
+    "FreeGLM": {
       "npm": "@ai-sdk/openai-compatible",
       "options": {
-        "baseURL": "http://127.0.0.1:5000/v1"
+        "baseURL": "http://127.0.0.1:5000/v1",
+        // "apiKey": "{env:ZAI_API_KEY}",
       },
       "models": {
         "glm-4.7-flash": {
