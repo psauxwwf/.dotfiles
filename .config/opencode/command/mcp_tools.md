@@ -2,13 +2,13 @@
 description: available tools
 ---
 
-Show all available `tools` in format:
+### Instructions
 
-1. mcp_function_name
-   mcp_function_description
+##### Actions
 
-Combine them by:
+- **Show** all available `tools` in format:
+  [sequence number in a function group]. **mcp_function_name**
+  mcp_function_description
 
-1. mcp function source
-
-Don't use grouping on `functions` and `multi_tool_use`
+- **Combine** them by:
+  mcp function source
