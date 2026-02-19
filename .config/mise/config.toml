@@ -41,7 +41,6 @@ jq = "latest"
 lazydocker = "latest"
 lazygit = "latest"
 lsd = "latest"
-opencode = "latest"
 rclone = "latest"
 starship = "latest"
 task = "latest"
@@ -52,6 +51,10 @@ zellij = "latest"
 zoxide = "latest"
 # mc = "latest"
 # btop = "latest"
+
+# AI
+opencode = "latest"
+"npm:skills" = "latest"
 
 # LSP
 hadolint = "latest"
@@ -67,7 +70,9 @@ typst = "latest"
 typstyle = "latest"
 github-cli = "latest"
 ghorg = "latest"
-"npm:skills" = "latest"
+buildifier = "latest"
+buf = "latest"
+# [protols](https://github.com/coder3101/protols/releases/tag/0.13.3)
 
 [settings]
 idiomatic_version_file_enable_tools = []
