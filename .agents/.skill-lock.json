@@ -27,6 +27,15 @@
       "skillFolderHash": "883a6a7466f55a9cd9f22cf1cce2d9333fc9b998",
       "installedAt": "2026-02-14T14:09:21.354Z",
       "updatedAt": "2026-02-19T08:33:21.244Z"
+    },
+    "opensrc": {
+      "source": "third774/dotfiles",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/third774/dotfiles.git",
+      "skillPath": "opencode/skills/opensrc/SKILL.md",
+      "skillFolderHash": "82da4e6a2b37236ce57feba28a15d8e5e84a36bd",
+      "installedAt": "2026-02-27T17:05:59.072Z",
+      "updatedAt": "2026-02-27T17:05:59.072Z"
     }
   },
   "dismissed": {
@@ -35,6 +44,7 @@
   "lastSelectedAgents": [
     "amp",
     "codex",
+    "cursor",
     "gemini-cli",
     "github-copilot",
     "kimi-cli",

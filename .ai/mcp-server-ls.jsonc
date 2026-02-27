@@ -6,13 +6,13 @@
     "config": "none",
     "oauth": "none"
   },
-  {
-    "name": "microsoft-learn",
-    "description": "Add trusted and up-to-date content from Microsoft Learn to your AI agent.",
-    "secrets": "none",
-    "config": "none",
-    "oauth": "none"
-  },
+  // {
+  //   "name": "microsoft-learn",
+  //   "description": "Add trusted and up-to-date content from Microsoft Learn to your AI agent.",
+  //   "secrets": "none",
+  //   "config": "none",
+  //   "oauth": "none"
+  // },
   // {
   //   "name": "git",
   //   "description": "Git repository interaction and automation.",

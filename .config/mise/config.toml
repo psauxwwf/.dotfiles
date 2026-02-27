@@ -55,6 +55,7 @@ zoxide = "latest"
 # AI
 opencode = "latest"
 "npm:skills" = "latest"
+"npm:opensrc" = "latest"
 
 # LSP
 hadolint = "latest"
