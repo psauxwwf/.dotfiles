@@ -18,7 +18,7 @@ bun = "latest"
 # "npm:typescript" = "latest"
 
 # Python
-python = "3.14"
+# python = "3.14"
 uv = "latest"
 "pipx:black" = "latest"
 "pipx:clangd" = "latest"
