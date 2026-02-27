@@ -31,10 +31,18 @@ curl -sSfL https://golangci-lint.run/install.sh | sh -s -- -b $(go env GOPATH)/b
 
 ```bash
 mise cache clear
-pip cache purge
+# pip cache purge
 uv cache clean
 npm cache clean --force
 npm dedup
 rm -rf ~/.bun/install/cache
 rm -rf ~/.bun/cache
+```
+
+### [GH](https://github.com/cli/cli/blob/trunk/docs/install_linux.md)
+
+```bash
+sudo dnf install dnf5-plugins
+sudo dnf config-manager addrepo --from-repofile=https://cli.github.com/packages/rpm/gh-cli.repo
+sudo dnf install gh --repo gh-cli
 ```
