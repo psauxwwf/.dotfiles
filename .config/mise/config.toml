@@ -1,6 +1,6 @@
 [tools]
 # JS
-node = "24.11"
+node = "25.7"
 bun = "latest"
 "npm:ansible-language-server" = "latest"
 "npm:bash-language-server" = "latest"
@@ -18,7 +18,7 @@ bun = "latest"
 # "npm:typescript" = "latest"
 
 # Python
-python = "3.12.11"
+python = "3.14"
 uv = "latest"
 "pipx:black" = "latest"
 "pipx:clangd" = "latest"
@@ -54,6 +54,7 @@ zoxide = "latest"
 
 # AI
 opencode = "latest"
+"pipx:aider-chat" = "latest"
 "npm:skills" = "latest"
 "npm:opensrc" = "latest"
 
@@ -69,7 +70,6 @@ terraform-ls = "latest"
 tinymist = "latest"
 typst = "latest"
 typstyle = "latest"
-github-cli = "latest"
 ghorg = "latest"
 buildifier = "latest"
 buf = "latest"
