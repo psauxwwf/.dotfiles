@@ -31,7 +31,7 @@ proxych() {
 alias crush='proxy crush'
 alias aider='proxy aider'
 alias aider-no-git='proxy aider --no-git'
-alias opencode='proxychains4 -q -f ~/.ai/proxychains.conf opencode'
+alias opencode='proxychains4 -q -f ~/.ai/proxychains.conf /usr/local/bin/opencode'
 
 alias ai='cd ~/.ai && aider-no-git'
 alias oc='cd ~/.ai && opencode'
