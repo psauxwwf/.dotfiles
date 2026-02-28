@@ -112,7 +112,7 @@ compdef _o_completion n
 
 k() {
 	local session
-	session=$(find ~/ -maxdepth 4 -type f -name "*.kitty-session" | fzf --reverse)
+	session=$(find ~/.config/kitty/session -maxdepth 1 -type f -name "*.kitty-session" | fzf --reverse)
 	o kitty --session "$session"
 }
 
