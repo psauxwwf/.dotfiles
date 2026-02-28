@@ -13,7 +13,6 @@ bun = "latest"
 "npm:some-sass-language-server" = "latest"
 "npm:vscode-langservers-extracted" = "latest"
 "npm:yaml-language-server" = "latest"
-# "npm:@perplexity-ai/mcp-server" = "latest"
 # "npm:typescript-language-server" = "latest"
 # "npm:typescript" = "latest"
 
@@ -26,11 +25,35 @@ uv = "latest"
 "pipx:ruff" = "latest"
 "pipx:ruff-lsp" = "latest"
 "pipx:sqlit-tui" = "latest"
-# "pipx:aider-ce" = "latest"
-# "pipx:perplexity-mcp-server" = "latest"
 
 # Golang
 go = "latest"
+
+# AI
+opencode = "latest"
+"pipx:aider-chat" = "latest"
+"npm:skills" = "latest"
+"npm:opensrc" = "latest"
+# "pipx:aider-ce" = "latest"
+# "pipx:perplexity-mcp-server" = "latest"
+# "npm:@perplexity-ai/mcp-server" = "latest"
+
+# LSP
+hadolint = "latest"
+marksman = "latest"
+pandoc = "latest"
+shellcheck = "latest"
+shfmt = "latest"
+superhtml = "latest"
+taplo = "latest"
+terraform-ls = "latest"
+tinymist = "latest"
+typst = "latest"
+typstyle = "latest"
+ghorg = "latest"
+buildifier = "latest"
+buf = "latest"
+# [protols](https://github.com/coder3101/protols/releases/tag/0.13.3)
 
 # Utils
 chisel = "latest"
@@ -49,31 +72,9 @@ yazi = "latest"
 yt-dlp = "latest"
 zellij = "latest"
 zoxide = "latest"
+btop = "latest"
+github-cli = "latest"
 # mc = "latest"
-# btop = "latest"
-
-# AI
-opencode = "latest"
-"pipx:aider-chat" = "latest"
-"npm:skills" = "latest"
-"npm:opensrc" = "latest"
-
-# LSP
-hadolint = "latest"
-marksman = "latest"
-pandoc = "latest"
-shellcheck = "latest"
-shfmt = "latest"
-superhtml = "latest"
-taplo = "latest"
-terraform-ls = "latest"
-tinymist = "latest"
-typst = "latest"
-typstyle = "latest"
-ghorg = "latest"
-buildifier = "latest"
-buf = "latest"
-# [protols](https://github.com/coder3101/protols/releases/tag/0.13.3)
 
 [settings]
 idiomatic_version_file_enable_tools = []
