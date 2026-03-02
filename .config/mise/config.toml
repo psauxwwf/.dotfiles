@@ -17,7 +17,7 @@ bun = "latest"
 # "npm:typescript" = "latest"
 
 # Python
-# python = "3.14"
+python = "3.12.12"
 uv = "latest"
 "pipx:black" = "latest"
 "pipx:clangd" = "latest"
@@ -31,10 +31,8 @@ go = "latest"
 
 # AI
 opencode = "latest"
-"pipx:aider-chat" = "latest"
 "npm:skills" = "latest"
 "npm:opensrc" = "latest"
-# "pipx:aider-ce" = "latest"
 # "pipx:perplexity-mcp-server" = "latest"
 # "npm:@perplexity-ai/mcp-server" = "latest"
 
