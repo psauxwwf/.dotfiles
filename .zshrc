@@ -64,7 +64,7 @@ bindkey "^Z" Resume
 
 ssh() {
 	if [[ -z $1 ]]; then
-		host=$(fzf --reverse <<<"$(_get_ssh_hosts)")
+		host=$(fzf --reverse --height=10 --border <<<"$(_get_ssh_hosts)")
 		[[ -z $host ]] && return 1
 		/usr/bin/ssh "$host"
 	else
@@ -72,13 +72,8 @@ ssh() {
 	fi
 }
 
-_ssh_complete() {
-	local cur
-	cur="${COMP_WORDS[COMP_CWORD]}"
-	COMPREPLY=()
-	mapfile -t COMPREPLY < <(compgen -W "$(_get_ssh_hosts)" -- "$cur")
-}
-complete -F _ssh_complete ssh
+# Keep zsh-native completion for the ssh wrapper function.
+compdef _ssh ssh
 
 y() {
 	local tmp cwd
@@ -112,7 +107,7 @@ compdef _o_completion n
 
 k() {
 	local session
-	session=$(find ~/.config/kitty/session -maxdepth 1 -type f -name "*.kitty-session" | fzf --reverse)
+	session=$(find ~/.config/kitty/session -maxdepth 1 -type f -name "*.kitty-session" | fzf --reverse --height=10 --border)
 	o kitty --session "$session"
 }
 
@@ -255,7 +250,13 @@ ssh-copy-id-all() {
 	ssh-copy-id -f -i ~/.ssh/id_rsa "$1"
 	ssh-copy-id -f -i ~/.ssh/id_ed25519_sk "$1"
 }
-complete -F _ssh_complete ssh-copy-id-all
+
+_ssh_copy_id_all_completion() {
+	local -a hosts
+	hosts=(${(f)$(_get_ssh_hosts)})
+	compadd -a hosts
+}
+compdef _ssh_copy_id_all_completion ssh-copy-id-all
 
 _start_gpg_agent() {
 	pgrep -u "$USER" gpg-agent >/dev/null || gpgconf --launch gpg-agent || return
