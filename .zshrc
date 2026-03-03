@@ -123,6 +123,7 @@ k() {
 	local session
 	session=$(find ~/.config/kitty/session -maxdepth 1 -type f -name "*.kitty-session" | fzf --reverse --height=10 --border)
 	o kitty --session "$session"
+	exit
 }
 
 clip() {
