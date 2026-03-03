@@ -2,6 +2,7 @@
 
 ```bash
 mise install
+mise run install
 ```
 
 ### Python

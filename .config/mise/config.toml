@@ -74,5 +74,21 @@ btop = "latest"
 github-cli = "latest"
 # mc = "latest"
 
+[tasks.install]
+run = """
+set -euo pipefail
+pkg="\
+poppler-utils \
+"
+ins() {
+  local pm="$1"
+  sudo "$pm" install -y "$pkg"
+}
+for pm in apt-get dnf; do
+  command -v "$pm" >/dev/null && ins "$pm" && exit 0
+done
+exit 1
+"""
+
 [settings]
 idiomatic_version_file_enable_tools = []
