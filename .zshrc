@@ -1,6 +1,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 
-export plugins=(
+plugins=(
 	git
 	zsh-autosuggestions
 )
@@ -9,9 +9,30 @@ export plugins=(
 [[ ! -f $HOME/.local/bin/env ]] || source "$HOME/.local/bin/env"
 [[ ! -f $HOME/.env ]] || source "$HOME/.env"
 
-eval "$(mise activate zsh)"
-eval "$(starship init zsh)"
-eval "$(zoxide init zsh --cmd cd)"
+_zsh_cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
+_cache_eval() {
+	local cache_file="$1"; shift
+	local bin="$1"; shift
+	local bin_path
+	bin_path="$(command -v -- "$bin" 2>/dev/null)" || return 0
+	mkdir -p -- "${cache_file:h}" || return 0
+	if [[ ! -s "$cache_file" || "$bin_path" -nt "$cache_file" ]]; then
+		"$bin_path" "$@" >| "${cache_file}.tmp" && mv -f -- "${cache_file}.tmp" "$cache_file"
+	fi
+	source "$cache_file"
+}
+
+_cache_eval "$_zsh_cache_dir/mise-activate.zsh" mise activate zsh
+_cache_eval "$_zsh_cache_dir/starship-init.zsh" starship init zsh
+_cache_eval "$_zsh_cache_dir/zoxide-init.zsh" zoxide init zsh --cmd cd
+
+proxy() {
+	HTTP_PROXY=$PROXY HTTPS_PROXY=$PROXY ALL_PROXY=$PROXY NO_PROXY=$NO_PROXY "$@"
+}
+proxych() {
+	pr "$@"
+}
+
 
 alias open='xdg-open'
 alias ls='lsd'
@@ -20,13 +41,6 @@ alias default-ssh-agent='eval "$(ssh-agent -s)"'
 alias laz='lazygit'
 alias lad='lazydocker'
 alias pr='proxychains4 -q -f /etc/proxychains.conf'
-
-proxy() {
-	HTTP_PROXY=$PROXY HTTPS_PROXY=$PROXY ALL_PROXY=$PROXY NO_PROXY=$NO_PROXY "$@"
-}
-proxych() {
-	pr "$@"
-}
 
 alias crush='proxy crush'
 alias aider='proxy aider'
@@ -259,12 +273,14 @@ _ssh_copy_id_all_completion() {
 compdef _ssh_copy_id_all_completion ssh-copy-id-all
 
 _start_gpg_agent() {
-	pgrep -u "$USER" gpg-agent >/dev/null || gpgconf --launch gpg-agent || return
+	command -v gpgconf >/dev/null 2>&1 || return 0
 	local sock
-	sock=$(gpgconf --list-dirs agent-ssh-socket) || return
+	sock="$(gpgconf --list-dirs agent-ssh-socket 2>/dev/null)" || return 0
+	[[ -n $sock ]] || return 0
+	[[ -S $sock ]] || gpgconf --launch gpg-agent >/dev/null 2>&1 || return 0
 	export SSH_AUTH_SOCK="$sock"
 }
-_start_gpg_agent
+[[ -z $SSH_AUTH_SOCK || ! -S $SSH_AUTH_SOCK ]] && _start_gpg_agent
 
 _gen_fzf_default_opts() {
 	local theme=${1:-'default'}
