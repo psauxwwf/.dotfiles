@@ -32,7 +32,7 @@ go = "latest"
 opencode = "latest"
 "npm:skills" = "latest"
 "npm:opensrc" = "latest"
-"npm:agent-browser" = "latest"
+# "npm:agent-browser" = "latest"
 # "npm:chrome-devtools-mcp" = "latest"
 # "pipx:perplexity-mcp-server" = "latest"
 # "npm:@perplexity-ai/mcp-server" = "latest"
@@ -79,6 +79,9 @@ github-cli = "latest"
 run = """
 mise run pkg
 mise run agent-browser
+mise run pip
+mise run golang
+mise run npm
 """
 
 [tasks.pkg]
@@ -100,8 +103,54 @@ exit 1
 [tasks.agent-browser]
 run = """
 set -euo pipefail
-pkg="agent-browser"
-command -v "$pkg" >/dev/null && "$pkg" install && exit 0
+wget https://github.com/vercel-labs/agent-browser/releases/latest/download/agent-browser-linux-x64 -O /usr/local/bin/agent-browser && chmod +x /usr/local/bin/agent-browser && exit 0
+exit 1
+"""
+
+[tasks.pip]
+run = """
+set -euo pipefail
+pip install --no-cache-dir --upgrade -r ~/.config/mise/requirements.txt && exit 0
+exit 1
+"""
+
+[tasks.golang]
+run = """
+set -euo pipefail
+go install golang.org/x/tools/gopls@latest && \
+  go install github.com/go-delve/delve/cmd/dlv@latest && \
+  go install golang.org/x/tools/cmd/goimports@latest && \
+  go install github.com/nametake/golangci-lint-langserver@latest && \
+  go install github.com/a-h/templ/cmd/templ@latest && \
+  curl -sSfL https://golangci-lint.run/install.sh | sh -s -- -b $(go env GOPATH)/bin v2.9.0 && \
+  exit 0
+exit 1
+"""
+
+[tasks.npm]
+run = """
+set -euo pipefail
+npm i -g \
+	typescript \
+	typescript-language-server \
+	@vue/language-server \
+	@vue/typescript-plugin \
+  && exit 0
+exit 1
+"""
+
+[tasks.prune]
+run = """
+set -euo pipefail
+mise prune && \
+  mise cache clear && \
+  pip cache purge && \
+  uv cache clean && \
+  npm cache clean --force && \
+  npm dedup && \
+  rm -rf ~/.bun/install/cache && \
+  rm -rf ~/.bun/cache && \
+  exit 0
 exit 1
 """
 

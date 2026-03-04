@@ -2,5 +2,7 @@
   "headed": false,
   "proxy": "socks5://127.0.0.1:1080",
   "userAgent": "Mozilla/5.0 (X11; Linux x86_64; rv:148.0) Gecko/20100101 Firefox/148.0",
-  "ignoreHttpsErrors": true
+  "ignoreHttpsErrors": true,
+  "executablePath": "/opt/chromium/chrome",
+  "native": true
 }
