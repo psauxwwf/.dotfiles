@@ -1,21 +1,21 @@
 ---
 description: implement the instructions written in the comments in the code
+model: gpt-5.3-codex
 ---
 
 ### Instructions
 
-##### Read code
+1. Load context
 
-- Read this files:
-  !`grep -RIl "AI\!" | sed 's/^/@/'`
+- Include all files that contain `AI:` comments:
+  !`grep -RIl "AI:" | sed 's/^/@/'`
 
-##### Implement instructions
+2. Execute
 
-- The instructions that you need to implement are written in the comments.
-- Only comments containing `AI` are accepted as instructions; if there is no such phrase, just ignore the comment
-- Implement all instructions that contain `AI`, change the code as required
+- Treat ONLY comments containing `AI:` as actionable instructions.
+- Implement every `AI:` instruction by changing code as required.
 
-##### Remove comment
+3. Cleanup
 
-- Remove the comment that implemented
-- Delete comments that contained `AI`, if `AI` was not in the comment - do not touch it
+- After implementing, delete the `AI:` comment(s) you used.
+- Do not change any other comments.

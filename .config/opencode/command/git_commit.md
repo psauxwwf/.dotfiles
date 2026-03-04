@@ -1,13 +1,10 @@
 ---
 description: do git commit
+model: gpt-5.3-codex
 ---
 
 ### Instructions
 
-##### Skill Reference: `git-commit`
+1. Load skill: `git-commit`
 
-- **Load skill** `git-commit`
-
-##### Actions: git
-
-- **git commit** according to the description from the loaded skill
+2. Follow the `git-commit` skill workflow to create the commit.
