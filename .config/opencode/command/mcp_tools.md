@@ -1,6 +1,6 @@
 ---
 description: available tools
-model: gpt-5.3-codex
+model: openai/gpt-5.3-codex
 ---
 
 ### Instructions
