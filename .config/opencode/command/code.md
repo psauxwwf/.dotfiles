@@ -1,6 +1,6 @@
 ---
 description: implement the instructions written in the comments in the code
-model: gpt-5.3-codex
+model: openai/gpt-5.3-codex
 ---
 
 ### Instructions
