@@ -109,25 +109,25 @@
       "type": "remote",
       "enabled": true,
       "url": "https://mcp.grep.app"
-    }
-    // "MCP_CHROME": {
-    //   "type": "local",
-    //   "enabled": false,
-    //   "command": [
-    //     "chrome-devtools-mcp",
-    //     "-e",
-    //     "/opt/chromium/chrome",
-    //     "--proxyServer",
-    //     "socks5://127.0.0.1:1080"
-    //   ],
-    // },
-    // "MCP_PERPLEXITY": {
-    //   "type": "local",
-    //   "enabled": true,
-    //   "command": [
-    //     "perplexity-mcp",
-    //   ],
-    //   "environment": {},
-    // },
+    },
+    "MCP_CHROME": {
+      "type": "local",
+      "enabled": false,
+      "command": [
+        "chrome-devtools-mcp",
+        "-e",
+        "/opt/chromium/chrome",
+        "--proxyServer",
+        "socks5://127.0.0.1:1080"
+      ],
+    },
+    "MCP_PERPLEXITY": {
+      "type": "local",
+      "enabled": false,
+      "command": [
+        "perplexity-mcp",
+      ],
+      "environment": {},
+    },
   },
 }
