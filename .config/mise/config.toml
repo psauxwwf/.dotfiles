@@ -32,7 +32,8 @@ go = "latest"
 opencode = "latest"
 "npm:skills" = "latest"
 "npm:opensrc" = "latest"
-"npm:chrome-devtools-mcp" = "latest"
+"npm:agent-browser" = "latest"
+# "npm:chrome-devtools-mcp" = "latest"
 # "pipx:perplexity-mcp-server" = "latest"
 # "npm:@perplexity-ai/mcp-server" = "latest"
 
@@ -76,6 +77,12 @@ github-cli = "latest"
 
 [tasks.install]
 run = """
+mise run pkg
+mise run agent-browser
+"""
+
+[tasks.pkg]
+run = """
 set -euo pipefail
 pkg="\
 poppler-utils \
@@ -87,6 +94,14 @@ ins() {
 for pm in apt-get dnf; do
   command -v "$pm" >/dev/null && ins "$pm" && exit 0
 done
+exit 1
+"""
+
+[tasks.agent-browser]
+run = """
+set -euo pipefail
+pkg="agent-browser"
+command -v "$pkg" >/dev/null && "$pkg" install && exit 0
 exit 1
 """
 
