@@ -9,6 +9,9 @@ plugins=(
 [[ ! -f $HOME/.local/bin/env ]] || source "$HOME/.local/bin/env"
 [[ ! -f $HOME/.env ]] || source "$HOME/.env"
 
+source /etc/bash_completion.d/ykman # source <(_YKMAN_COMPLETE=bash_source ykman | tee /etc/bash_completion.d/ykman)
+source /etc/bash_completion.d/task # task --completion zsh > task
+
 _zsh_cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 _cache_eval() {
 	local cache_file="$1"; shift
@@ -22,9 +25,9 @@ _cache_eval() {
 	source "$cache_file"
 }
 
-_cache_eval "$_zsh_cache_dir/mise-activate.zsh" mise activate zsh
-_cache_eval "$_zsh_cache_dir/starship-init.zsh" starship init zsh
-_cache_eval "$_zsh_cache_dir/zoxide-init.zsh" zoxide init zsh --cmd cd
+_cache_eval "$_zsh_cache_dir/mise.zsh" mise activate zsh
+_cache_eval "$_zsh_cache_dir/starship.zsh" starship init zsh
+_cache_eval "$_zsh_cache_dir/zoxide.zsh" zoxide init zsh --cmd cd
 
 proxy() {
 	HTTP_PROXY=$PROXY HTTPS_PROXY=$PROXY ALL_PROXY=$PROXY NO_PROXY=$NO_PROXY "$@"
@@ -297,10 +300,29 @@ _gen_fzf_default_opts() {
 }
 _gen_fzf_default_opts 'dracula'
 
-# source <(_YKMAN_COMPLETE=bash_source ykman | tee /etc/bash_completion.d/ykman)
-source /etc/bash_completion.d/ykman
-# task --completion zsh > task
-source /etc/bash_completion.d/task
+_zellij_auto_tab_title() {
+  autoload -Uz add-zsh-hook
+  typeset -g _ZELLIJ_T=""
+  _zr() {
+    [[ -n $ZELLIJ && $1 != $_ZELLIJ_T ]] || return
+    _ZELLIJ_T=$1
+    zellij action rename-tab "$1" &>/dev/null
+  }
+  _zp() { _zr "${(%):-%1~}" }
+  _zx() {
+    local -a w; w=(${(z)1})
+    local i=1
+    while (( i <= $#w )); do
+      case $w[i] in
+        (sudo|command|env|time) ((i++)) ;;
+        (*) _zr "${w[i]##*/}"; return ;;
+      esac
+    done
+  }
+  add-zsh-hook precmd  _zp
+  add-zsh-hook preexec _zx
+}
+_zellij_auto_tab_title
 
 export GOPATH=~/.go
 
@@ -339,7 +361,6 @@ export AIDER_PRESERVE_TODO_LIST=True
 
 # export OPENCODE_DISABLE_LSP_DOWNLOAD=True
 
-# export AIDER_ANALYTICS_DISABLE=True
 export AIDER_ANALYTICS=False
 export CRUSH_DISABLE_METRICS=1
 export DO_NOT_TRACK=1
