@@ -1,29 +1,62 @@
 export ZSH="$HOME/.oh-my-zsh"
 
+# Keep OMZ caches/dumps out of $HOME and speed up completion init.
+export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
+export ZSH_COMPDUMP="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump-${ZSH_VERSION}"
+mkdir -p -- "${ZSH_CACHE_DIR}" "${ZSH_COMPDUMP:h}" 2>/dev/null || true
+
+# shellcheck disable=SC2034
 plugins=(
 	git
 	zsh-autosuggestions
 )
 
+# shellcheck disable=SC1091
 [[ ! -f $ZSH/oh-my-zsh.sh ]] || source "$ZSH/oh-my-zsh.sh"
+# shellcheck disable=SC1091
 [[ ! -f $HOME/.local/bin/env ]] || source "$HOME/.local/bin/env"
+# shellcheck disable=SC1091
 [[ ! -f $HOME/.env ]] || source "$HOME/.env"
-
-source /etc/bash_completion.d/ykman # source <(_YKMAN_COMPLETE=bash_source ykman | tee /etc/bash_completion.d/ykman)
-source /etc/bash_completion.d/task # task --completion zsh > task
 
 _zsh_cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 _cache_eval() {
-	local cache_file="$1"; shift
-	local bin="$1"; shift
+	local cache_file="$1"
+	shift
+	local -a deps
+	deps=()
+	while [[ ${1:-} == --dep ]]; do
+		deps+=("$2")
+		shift 2
+	done
+	local bin="$1"
+	shift
 	local bin_path
 	bin_path="$(command -v -- "$bin" 2>/dev/null)" || return 0
 	mkdir -p -- "${cache_file:h}" || return 0
+	local regen=0
 	if [[ ! -s "$cache_file" || "$bin_path" -nt "$cache_file" ]]; then
-		"$bin_path" "$@" >| "${cache_file}.tmp" && mv -f -- "${cache_file}.tmp" "$cache_file"
+		regen=1
+	else
+		local dep dep_path
+		for dep in "${deps[@]}"; do
+			dep_path="$(command -v -- "$dep" 2>/dev/null)" || continue
+			[[ "$dep_path" -nt "$cache_file" ]] && {
+				regen=1
+				break
+			}
+		done
 	fi
+	if ((regen)); then
+		"$bin_path" "$@" >|"${cache_file}.tmp" && mv -f -- "${cache_file}.tmp" "$cache_file"
+	fi
+	[[ -r "$cache_file" ]] || return 0
+	# shellcheck disable=SC1090
 	source "$cache_file"
 }
+
+# Zsh-native completions (cached). Avoid sourcing bash_completion on startup.
+_cache_eval "$_zsh_cache_dir/completions/ykman.zsh" --dep ykman env _YKMAN_COMPLETE=zsh_source ykman
+_cache_eval "$_zsh_cache_dir/completions/task.zsh" task --completion zsh
 
 _cache_eval "$_zsh_cache_dir/mise.zsh" mise activate zsh
 _cache_eval "$_zsh_cache_dir/starship.zsh" starship init zsh
@@ -35,7 +68,6 @@ proxy() {
 proxych() {
 	pr "$@"
 }
-
 
 alias open='xdg-open'
 alias ls='lsd'
@@ -53,6 +85,7 @@ alias opencode='proxychains4 -q -f ~/.ai/proxychains.conf /usr/local/bin/opencod
 alias ai='cd ~/.ai && aider-no-git'
 alias oc='cd ~/.ai && opencode'
 alias cr='cd ~/.ai && crush'
+alias z='zellij attach -c main'
 
 _get_ssh_hosts() {
 	local opts hist
@@ -73,6 +106,7 @@ compdef _trans_completion trans
 Resume() {
 	fg
 	zle push-input
+	# shellcheck disable=SC2034
 	BUFFER=""
 	zle accept-line
 }
@@ -89,7 +123,6 @@ ssh() {
 	fi
 }
 
-# Keep zsh-native completion for the ssh wrapper function.
 compdef _ssh ssh
 
 y() {
@@ -271,7 +304,8 @@ ssh-copy-id-all() {
 
 _ssh_copy_id_all_completion() {
 	local -a hosts
-	hosts=(${(f)$(_get_ssh_hosts)})
+	# shellcheck disable=SC2034,SC2206,SC2207
+	hosts=($(_get_ssh_hosts))
 	compadd -a hosts
 }
 compdef _ssh_copy_id_all_completion ssh-copy-id-all
@@ -301,26 +335,40 @@ _gen_fzf_default_opts() {
 _gen_fzf_default_opts 'dracula'
 
 _zellij_auto_tab_title() {
-  autoload -Uz add-zsh-hook
-  typeset -g _ZELLIJ_T=""
-  _zr() {
-    [[ -n $ZELLIJ && $1 != $_ZELLIJ_T ]] || return
-    _ZELLIJ_T=$1
-    zellij action rename-tab "$1" &>/dev/null
-  }
-  _zp() { _zr "${(%):-%1~}" }
-  _zx() {
-    local -a w; w=(${(z)1})
-    local i=1
-    while (( i <= $#w )); do
-      case $w[i] in
-        (sudo|command|env|time) ((i++)) ;;
-        (*) _zr "${w[i]##*/}"; return ;;
-      esac
-    done
-  }
-  add-zsh-hook precmd  _zp
-  add-zsh-hook preexec _zx
+	autoload -Uz add-zsh-hook
+	typeset -g _ZELLIJ_T=""
+	_zr() {
+		[[ -n $ZELLIJ && $1 != "$_ZELLIJ_T" ]] || return
+		_ZELLIJ_T=$1
+		zellij action rename-tab "$1" &>/dev/null
+	}
+	_zp() {
+		local dir
+		if [[ $PWD == "$HOME" ]]; then
+			dir="~"
+		else
+			dir=${PWD##*/}
+		fi
+		_zr "$dir"
+	}
+	_zx() {
+		setopt localoptions sh_word_split
+		# shellcheck disable=SC2086
+		set -- $1
+		local word
+		while (($#)); do
+			word=$1
+			case $word in
+			sudo | command | env | time) shift ;;
+			*)
+				_zr "${word##*/}"
+				return
+				;;
+			esac
+		done
+	}
+	add-zsh-hook precmd _zp
+	add-zsh-hook preexec _zx
 }
 _zellij_auto_tab_title
 
