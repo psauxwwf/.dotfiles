@@ -1,14 +1,15 @@
 ---
 description: available tools
+model: gpt-5.3-codex
 ---
 
 ### Instructions
 
-##### Actions
+1. List all available `tools`.
 
-- **Show** all available `tools` in format:
-  [sequence number in a function group]. **mcp_function_name**
-  mcp_function_description
+2. Output format (per tool):
 
-- **Combine** them by:
-  mcp function source
+[N in this group]. **mcp_function_name**
+mcp_function_description
+
+3. Group tools by their source (MCP server / provider).
