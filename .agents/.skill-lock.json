@@ -91,6 +91,15 @@
       "skillFolderHash": "5caf5d9e7de204f3904216857545f2aa36bcfcac",
       "installedAt": "2026-03-04T18:47:00.941Z",
       "updatedAt": "2026-03-04T18:47:00.941Z"
+    },
+    "yotube-transcribe": {
+      "source": "devil666face/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/devil666face/skills.git",
+      "skillPath": "yotube-transcribe/SKILL.md",
+      "skillFolderHash": "53b22359f696587b6115eec007cd40387058807b",
+      "installedAt": "2026-03-05T18:59:03.947Z",
+      "updatedAt": "2026-03-05T19:33:00.326Z"
     }
   },
   "dismissed": {
