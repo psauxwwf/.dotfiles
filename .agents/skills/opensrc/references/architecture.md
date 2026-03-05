@@ -1,6 +1,7 @@
 # opensrc Architecture
 
 ## Contents
+
 - Directory structure
 - Core flow
 - Key modules
@@ -83,6 +84,7 @@ Storage structure: `opensrc/repos/{host}/{owner}/{repo}/`
 ### version.ts
 
 Detects installed npm versions (priority order):
+
 1. `node_modules/{pkg}/package.json`
 2. `package-lock.json`
 3. `pnpm-lock.yaml`
@@ -104,37 +106,37 @@ Supports: GitHub, GitLab, Bitbucket (GitHub/GitLab via API).
 ## Type Definitions
 
 ```typescript
-type Registry = "npm" | "pypi" | "crates"
+type Registry = "npm" | "pypi" | "crates";
 
 interface PackageSpec {
-  registry: Registry
-  name: string
-  version?: string
+  registry: Registry;
+  name: string;
+  version?: string;
 }
 
 interface ResolvedPackage {
-  registry: Registry
-  name: string
-  version: string
-  repoUrl: string
-  repoDirectory?: string  // For monorepos
-  gitTag: string
+  registry: Registry;
+  name: string;
+  version: string;
+  repoUrl: string;
+  repoDirectory?: string; // For monorepos
+  gitTag: string;
 }
 
 interface RepoSpec {
-  host: string      // github.com, gitlab.com
-  owner: string
-  repo: string
-  ref?: string      // Branch, tag, commit
+  host: string; // github.com, gitlab.com
+  owner: string;
+  repo: string;
+  ref?: string; // Branch, tag, commit
 }
 
 interface FetchResult {
-  package: string
-  version: string
-  path: string
-  success: boolean
-  error?: string
-  registry?: Registry
+  package: string;
+  version: string;
+  path: string;
+  success: boolean;
+  error?: string;
+  registry?: Registry;
 }
 ```
 
@@ -156,21 +158,25 @@ interface FetchResult {
 
 ```typescript
 // Parse spec into name/version
-export function parseSpec(spec: string): { name: string; version?: string }
+export function parseSpec(spec: string): { name: string; version?: string };
 
 // Query registry API, extract repo URL
-async function fetchInfo(name: string): Promise<RegistryResponse>
+async function fetchInfo(name: string): Promise<RegistryResponse>;
 
 // Normalize git URLs (remove git+, .git suffix)
-function extractRepoUrl(info): string | null
+function extractRepoUrl(info): string | null;
 
 // Main resolver
-export async function resolve(name: string, version?: string): Promise<ResolvedPackage>
+export async function resolve(
+  name: string,
+  version?: string,
+): Promise<ResolvedPackage>;
 ```
 
 ### Git Tag Resolution
 
 Clone tries tags in order:
+
 1. `v{version}` (most common)
 2. `{version}` (no prefix)
 3. Default branch (fallback with warning)
