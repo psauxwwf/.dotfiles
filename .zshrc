@@ -57,6 +57,7 @@ _cache_eval() {
 # Zsh-native completions (cached). Avoid sourcing bash_completion on startup.
 _cache_eval "$_zsh_cache_dir/completions/ykman.zsh" --dep ykman env _YKMAN_COMPLETE=zsh_source ykman
 _cache_eval "$_zsh_cache_dir/completions/task.zsh" task --completion zsh
+_cache_eval "$_zsh_cache_dir/completions/opencode.zsh" opencode completion zsh
 
 _cache_eval "$_zsh_cache_dir/mise.zsh" mise activate zsh
 _cache_eval "$_zsh_cache_dir/starship.zsh" starship init zsh
@@ -80,7 +81,10 @@ alias pr='proxychains4 -q -f /etc/proxychains.conf'
 alias crush='proxy crush'
 alias aider='proxy aider'
 alias aider-no-git='proxy aider --no-git'
-alias opencode='proxychains4 -q -f ~/.ai/proxychains.conf /usr/local/bin/opencode'
+opencode() {
+	proxychains4 -q -f ~/.ai/proxychains.conf /usr/local/bin/opencode "$@"
+}
+compdef _opencode_yargs_completions opencode
 
 alias ai='cd ~/.ai && aider-no-git'
 alias oc='cd ~/.ai && opencode'
