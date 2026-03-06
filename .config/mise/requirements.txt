@@ -1,5 +1,6 @@
 pysocks
 # aider-ce
 aider-chat
+playwright
 # git+https://github.com/Pennyw0rth/NetExec
 # git+https://github.com/brightio/penelope
