@@ -9,3 +9,4 @@
 .aider.chat.history.md
 .aider.input.history
 /.config/zellij/config.kdl.bak
+/.agents/skills/excalidraw-diagram/references/__pycache__/render.cpython-312.pyc
