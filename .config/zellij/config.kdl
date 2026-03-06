@@ -299,17 +299,17 @@ web_client {
  
 themes {
     dracula-contrast {
-        fg 248 248 242
+        fg 98 114 164
         bg 24 26 33
-        red 255 107 107
-        green 80 250 123
+        red 40 42 54
+        green 189 147 249
         yellow 255 221 87
         blue 130 170 255
         magenta 255 121 198
         orange 255 184 108
         cyan 139 233 253
         black 40 42 54
-        white 255 255 255
+        white 189 147 249
     }
 }
 
@@ -335,7 +335,7 @@ default_shell "zsh"
 // The name of the default layout to load on startup
 // Default: "default"
 // 
-// default_layout "compact"
+default_layout "zjstatus"
  
 // The folder in which Zellij will look for layouts
 // (Requires restart)
