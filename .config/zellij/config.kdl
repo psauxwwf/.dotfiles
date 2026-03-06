@@ -269,8 +269,8 @@ plugins {
 load_plugins {
 }
 env {
-    EDITOR "/opt/helix/hx"
-    VISUAL "/opt/helix/hx"
+    EDITOR "hx"
+    VISUAL "hx"
 }
 web_client {
     font "monospace"
@@ -383,7 +383,7 @@ copy_clipboard "primary"
 // Enable automatic copying (and clearing) of selection when releasing mouse
 // Default: true
 // 
-copy_on_select true
+copy_on_select false
  
 // Path to the default editor to use to edit pane scrollbuffer
 // Default: $EDITOR or $VISUAL
