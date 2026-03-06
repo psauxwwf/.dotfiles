@@ -155,6 +155,15 @@ keybinds clear-defaults=true {
         bind "Alt n" { NewPane; }
         bind "Alt o" { MoveTab "right"; }
         bind "Alt p" { TogglePaneInGroup; }
+        bind "Alt 1" { GoToTab 1; }
+        bind "Alt 2" { GoToTab 2; }
+        bind "Alt 3" { GoToTab 3; }
+        bind "Alt 4" { GoToTab 4; }
+        bind "Alt 5" { GoToTab 5; }
+        bind "Alt 6" { GoToTab 6; }
+        bind "Alt 7" { GoToTab 7; }
+        bind "Alt 8" { GoToTab 8; }
+        bind "Alt 9" { GoToTab 9; }
         bind "Alt Shift p" { ToggleGroupMarking; }
         bind "Ctrl q" { Quit; }
     }
@@ -275,7 +284,7 @@ env {
     VISUAL "hx"
 }
 web_client {
-    font "monospace"
+    font "JetBrainsMono Nerd Font"
 }
  
 // Use a simplified UI without special fonts (arrow glyphs)
@@ -485,7 +494,7 @@ attach_to_session true
 // - false
 // Default: false
 // 
-// web_server false
+web_server true
 // Whether to allow sessions started in the terminal to be shared through a local web server, assuming one is
 // running (see the `web_server` option for more details).
 // (Requires restart)
@@ -539,12 +548,12 @@ show_release_notes false
 // The ip address the web server should listen on when it starts
 // Default: "127.0.0.1"
 // (Requires restart)
-// web_server_ip "127.0.0.1"
+web_server_ip "127.0.0.1"
  
 // The port the web server should listen on when it starts
 // Default: 8082
 // (Requires restart)
-// web_server_port 8082
+web_server_port 8082
  
 // A command to run (will be wrapped with sh -c and provided the RESURRECT_COMMAND env variable) 
 // after Zellij attempts to discover a command inside a pane when resurrecting sessions, the STDOUT
