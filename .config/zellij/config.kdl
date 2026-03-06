@@ -134,10 +134,12 @@ keybinds clear-defaults=true {
         }
     }
     shared_except "locked" {
-        bind "Alt left" { MoveFocusOrTab "left"; }
-        bind "Alt down" { MoveFocus "down"; }
-        bind "Alt up" { MoveFocus "up"; }
-        bind "Alt right" { MoveFocusOrTab "right"; }
+        bind "Alt Super left" { MoveFocusOrTab "left"; }
+        bind "Alt Super down" { MoveFocus "down"; }
+        bind "Alt Super up" { MoveFocus "up"; }
+        bind "Alt Super right" { MoveFocusOrTab "right"; }
+        bind "Ctrl Shift c" { Copy; }
+        bind "Alt c" { Copy; }
         bind "Alt +" { Resize "Increase"; }
         bind "Alt -" { Resize "Decrease"; }
         bind "Alt =" { Resize "Increase"; }
@@ -283,10 +285,26 @@ web_client {
 // 
 // simplified_ui true
  
+themes {
+    dracula-contrast {
+        fg 248 248 242
+        bg 24 26 33
+        red 255 107 107
+        green 80 250 123
+        yellow 255 221 87
+        blue 130 170 255
+        magenta 255 121 198
+        orange 255 184 108
+        cyan 139 233 253
+        black 40 42 54
+        white 255 255 255
+    }
+}
+
 // Choose the theme that is specified in the themes section.
 // Default: default
 // 
-theme "dracula"
+theme "dracula-contrast"
  
 // Choose the base input mode of zellij.
 // Default: normal
@@ -296,7 +314,7 @@ theme "dracula"
 // Choose the path to the default shell that zellij will use for opening new panes
 // Default: $SHELL
 // 
-// default_shell "fish"
+default_shell "zsh"
  
 // Choose the path to override cwd that zellij will use for opening new panes
 // 

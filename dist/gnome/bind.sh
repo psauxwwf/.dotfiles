@@ -9,22 +9,21 @@ gsettings set org.gnome.shell.keybindings switch-to-application-6 "[]"
 gsettings set org.gnome.shell.keybindings switch-to-application-7 "[]"
 gsettings set org.gnome.shell.keybindings switch-to-application-8 "[]"
 gsettings set org.gnome.shell.keybindings switch-to-application-9 "[]"
-
 gsettings set org.gnome.shell.extensions.tiling-assistant tile-left-half "[]"
 gsettings set org.gnome.shell.extensions.tiling-assistant tile-right-half "[]"
 gsettings set org.gnome.shell.extensions.tiling-assistant tile-maximize "[]"
 gsettings set org.gnome.shell.extensions.tiling-assistant restore-window "[]"
-
 gsettings set org.freedesktop.ibus.general.hotkey triggers "[]"
-gsettings set org.gnome.desktop.wm.keybindings unmaximize "['<Super>n']"
 gsettings set org.gnome.desktop.wm.keybindings minimize "[]"
-gsettings set org.gnome.desktop.wm.keybindings maximize "['<Super>m']"
-
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-up "[]"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-down "[]"
-
 gsettings set org.gnome.mutter.keybindings toggle-tiled-left "[]"
 gsettings set org.gnome.mutter.keybindings toggle-tiled-right "[]"
+gsettings set org.gnome.shell.keybindings shift-overview-down "[]"
+gsettings set org.gnome.shell.keybindings shift-overview-up "[]"
+
+gsettings set org.gnome.desktop.wm.keybindings unmaximize "['<Super>n']"
+gsettings set org.gnome.desktop.wm.keybindings maximize "['<Super>m']"
 
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-1 "['<Super>grave', '<Super>ё']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-2 "['<Super>1']"
@@ -56,3 +55,5 @@ gsettings set org.gnome.shell.keybindings toggle-application-view "['<Super>d']"
 gsettings set org.gnome.shell.keybindings toggle-overview "['<Super>a']"
 
 gsettings set org.gnome.mutter auto-maximize 'false'
+
+gsettings set org.gnome.desktop.input-sources xkb-options "['grp:alt_shift_toggle', 'caps:backspace']"
