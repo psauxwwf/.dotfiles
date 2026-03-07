@@ -1,5 +1,11 @@
+_start_session() {
+	kitty @ load-config ~/.config/kitty/kitty-no-bind.conf && \
+		zellij attach --create "$1" && \
+		kitty @ load-config ~/.config/kitty/kitty.conf
+}
+
 z() {
-	zellij attach --create main
+	_start_session main
 }
 
 zi() {
@@ -7,7 +13,7 @@ zi() {
 	local -a picked
 
 	if [[ -n $1 ]]; then
-		zellij attach --create "$1"
+		_start_session "$1"
 		return
 	fi
 
@@ -19,16 +25,18 @@ zi() {
 	session="${selected:-$query}"
 	[[ -z $session ]] && return 1
 
-	zellij attach --create "$session"
+	_start_session "$session"
 }
 
 _zellij_auto_tab_title() {
 	autoload -Uz add-zsh-hook
 	typeset -g _ZELLIJ_T=""
 	_zr() {
-		[[ -n $ZELLIJ && $1 != "$_ZELLIJ_T" ]] || return
-		_ZELLIJ_T=$1
-		zellij action rename-tab "$1" &>/dev/null
+		local title=$1
+		(( ${#title} > 32 )) && title=${title[1,32]}
+		[[ -n $ZELLIJ && $title != "$_ZELLIJ_T" ]] || return
+		_ZELLIJ_T=$title
+		zellij action rename-tab "$title" &>/dev/null
 	}
 	_zp() {
 		local dir
