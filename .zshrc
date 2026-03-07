@@ -110,7 +110,30 @@ compdef _opencode_yargs_completions opencode
 alias ai='cd ~/.ai && aider-no-git'
 alias oc='cd ~/.ai && opencode'
 alias cr='cd ~/.ai && crush'
-alias z='zellij attach -c main'
+
+z() {
+	zellij attach --create main
+}
+
+zi() {
+	local session query selected
+	local -a picked
+
+	if [[ -n $1 ]]; then
+		zellij attach --create "$1"
+		return
+	fi
+
+	picked=("${(@f)$(fzf --reverse --height=10 --border --print-query --header='enter: attach/create | ctrl-d: delete session' --bind='ctrl-d:execute-silent(zellij d {} --force)+reload(zellij ls --short)' <<<"$(zellij ls --short)")}")
+	[[ $? -ne 0 ]] && return 1
+
+	query="${picked[1]}"
+	selected="${picked[2]}"
+	session="${selected:-$query}"
+	[[ -z $session ]] && return 1
+
+	zellij attach --create "$session"
+}
 
 _get_ssh_hosts() {
 	local opts hist
@@ -140,9 +163,9 @@ bindkey "^Z" Resume
 
 ssh() {
 	if [[ -z $1 ]]; then
-		host=$(fzf --reverse --height=10 --border <<<"$(_get_ssh_hosts)")
-		[[ -z $host ]] && return 1
-		/usr/bin/ssh "$host"
+		session=$(fzf --reverse --height=10 --border <<<"$(_get_ssh_hosts)")
+		[[ -z $session ]] && return 1
+		/usr/bin/ssh "$session"
 	else
 		/usr/bin/ssh "$@"
 	fi
