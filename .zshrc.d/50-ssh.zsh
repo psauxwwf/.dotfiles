@@ -45,4 +45,5 @@ _start_gpg_agent() {
 	[[ -S $sock ]] || gpgconf --launch gpg-agent >/dev/null 2>&1 || return 0
 	export SSH_AUTH_SOCK="$sock"
 }
-[[ -z $SSH_AUTH_SOCK || ! -S $SSH_AUTH_SOCK ]] && _start_gpg_agent
+_start_gpg_agent
+# [[ -z $SSH_AUTH_SOCK || ! -S $SSH_AUTH_SOCK ]] && _start_gpg_agent
