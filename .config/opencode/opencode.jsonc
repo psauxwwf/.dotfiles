@@ -3,11 +3,9 @@
   "instructions": [
     "AGENTS.md",
   ],
-  // "server": {
-  //   "port": 4096,
-  //   "hostname": "127.0.0.1",
-  //   "mdns": false,
-  // },
+  "permission": {
+    "lsp": "allow"
+  },
   "provider": {
     "FreeGLM": {
       "npm": "@ai-sdk/openai-compatible",

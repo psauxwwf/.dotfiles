@@ -19,3 +19,4 @@
 /.gnupg/reader_0.status
 /.gnupg/sshcontrol
 /.gnupg/trustdb.gpg
+/.config/zellij/zjstatus.wasm

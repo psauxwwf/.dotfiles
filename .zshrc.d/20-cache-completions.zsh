@@ -61,6 +61,7 @@ _cache_eval "$_zsh_cache_dir/completions/starship.zsh" starship init zsh
 _cache_eval "$_zsh_cache_dir/completions/zoxide.zsh" zoxide init zsh --cmd cd
 _cache_eval "$_zsh_cache_dir/completions/ykman.zsh" --dep ykman env _YKMAN_COMPLETE=zsh_source ykman
 _cache_eval "$_zsh_cache_dir/completions/opencode.zsh" opencode completion zsh
+_cache_eval "$_zsh_cache_dir/completions/wt.zsh" wt config shell init zsh
 
 _cache_comp task --completion zsh
 _cache_comp zellij setup --generate-completion zsh
