@@ -23,8 +23,6 @@ keybinds clear-defaults=true {
         bind "s" { NewPane "stacked"; SwitchToMode "normal"; }
         bind "w" { ToggleFloatingPanes; SwitchToMode "normal"; }
         bind "z" { TogglePaneFrames; SwitchToMode "normal"; }
-        bind "[" { PreviousSwapLayout; }
-        bind "]" { NextSwapLayout; }
     }
     tab {
         bind "left" { GoToPreviousTab; SwitchToMode "normal"; }
@@ -145,8 +143,8 @@ keybinds clear-defaults=true {
         bind "Alt +" { Resize "Increase"; }
         bind "Alt -" { Resize "Decrease"; }
         bind "Alt =" { Resize "Increase"; }
-        // bind "Alt [" { PreviousSwapLayout; }
-        // bind "Alt ]" { NextSwapLayout; }
+        bind "Alt [" { PreviousSwapLayout; }
+        bind "Alt ]" { NextSwapLayout; }
         bind "Alt f" { ToggleFloatingPanes; }
         bind "Ctrl g" { SwitchToMode "locked"; }
         bind "Alt h" { MoveFocusOrTab "left"; }

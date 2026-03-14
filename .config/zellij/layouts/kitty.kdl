@@ -1,0 +1,193 @@
+layout {
+    // Kitty-like layout set for NextSwapLayout cycling:
+    // stack, tall, fat, grid, splits, horizontal, vertical
+
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="tab-bar"
+        }
+        children
+        pane size=1 borderless=true {
+            plugin location="status-bar"
+        }
+    }
+
+    // horizontal in kitty: all panes side by side
+    swap_tiled_layout name="vertical" {
+        tab exact_panes=4 {
+            pane split_direction="vertical" {
+                pane size="60%"
+                pane
+            }
+        }
+        tab {
+            pane split_direction="vertical" {
+                children
+            }
+        }
+    }
+
+    // vertical in kitty: all panes one below another
+    swap_tiled_layout name="horizontal" {
+        tab exact_panes=4 {
+            pane split_direction="horizontal" {
+                pane size="70%"
+                pane
+            }
+        }
+        tab {
+            pane split_direction="horizontal" {
+                children
+            }
+        }
+    }
+    
+    // stack: one visible pane, others collapsed as a stack
+    swap_tiled_layout name="stack" {
+        tab max_panes=3 {
+            pane
+        }
+        tab {
+            pane stacked=true {
+                children
+            }
+        }
+    }
+
+    // tall: one big full-height pane + right-side vertical tiling
+    swap_tiled_layout name="tall" {
+        tab max_panes=3 {
+            pane
+        }
+        tab {
+            pane split_direction="vertical" {
+                pane size="60%"
+                pane split_direction="horizontal" {
+                    children
+                }
+            }
+        }
+    }
+
+    // fat: one big full-width pane + bottom horizontal tiling
+    swap_tiled_layout name="fat" {
+        tab max_panes=3 {
+            pane
+        }
+        tab {
+            pane split_direction="horizontal" {
+                pane size="60%"
+                pane split_direction="vertical" {
+                    children
+                }
+            }
+        }
+    }
+
+    // grid: balanced 1..6 pane presets
+    swap_tiled_layout name="grid" {
+        tab exact_panes=3 {
+            pane
+        }
+        tab exact_panes=4 {
+            pane split_direction="vertical" {
+                pane
+                pane
+            }
+        }
+        tab exact_panes=5 {
+            pane split_direction="vertical" {
+                pane
+                pane
+                pane
+            }
+        }
+        tab exact_panes=6 {
+            pane split_direction="horizontal" {
+                pane split_direction="vertical" {
+                    pane
+                    pane
+                }
+                pane split_direction="vertical" {
+                    pane
+                    pane
+                }
+            }
+        }
+        tab exact_panes=7 {
+            pane split_direction="horizontal" {
+                pane split_direction="vertical" {
+                    pane
+                    pane
+                    pane
+                }
+                pane split_direction="vertical" {
+                    pane
+                    pane
+                }
+            }
+        }
+        tab {
+            pane split_direction="horizontal" {
+                pane split_direction="vertical" {
+                    pane
+                    pane
+                    pane
+                }
+                pane split_direction="vertical" {
+                    pane
+                    pane
+                    children
+                }
+            }
+        }
+    }
+
+    // splits: asymmetric split-tree like kitty's splits example
+    swap_tiled_layout name="splits" {
+        tab max_panes=3 {
+            pane
+        }
+        tab exact_panes=4 {
+            pane split_direction="vertical" {
+                pane
+                pane
+            }
+        }
+        tab exact_panes=5 {
+            pane split_direction="vertical" {
+                pane
+                pane split_direction="horizontal" {
+                    pane
+                    pane
+                }
+            }
+        }
+        tab {
+            pane split_direction="vertical" {
+                pane
+                pane split_direction="horizontal" {
+                    pane
+                    pane split_direction="horizontal" {
+                        children
+                    }
+                }
+            }
+        }
+    }
+
+    // left main pane (60%) + right stacked panes
+    swap_tiled_layout name="left-stack" {
+        tab max_panes=3 {
+            pane
+        }
+        tab {
+            pane split_direction="vertical" {
+                pane size="60%"
+                pane stacked=true {
+                    children
+                }
+            }
+        }
+    }
+}

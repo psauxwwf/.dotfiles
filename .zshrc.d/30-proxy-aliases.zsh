@@ -18,9 +18,9 @@ alias crush='proxy crush'
 alias aider='proxy aider'
 alias aider-no-git='proxy aider --no-git'
 
-opencode() {
-	proxychains4 -q -f ~/.ai/proxychains.conf /usr/local/bin/opencode "$@"
-}
+# opencode() {
+# 	proxychains4 -q -f ~/.ai/proxychains.conf /usr/local/bin/opencode "$@"
+# }
 compdef _opencode_yargs_completions opencode
 
 alias ai='cd ~/.ai && aider-no-git'

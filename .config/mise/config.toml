@@ -29,7 +29,7 @@ uv = "latest"
 go = "latest"
 
 # AI
-opencode = "latest"
+# opencode = "latest"
 "npm:skills" = "latest"
 "npm:opensrc" = "latest"
 # "npm:agent-browser" = "latest"
@@ -52,7 +52,6 @@ typstyle = "latest"
 ghorg = "latest"
 buildifier = "latest"
 buf = "latest"
-# [protols](https://github.com/coder3101/protols/releases/tag/0.13.3)
 
 # Utils
 chisel = "latest"
@@ -78,7 +77,7 @@ github-cli = "latest"
 [tasks.install]
 run = """
 mise run pkg
-mise run agent-browser
+mise run wget
 mise run pip
 mise run golang
 mise run npm
@@ -100,11 +99,27 @@ done
 exit 1
 """
 
-[tasks.agent-browser]
+[tasks.wget]
 run = """
 set -euo pipefail
-wget https://github.com/vercel-labs/agent-browser/releases/latest/download/agent-browser-linux-x64 -O /usr/local/bin/agent-browser && chmod +x /usr/local/bin/agent-browser && exit 0
-exit 1
+
+# agent-browser
+wget https://github.com/vercel-labs/agent-browser/releases/latest/download/agent-browser-linux-x64 -O /usr/local/bin/agent-browser && chmod +x /usr/local/bin/agent-browser
+
+# llmfit
+curl -fsSL https://llmfit.axjns.dev/install.sh | sh
+
+# protols
+wget https://github.com/coder3101/protols/releases/latest/download/protols-x86_64-unknown-linux-gnu.tar.gz && tar -xf protols-x86_64-unknown-linux-gnu.tar.gz && mv protols /usr/local/bin && chmod +x /usr/local/bin/protols && rm protols-x86_64-unknown-linux-gnu.tar.gz
+
+# wt
+wget https://github.com/max-sixty/worktrunk/releases/latest/download/worktrunk-x86_64-unknown-linux-musl.tar.xz && \
+	tar -xf worktrunk-x86_64-unknown-linux-musl.tar.xz && \
+	mv worktrunk-x86_64-unknown-linux-musl/git-wt worktrunk-x86_64-unknown-linux-musl/wt /usr/local/bin && \
+	chmod +x /usr/local/bin/wt /usr/local/bin/git-wt && \
+	rm -rf worktrunk-x86_64-unknown-linux-musl.tar.xz worktrunk-x86_64-unknown-linux-musl
+
+exit 0
 """
 
 [tasks.pip]
