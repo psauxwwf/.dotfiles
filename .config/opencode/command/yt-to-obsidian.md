@@ -1,6 +1,7 @@
 ---
 description: transcribe a YouTube video and create an Obsidian note
 model: openai/gpt-5.3-codex
+subtask: true
 ---
 
 ## Goal

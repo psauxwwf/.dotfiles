@@ -1,6 +1,7 @@
 ---
 description: do git commit
 model: openai/gpt-5.3-codex
+subtask: true
 ---
 
 ### Instructions
