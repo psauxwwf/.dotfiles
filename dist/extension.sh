@@ -6,7 +6,8 @@
 ./gnome-extension-web-install auto-move-windows@gnome-shell-extensions.gcampax.github.com
 ./gnome-extension-web-install space-bar@luchrioh
 ./gnome-extension-web-install blur-my-shell@aunetx
-./gnome-extension-web-install rounded-window-corners@fxgn
+# ./gnome-extension-web-install rounded-window-corners@fxgn
+gnome-extensions install -f rounded-window-corners@fxgn.shell-extension.zip
 ./gnome-extension-web-install lock-guard@fthx
 ./gnome-extension-web-install window-title-is-back@fthx
 ./gnome-extension-web-install apps-menu@gnome-shell-extensions.gcampax.github.com

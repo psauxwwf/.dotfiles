@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+KITTY_BIN="/home/d6f/.local/kitty.app/bin/kitty"
+LOG_FILE="${XDG_RUNTIME_DIR}/kitty-wrapper.log"
+ARGS=("$@")
+
+HAS_CONFIG_FLAG=0
+CONFIG_VALUE=""
+for ((i = 0; i < ${#ARGS[@]}; i++)); do
+  case "${ARGS[$i]}" in
+    --config)
+      HAS_CONFIG_FLAG=1
+      if (( i + 1 < ${#ARGS[@]} )); then
+        CONFIG_VALUE="${ARGS[$((i + 1))]}"
+      fi
+      ;;
+    --config=*)
+      HAS_CONFIG_FLAG=1
+      CONFIG_VALUE="${ARGS[$i]#--config=}"
+      ;;
+    -c)
+      HAS_CONFIG_FLAG=1
+      if (( i + 1 < ${#ARGS[@]} )); then
+        CONFIG_VALUE="${ARGS[$((i + 1))]}"
+      fi
+      ;;
+  esac
+done
+
+if (( HAS_CONFIG_FLAG == 0 )); then
+  SESSION_KEY="default"
+  SOCK_BASE="${XDG_RUNTIME_DIR}/kitty-main.default.sock"
+else
+  if [[ -n "$CONFIG_VALUE" ]]; then
+    RESOLVED_CONFIG="$(readlink -f "$CONFIG_VALUE" 2>/dev/null || printf '%s' "$CONFIG_VALUE")"
+  else
+    RESOLVED_CONFIG="__empty_config_arg__"
+  fi
+  HASH="$(printf '%s' "$RESOLVED_CONFIG" | sha256sum)"
+  SESSION_KEY="cfg-${HASH%% *}"
+  SESSION_KEY="${SESSION_KEY:0:16}"
+  SOCK_BASE="${XDG_RUNTIME_DIR}/kitty-main.${SESSION_KEY}.sock"
+fi
+
+log() {
+  printf '[%s] %s\n' "$(date '+%F %T')" "$*" >> "$LOG_FILE"
+}
+
+log "start pid=$$ session=$SESSION_KEY args=$*"
+
+if [[ -S "$SOCK_BASE" ]] && "$KITTY_BIN" @ --to "unix:$SOCK_BASE" ls >/dev/null 2>&1; then
+  log "use socket: $SOCK_BASE"
+  exec "$KITTY_BIN" "$@" @ --to "unix:$SOCK_BASE" launch --type=os-window
+fi
+
+shopt -s nullglob
+for sock in "$SOCK_BASE"-*; do
+  if [[ -S "$sock" ]] && "$KITTY_BIN" @ --to "unix:$sock" ls >/dev/null 2>&1; then
+    log "use socket: $sock"
+    exec "$KITTY_BIN" "$@" @ --to "unix:$sock" launch --type=os-window
+  fi
+done
+shopt -u nullglob
+
+log "start main instance"
+exec "$KITTY_BIN" "$@" -o allow_remote_control=yes -o "listen_on=unix:$SOCK_BASE"
