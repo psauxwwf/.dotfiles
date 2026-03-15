@@ -6,17 +6,13 @@ layout {
         children
         pane size=1 borderless=false {
             plugin location="zjstatus" {
-                format_left   "{mode}#[fg=black]{tabs}"
+                format_left   "#[fg=#6867AF,bold]  {mode}#[fg=black]{tabs}"
                 format_center ""
-                format_right  "#[fg=#94E2D5]{swap_layout}#[fg=#6867AF,bold]  {datetime}#[fg=cyan]↖ "
+                format_right  "#[fg=#94E2D5]{swap_layout}#[fg=#6867AF,bold] {datetime}#[fg=cyan]"
                 format_space  "#[fg=yellow] "
                 // {session}
                 hide_frame_for_single_pane "false"
                 border_enabled  "false"
-                // mode_normal  "#[fg=red]  "
-                // mode_normal  "#[fg=yellow]   "
-                // mode_locked  "#[fg=red]   "
-                // mode_tmux    "#[bg=cyan]"
 
                 mode_normal        " {name} #[fg=#6C7086] "
                 mode_locked        " {name} #[fg=#6C7086] "
@@ -39,9 +35,9 @@ layout {
                 tab_normal_sync         "#[fg=#6C7086]{index} {name}"
 
                 // formatting for the current active tab
-                tab_active              "#[fg=blue,bold]{index} {name}#[fg=yellow,bold]{floating_indicator}"
-                tab_active_fullscreen   "#[fg=yellow,bold]{index} {name}#[fg=yellow,bold]{fullscreen_indicator}"
-                tab_active_sync         "#[fg=green,bold]{index} {name}#[fg=yellow,bold]{sync_indicator}"
+                tab_active              "#[fg=blue,bold]{index} {name}#[fg=yellow]{floating_indicator}"
+                tab_active_fullscreen   "#[fg=yellow,bold]{index} {name}#[fg=yellow]{fullscreen_indicator}"
+                tab_active_sync         "#[fg=green,bold]{index} {name}#[fg=yellow]{sync_indicator}"
 
                 // separator between the tabs
                 tab_separator           "#[fg=cyan,bold]  "
@@ -60,9 +56,40 @@ layout {
             }
         }
     }
-
+    // splits: asymmetric split-tree like kitty's splits example
+    swap_tiled_layout name="Split" {
+        tab max_panes=2 {
+            pane
+        }
+        tab exact_panes=3 {
+            pane split_direction="vertical" {
+                pane size="60%"
+                pane
+            }
+        }
+        tab exact_panes=4 {
+            pane split_direction="vertical" {
+                pane size="60%"
+                pane split_direction="horizontal" {
+                    pane
+                    pane
+                }
+            }
+        }
+        tab {
+            pane split_direction="vertical" {
+                pane size="60%"
+                pane split_direction="horizontal" {
+                    pane
+                    pane split_direction="horizontal" {
+                        children
+                    }
+                }
+            }
+        }
+    }
     // horizontal in kitty: all panes side by side
-    swap_tiled_layout name="vertical" {
+    swap_tiled_layout name="Vert" {
         tab exact_panes=3 {
             pane split_direction="vertical" {
                 pane size="60%"
@@ -75,42 +102,8 @@ layout {
             }
         }
     }
-
-    // splits: asymmetric split-tree like kitty's splits example
-    swap_tiled_layout name="splits" {
-        tab max_panes=2 {
-            pane
-        }
-        tab exact_panes=3 {
-            pane split_direction="vertical" {
-                pane
-                pane
-            }
-        }
-        tab exact_panes=4 {
-            pane split_direction="vertical" {
-                pane
-                pane split_direction="horizontal" {
-                    pane
-                    pane
-                }
-            }
-        }
-        tab {
-            pane split_direction="vertical" {
-                pane
-                pane split_direction="horizontal" {
-                    pane
-                    pane split_direction="horizontal" {
-                        children
-                    }
-                }
-            }
-        }
-    }
-
     // left main pane (60%) + right stacked panes
-    swap_tiled_layout name="left-stack" {
+    swap_tiled_layout name="Lstack" {
         tab max_panes=2 {
             pane
         }
@@ -123,9 +116,8 @@ layout {
             }
         }
     }
-
     // vertical in kitty: all panes one below another
-    swap_tiled_layout name="horizontal" {
+    swap_tiled_layout name="Horiz" {
         tab exact_panes=3 {
             pane split_direction="horizontal" {
                 pane size="70%"
@@ -140,7 +132,7 @@ layout {
     }
     
     // stack: one visible pane, others collapsed as a stack
-    swap_tiled_layout name="stack" {
+    swap_tiled_layout name="Stack" {
         tab max_panes=2 {
             pane
         }
@@ -150,9 +142,8 @@ layout {
             }
         }
     }
-
     // tall: one big full-height pane + right-side vertical tiling
-    swap_tiled_layout name="tall" {
+    swap_tiled_layout name="Tall" {
         tab max_panes=2 {
             pane
         }
@@ -165,9 +156,8 @@ layout {
             }
         }
     }
-
     // fat: one big full-width pane + bottom horizontal tiling
-    swap_tiled_layout name="fat" {
+    swap_tiled_layout name="Fat" {
         tab max_panes=2 {
             pane
         }
@@ -180,9 +170,8 @@ layout {
             }
         }
     }
-
     // grid: balanced 1..6 pane presets
-    swap_tiled_layout name="grid" {
+    swap_tiled_layout name="Grid" {
         tab exact_panes=2 {
             pane
         }
