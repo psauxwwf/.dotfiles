@@ -100,6 +100,15 @@
       "pluginName": "obsidian-visual-skills",
       "installedAt": "2026-03-06T08:29:41.249Z",
       "updatedAt": "2026-03-06T08:29:41.249Z"
+    },
+    "gh-cli": {
+      "source": "github/awesome-copilot",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/github/awesome-copilot.git",
+      "skillPath": "skills/gh-cli/SKILL.md",
+      "skillFolderHash": "437437f7f20bcdbbdb3081cf164435a388c0a39a",
+      "installedAt": "2026-03-17T19:49:07.135Z",
+      "updatedAt": "2026-03-17T19:49:07.135Z"
     }
   },
   "dismissed": {
@@ -113,6 +122,7 @@
     "gemini-cli",
     "github-copilot",
     "kimi-cli",
-    "opencode"
+    "opencode",
+    "warp"
   ]
 }
