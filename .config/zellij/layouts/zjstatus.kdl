@@ -56,6 +56,20 @@ layout {
             }
         }
     }
+    // left main pane (60%) + right stacked panes
+    swap_tiled_layout name="Lstack" {
+        tab max_panes=2 {
+            pane
+        }
+        tab {
+            pane split_direction="vertical" {
+                pane size="60%"
+                pane stacked=true {
+                    children
+                }
+            }
+        }
+    }
     // splits: asymmetric split-tree like kitty's splits example
     swap_tiled_layout name="Split" {
         tab max_panes=2 {
@@ -99,20 +113,6 @@ layout {
         tab {
             pane split_direction="vertical" {
                 children
-            }
-        }
-    }
-    // left main pane (60%) + right stacked panes
-    swap_tiled_layout name="Lstack" {
-        tab max_panes=2 {
-            pane
-        }
-        tab {
-            pane split_direction="vertical" {
-                pane size="60%"
-                pane stacked=true {
-                    children
-                }
             }
         }
     }
