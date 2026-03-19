@@ -43,9 +43,9 @@ layout {
                 tab_separator           "#[fg=cyan,bold]  "
 
                 // indicators
-                tab_sync_indicator       "  "
-                tab_fullscreen_indicator "  "
-                tab_floating_indicator   "  "
+                tab_sync_indicator       " 󰓦 "
+                tab_fullscreen_indicator " 󰊓 "
+                tab_floating_indicator   " 󰹙 "
 
                 swap_layout_format        "#[fg=#94E2D5,bold]{name} "
                 swap_layout_hide_if_empty "true"

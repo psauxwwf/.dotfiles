@@ -134,10 +134,10 @@ keybinds clear-defaults=true {
         }
     }
     shared_except "locked" {
-        // bind "Alt left" { MoveFocusOrTab "left"; }
-        // bind "Alt down" { MoveFocus "down"; }
-        // bind "Alt up" { MoveFocus "up"; }
-        // bind "Alt right" { MoveFocusOrTab "right"; }
+        bind "Ctrl Alt left" { MoveFocusOrTab "left"; }
+        bind "Ctrl Alt down" { MoveFocus "down"; }
+        bind "Ctrl Alt up" { MoveFocus "up"; }
+        bind "Ctrl Alt right" { MoveFocusOrTab "right"; }
         bind "Ctrl Shift c" { Copy; }
         bind "Super Shift c" { Copy; }
         bind "Alt +" { Resize "Increase"; }
@@ -147,14 +147,15 @@ keybinds clear-defaults=true {
         bind "Alt ]" { NextSwapLayout; }
         bind "Alt f" { ToggleFloatingPanes; }
         bind "Ctrl g" { SwitchToMode "locked"; }
-        bind "Alt h" { MoveFocusOrTab "left"; }
         bind "Alt i" { MoveTab "left"; }
+        bind "Alt h" { MoveFocusOrTab "left"; }
         bind "Alt j" { MoveFocus "down"; }
         bind "Alt k" { MoveFocus "up"; }
         bind "Alt l" { MoveFocusOrTab "right"; }
         bind "Alt n" { NewPane; }
         bind "Alt o" { MoveTab "right"; }
         bind "Alt p" { TogglePaneInGroup; }
+        bind "Alt t" { NewTab; }
         bind "Alt 1" { GoToTab 1; }
         bind "Alt 2" { GoToTab 2; }
         bind "Alt 3" { GoToTab 3; }
