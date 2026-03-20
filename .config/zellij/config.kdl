@@ -148,7 +148,6 @@ keybinds clear-defaults=true {
         bind "Alt =" { Resize "Increase"; }
         bind "Alt [" { PreviousSwapLayout; }
         bind "Alt ]" { NextSwapLayout; }
-        bind "Ctrl Alt f" { NextSwapLayout; }
         bind "Alt f" { ToggleFloatingPanes; }
         bind "Ctrl g" { SwitchToMode "locked"; }
         bind "Ctrl Shift left" { MovePane "left"; }
@@ -342,7 +341,8 @@ default_shell "zsh"
 // The name of the default layout to load on startup
 // Default: "default"
 // 
-default_layout "zjstatus"
+// default_layout "zjstatus"
+default_layout "minimal"
  
 // The folder in which Zellij will look for layouts
 // (Requires restart)

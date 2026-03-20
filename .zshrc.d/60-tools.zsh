@@ -180,3 +180,9 @@ yubi-zip() {
 	echo "$password" >"$phrase.pass"
 	zip -r9 -P "$password" "$1.zip" "$1"
 }
+
+oconnect() {
+	(
+		echo -e "${OPENCONNECT_PASSWORD}\nyes\n"
+	) | sudo openconnect "$OPENCONNECT_SERVER" --user="$OPENCONNECT_USERNAME" --passwd-on-stdin --allow-insecure-crypto --no-system-trust
+}
