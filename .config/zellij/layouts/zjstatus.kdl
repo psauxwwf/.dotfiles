@@ -6,8 +6,8 @@ layout {
         children
         pane size=1 borderless=false {
             plugin location="zjstatus" {
-                format_left   "#[fg=#6867AF,bold]  {mode}#[fg=black]{tabs}"
-                format_center ""
+                format_left   "#[fg=#6867AF,bold]  {mode}"
+                format_center "#[fg=black]{tabs}"
                 format_right  "#[fg=#94E2D5]{swap_layout}#[fg=#6867AF,bold] {datetime}#[fg=cyan]"
                 format_space  "#[fg=yellow] "
                 // {session}
