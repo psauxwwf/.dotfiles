@@ -145,6 +145,7 @@ keybinds clear-defaults=true {
         bind "Ctrl Shift c" { Copy; }
         bind "Super Shift c" { Copy; }
         bind "Alt -" { Resize "Decrease"; }
+        bind "Alt +" { Resize "Increase"; }
         bind "Alt =" { Resize "Increase"; }
         bind "Alt [" { PreviousSwapLayout; }
         bind "Alt ]" { NextSwapLayout; }
@@ -341,8 +342,8 @@ default_shell "zsh"
 // The name of the default layout to load on startup
 // Default: "default"
 // 
-// default_layout "zjstatus"
-default_layout "minimal"
+default_layout "zjstatus"
+// default_layout "minimal"
  
 // The folder in which Zellij will look for layouts
 // (Requires restart)

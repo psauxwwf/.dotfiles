@@ -70,25 +70,62 @@ _clip_completion() {
 compdef _clip_completion clip
 
 share() {
-	if [[ -z $1 ]]; then
-		echo "Usage: share <file_or_directory>"
+	local use_pass=0
+	local -a inputs
+	local pass="" url zip_file
+	zip_file="$(printf '%x.zip' "$RANDOM")"
+	while [[ -e $zip_file ]]; do
+		zip_file="$(printf '%x.zip' "$RANDOM")"
+	done
+
+	while (( $# > 0 )); do
+		case "$1" in
+		--pass)
+			use_pass=1
+			;;
+		*)
+			inputs+=("$1")
+			;;
+		esac
+		shift
+	done
+
+	if (( ${#inputs[@]} == 0 )); then
+		echo "Usage: share [--pass] <file_or_directory> [more_files_or_directories...]"
 		return 1
 	fi
 
-	local input="$1"
-	local zip_file="$input".zip
-	local pass url
-	pass=$(openssl rand 32 | base64)
-	zip -e -rq9 "$zip_file" "$input" -P "$pass"
+	for input in "${inputs[@]}"; do
+		if [[ ! -e $input ]]; then
+			echo "Error: '$input' does not exist."
+			return 1
+		fi
+	done
+
+	if (( use_pass )); then
+		pass=$(openssl rand 32 | base64)
+		zip -e -rq9 "$zip_file" "${inputs[@]}" -P "$pass" || return 1
+	else
+		zip -rq9 "$zip_file" "${inputs[@]}" || return 1
+	fi
 
 	url=$(proxychains4 -q curl -F "file=@${zip_file}" https://temp.sh/upload | sed 's/http:/https:/')
+	if [[ -z $url ]]; then
+		echo "Error: upload failed for '$zip_file'."
+		return 1
+	fi
 
-	echo "Password: $pass"
+	if (( use_pass )); then
+		echo "Password: $pass"
+	fi
+
 	echo "Download:
 curl -X POST -o $zip_file $url
 wget --method=POST -O $zip_file $url
 Invoke-WebRequest -Uri \"$url\" -Method \"POST\" -OutFile $zip_file
 "
+
+	rm -f -- "$zip_file"
 }
 _share_completion() {
 	_files
