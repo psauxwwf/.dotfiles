@@ -72,6 +72,8 @@ zellij = "latest"
 zoxide = "latest"
 btop = "latest"
 github-cli = "latest"
+gitleaks = "latest"
+trufflehog = "latest"
 # mc = "latest"
 
 [tasks.install]
