@@ -6,58 +6,58 @@ layout {
         children
         pane size=1 borderless=false {
             plugin location="zjstatus" {
-                format_left   "#[fg=#6867AF,bold]  {mode}"
-                format_center "#[fg=black]{tabs}"
-                format_right  "#[fg=#94E2D5]{swap_layout}#[fg=#6867AF,bold] {datetime}#[fg=cyan]"
-                format_space  "#[fg=yellow] "
+                format_left   "#[fg=#BD93F9]   {mode} #[fg=#6272A4]{tabs}"
+                format_center ""
+                format_right  "{swap_layout}#[bg=#282A36,fg=#6272A4]#[bg=#6272A4,fg=#282A36] {datetime} #[bg=#282A36,fg=#6272A4]"
+                format_space  "#[fg=#6272A4] "
                 // {session}
                 hide_frame_for_single_pane "false"
                 border_enabled  "false"
 
-                mode_normal        " {name} #[fg=#6C7086] "
-                mode_locked        " {name} #[fg=#6C7086] "
-                mode_resize        " {name} #[fg=#6C7086] "
-                mode_pane          " {name} #[fg=#6C7086] "
-                mode_tab           " {name} #[fg=#6C7086] "
-                mode_scroll        " {name} #[fg=#6C7086] "
-                mode_enter_search  " {name} #[fg=#6C7086] "
-                mode_search        " {name} #[fg=#6C7086] "
-                mode_rename_tab    " {name} #[fg=#6C7086] "
-                mode_rename_pane   " {name} #[fg=#6C7086] "
-                mode_session       " {name} #[fg=#6C7086] "
-                mode_move          " {name} #[fg=#6C7086] "
-                mode_prompt        " {name} #[fg=#6C7086] "
-                mode_tmux          " {name} #[fg=#6C7086] "
+                mode_normal        "#[bg=#282A36,fg=#50FA7B]#[bg=#50FA7B,fg=#282A36]NORMAL#[bg=#282A36,fg=#50FA7B]"
+                mode_locked        "#[bg=#282A36,fg=#282A36]#[bg=#282A36,fg=#8BE9FD]LOCKED#[bg=#282A36,fg=#282A36]"
+                mode_resize        "#[bg=#282A36,fg=#FF79C6]#[bg=#FF79C6,fg=#282A36]RESIZE#[bg=#282A36,fg=#FF79C6]"
+                mode_pane          "#[bg=#282A36,fg=#82AAFF]#[bg=#82AAFF,fg=#282A36]PANE#[bg=#282A36,fg=#82AAFF]"
+                mode_tab           "#[bg=#282A36,fg=#BD93F9]#[bg=#BD93F9,fg=#282A36]TAB#[bg=#282A36,fg=#BD93F9]"
+                mode_scroll        "#[bg=#282A36,fg=#FFB86C]#[bg=#FFB86C,fg=#282A36]SCROLL#[bg=#282A36,fg=#FFB86C]"
+                mode_enter_search  "#[bg=#282A36,fg=#82AAFF]#[bg=#82AAFF,fg=#282A36]SEARCH#[bg=#282A36,fg=#82AAFF]"
+                mode_search        "#[bg=#282A36,fg=#8BE9FD]#[bg=#8BE9FD,fg=#282A36]SEARCH#[bg=#282A36,fg=#8BE9FD]"
+                mode_rename_tab    "#[bg=#282A36,fg=#FF79C6]#[bg=#FF79C6,fg=#282A36]RETAB#[bg=#282A36,fg=#FF79C6]"
+                mode_rename_pane   "#[bg=#282A36,fg=#BD93F9]#[bg=#BD93F9,fg=#282A36]REPANE#[bg=#282A36,fg=#BD93F9]"
+                mode_session       "#[bg=#282A36,fg=#BD93F9]#[bg=#BD93F9,fg=#282A36]SESSION#[bg=#282A36,fg=#BD93F9]"
+                mode_move          "#[bg=#282A36,fg=#FFB86C]#[bg=#FFB86C,fg=#282A36]MOVE#[bg=#282A36,fg=#FFB86C]"
+                mode_prompt        "#[bg=#282A36,fg=#8BE9FD]#[bg=#8BE9FD,fg=#282A36]PROMPT#[bg=#282A36,fg=#8BE9FD]"
+                mode_tmux          "#[bg=#282A36,fg=#8BE9FD]#[bg=#8BE9FD,fg=#282A36]TMUX#[bg=#282A36,fg=#8BE9FD]"
 
                 // formatting for inactive tabs
-                tab_normal              "#[fg=#6C7086]{index} {name}"
-                tab_normal_fullscreen   "#[fg=#6C7086]{index} {name}"
-                tab_normal_sync         "#[fg=#6C7086]{index} {name}"
+                tab_normal              "#[bg=#282A36,fg=#82AAFF]#[bg=#82AAFF,fg=#282A36]{index} #[bg=#282A36,fg=#6272A4] {name}{floating_indicator}#[bg=#282A36,fg=#282A36]"
+                tab_normal_fullscreen   "#[bg=#282A36,fg=#82AAFF]#[bg=#82AAFF,fg=#282A36]{index} #[bg=#282A36,fg=#6272A4] {name}{fullscreen_indicator}#[bg=#282A36,fg=#282A36]"
+                tab_normal_sync         "#[bg=#282A36,fg=#82AAFF]#[bg=#82AAFF,fg=#282A36]{index} #[bg=#282A36,fg=#6272A4] {name}{sync_indicator}#[bg=#282A36,fg=#282A36]"
 
                 // formatting for the current active tab
-                tab_active              "#[fg=blue,bold]{index} {name}#[fg=yellow]{floating_indicator}"
-                tab_active_fullscreen   "#[fg=yellow,bold]{index} {name}#[fg=yellow]{fullscreen_indicator}"
-                tab_active_sync         "#[fg=green,bold]{index} {name}#[fg=yellow]{sync_indicator}"
+                tab_active              "#[bg=#282A36,fg=#BD93F9]#[bg=#BD93F9,fg=#282A36]{index} #[bg=#282A36,fg=#BD93F9] {name}{floating_indicator}#[bg=#282A36,fg=#282A36]"
+                tab_active_fullscreen   "#[bg=#282A36,fg=#BD93F9]#[bg=#BD93F9,fg=#282A36]{index} #[bg=#282A36,fg=#BD93F9] {name}{fullscreen_indicator}#[bg=#282A36,fg=#282A36]"
+                tab_active_sync         "#[bg=#282A36,fg=#BD93F9]#[bg=#BD93F9,fg=#282A36]{index} #[bg=#282A36,fg=#BD93F9] {name}{sync_indicator}#[bg=#282A36,fg=#282A36]"
 
                 // separator between the tabs
-                tab_separator           "#[fg=cyan,bold]  "
+                tab_separator           "#[bg=#282A36] "
 
                 // indicators
-                tab_sync_indicator       " 󰓦 "
-                tab_fullscreen_indicator " 󰊓 "
-                tab_floating_indicator   " 󰹙 "
+                tab_sync_indicator       " [S]"
+                tab_fullscreen_indicator " [F]"
+                tab_floating_indicator   " [FL]"
 
-                swap_layout_format        "#[fg=#94E2D5,bold]{name} "
+                swap_layout_format        "#[bg=#282A36,fg=#6272A4]#[bg=#6272A4,fg=#282A36] {name} #[bg=#282A36,fg=#6272A4] "
                 swap_layout_hide_if_empty "true"
 
-                datetime        "#[fg=#6C7086,bold] {format} "
+                datetime        "{format}"
                 datetime_format "%A, %d %b %Y %H:%M:%S"
                 datetime_timezone "Europe/Moscow"
             }
         }
     }
     // left main pane (60%) + right stacked panes
-    swap_tiled_layout name="Lstack" {
+    swap_tiled_layout name="LSTACK" {
         tab max_panes=2 {
             pane
         }
@@ -71,7 +71,7 @@ layout {
         }
     }
     // splits: asymmetric split-tree like kitty's splits example
-    swap_tiled_layout name="Split" {
+    swap_tiled_layout name="SPLIT" {
         tab max_panes=2 {
             pane
         }
@@ -103,7 +103,7 @@ layout {
         }
     }
     // horizontal in kitty: all panes side by side
-    swap_tiled_layout name="Vert" {
+    swap_tiled_layout name="VERT" {
         tab exact_panes=3 {
             pane split_direction="vertical" {
                 pane size="60%"
@@ -117,7 +117,7 @@ layout {
         }
     }
     // vertical in kitty: all panes one below another
-    swap_tiled_layout name="Horiz" {
+    swap_tiled_layout name="HORIZ" {
         tab exact_panes=3 {
             pane split_direction="horizontal" {
                 pane size="70%"
@@ -132,7 +132,7 @@ layout {
     }
     
     // stack: one visible pane, others collapsed as a stack
-    swap_tiled_layout name="Stack" {
+    swap_tiled_layout name="STACK" {
         tab max_panes=2 {
             pane
         }
@@ -143,7 +143,7 @@ layout {
         }
     }
     // tall: one big full-height pane + right-side vertical tiling
-    swap_tiled_layout name="Tall" {
+    swap_tiled_layout name="TALL" {
         tab max_panes=2 {
             pane
         }
@@ -157,7 +157,7 @@ layout {
         }
     }
     // fat: one big full-width pane + bottom horizontal tiling
-    swap_tiled_layout name="Fat" {
+    swap_tiled_layout name="FAT" {
         tab max_panes=2 {
             pane
         }
@@ -171,7 +171,7 @@ layout {
         }
     }
     // grid: balanced 1..6 pane presets
-    swap_tiled_layout name="Grid" {
+    swap_tiled_layout name="GRID" {
         tab exact_panes=2 {
             pane
         }
