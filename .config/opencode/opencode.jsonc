@@ -93,11 +93,6 @@
       ],
     },
     // https://opencode.ai/docs/mcp-servers/
-    "MCP_EXA": {
-      "type": "remote",
-      "enabled": true,
-      "url": "https://mcp.exa.ai/mcp"
-    },
     "MCP_CONTEXT7": {
       "type": "remote",
       "enabled": true,
@@ -108,24 +103,29 @@
       "enabled": true,
       "url": "https://mcp.grep.app"
     },
-    "MCP_CHROME": {
-      "type": "local",
-      "enabled": false,
-      "command": [
-        "chrome-devtools-mcp",
-        "-e",
-        "/opt/chromium/chrome",
-        "--proxyServer",
-        "socks5://127.0.0.1:1080"
-      ],
-    },
-    "MCP_PERPLEXITY": {
-      "type": "local",
-      "enabled": false,
-      "command": [
-        "perplexity-mcp",
-      ],
-      "environment": {},
-    },
+    // "MCP_EXA": {
+    //   "type": "remote",
+    //   "enabled": false,
+    //   "url": "https://mcp.exa.ai/mcp"
+    // },
+    // "MCP_CHROME": {
+    //   "type": "local",
+    //   "enabled": false,
+    //   "command": [
+    //     "chrome-devtools-mcp",
+    //     "-e",
+    //     "/opt/chromium/chrome",
+    //     "--proxyServer",
+    //     "socks5://127.0.0.1:1080"
+    //   ],
+    // },
+    // "MCP_PERPLEXITY": {
+    //   "type": "local",
+    //   "enabled": false,
+    //   "command": [
+    //     "perplexity-mcp",
+    //   ],
+    //   "environment": {},
+    // },
   },
 }

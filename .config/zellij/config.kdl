@@ -155,10 +155,10 @@ keybinds clear-defaults=true {
         bind "Ctrl Shift down" { MovePane "down"; }
         bind "Ctrl Shift up" { MovePane "up"; }
         bind "Ctrl Shift right" { MovePane "right"; }
-        bind "Alt n" { NewPane; }
+        bind "Alt p" { NewPane; }
         bind "Ctrl Alt n" { MoveTab "right"; }
         bind "Ctrl Alt p" { MoveTab "left"; }
-        bind "Alt p" { TogglePaneInGroup; }
+        bind "Alt n" { TogglePaneInGroup; }
         bind "Alt t" { NewTab; }
         bind "Alt 1" { GoToTab 1; }
         bind "Alt 2" { GoToTab 2; }
