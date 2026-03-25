@@ -6,8 +6,8 @@
 export GOPATH=~/.go
 export EDITOR=hx
 
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:/opt/helix/lsp
+export PATH=$PATH:"$GOPATH/bin"
+export PATH=$PATH:"$HOME/.local/bin"
 
 # Aider conf
 export AIDER_AUTO_COMMITS=False

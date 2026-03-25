@@ -1,0 +1,10 @@
+{
+  "lastChangelogVersion": "0.62.0",
+  "showHardwareCursor": false,
+  "packages": [
+    "npm:@sherif-fanous/pi-dracula"
+  ],
+  "theme": "dracula",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.3-codex"
+}

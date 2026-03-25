@@ -1,3 +1,10 @@
+alias open='xdg-open'
+alias ls='lsd'
+alias docker-compose='docker compose'
+alias default-ssh-agent='eval "$(ssh-agent -s)"'
+alias laz='lazygit'
+alias lad='lazydocker'
+
 _trans_completion() {
 	_files
 }
@@ -78,7 +85,7 @@ share() {
 		zip_file="$(printf '%x.zip' "$RANDOM")"
 	done
 
-	while (( $# > 0 )); do
+	while (($# > 0)); do
 		case "$1" in
 		--pass)
 			use_pass=1
@@ -90,7 +97,7 @@ share() {
 		shift
 	done
 
-	if (( ${#inputs[@]} == 0 )); then
+	if ((${#inputs[@]} == 0)); then
 		echo "Usage: share [--pass] <file_or_directory> [more_files_or_directories...]"
 		return 1
 	fi
@@ -102,7 +109,7 @@ share() {
 		fi
 	done
 
-	if (( use_pass )); then
+	if ((use_pass)); then
 		pass=$(openssl rand 32 | base64)
 		zip -e -rq9 "$zip_file" "${inputs[@]}" -P "$pass" || return 1
 	else
@@ -115,7 +122,7 @@ share() {
 		return 1
 	fi
 
-	if (( use_pass )); then
+	if ((use_pass)); then
 		echo "Password: $pass"
 	fi
 

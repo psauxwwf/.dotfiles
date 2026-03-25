@@ -1,6 +1,8 @@
-pysocks
+wheel
+setuptools
+# pysocks
 # aider-ce
-aider-chat
-playwright
+# aider-chat
+# playwright
 # git+https://github.com/Pennyw0rth/NetExec
 # git+https://github.com/brightio/penelope
