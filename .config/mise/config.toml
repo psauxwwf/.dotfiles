@@ -17,7 +17,7 @@ bun = "latest"
 
 # Python
 python = "3.12.12"
-uv = "latest"
+"asdf:asdf-community/asdf-uv" = "latest"
 "pipx:black" = "latest"
 "pipx:clangd" = "latest"
 "pipx:clang-format" = "latest"
