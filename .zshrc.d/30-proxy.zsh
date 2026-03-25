@@ -8,10 +8,10 @@ proxych() {
 
 alias pr='proxychains4 -q -f /etc/proxychains.conf'
 
-alias pi='proxych pi'
+# alias pi='proxych pi'
 alias crush='proxy crush'
 
-alias pc='cd ~/.ai && pi'
+# alias pc='cd ~/.ai && pi'
 alias cr='cd ~/.ai && crush'
 alias oc='cd ~/.ai && opencode'
 

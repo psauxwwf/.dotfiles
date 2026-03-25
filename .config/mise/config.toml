@@ -32,11 +32,9 @@ go = "latest"
 # opencode = "latest"
 "npm:skills" = "latest"
 "npm:opensrc" = "latest"
-"npm:@mariozechner/pi-coding-agent" = "latest"
+# "npm:@mariozechner/pi-coding-agent" = "latest"
 # "npm:agent-browser" = "latest"
 # "npm:chrome-devtools-mcp" = "latest"
-# "pipx:perplexity-mcp-server" = "latest"
-# "npm:@perplexity-ai/mcp-server" = "latest"
 
 # LSP
 hadolint = "latest"
@@ -109,6 +107,7 @@ run = """
 set -euo pipefail
 
 # agent-browser
+# chrome://inspect/#remote-debugging
 wget https://github.com/vercel-labs/agent-browser/releases/latest/download/agent-browser-linux-x64 -O /usr/local/bin/agent-browser && chmod +x /usr/local/bin/agent-browser
 
 # llmfit
