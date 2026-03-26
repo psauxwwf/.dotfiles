@@ -57,3 +57,6 @@ gsettings set org.gnome.shell.keybindings toggle-overview "['<Super>a']"
 gsettings set org.gnome.mutter auto-maximize 'false'
 
 gsettings set org.gnome.desktop.input-sources xkb-options "['grp:alt_shift_toggle', 'caps:backspace']"
+
+# gsettings set org.gnome.mutter experimental-features "[]"
+# gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer', 'xwayland-native-scaling']"

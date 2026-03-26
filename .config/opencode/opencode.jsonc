@@ -116,7 +116,8 @@
     //     "-e",
     //     "/opt/chromium/chrome",
     //     "--proxyServer",
-    //     "socks5://127.0.0.1:1080"
+    //     "socks5://127.0.0.1:1080",
+    //     "--autoConnect"
     //   ],
     // },
     // "MCP_PERPLEXITY": {
