@@ -20,6 +20,14 @@ Resume() {
 zle -N Resume
 bindkey "^Z" Resume
 
+ClearScreen() {
+	zle -I
+	clear
+	zle redisplay
+}
+zle -N ClearScreen
+bindkey "^L" ClearScreen
+
 y() {
 	local tmp cwd
 	tmp="$(mktemp -t 'yazi-cwd.XXXXXX')" || return
