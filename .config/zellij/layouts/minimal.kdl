@@ -3,16 +3,13 @@
 layout {
     default_tab_template {
         pane size=1 borderless=true {
-            plugin location="tab-bar"
+            plugin location="compact-bar"
         }
         children
-        pane size=1 borderless=true {
-            plugin location="status-bar"
-        }
     }
         // left main pane (60%) + right stacked panes
     swap_tiled_layout name="Lstack" {
-        tab max_panes=3 {
+        tab max_panes=2 {
             pane
         }
         tab {
@@ -26,16 +23,16 @@ layout {
     }
     // splits: asymmetric split-tree like kitty's splits example
     swap_tiled_layout name="Split" {
-        tab max_panes=3 {
+        tab max_panes=2 {
             pane
         }
-        tab exact_panes=4 {
+        tab exact_panes=3 {
             pane split_direction="vertical" {
                 pane size="60%"
                 pane
             }
         }
-        tab exact_panes=5 {
+        tab exact_panes=4 {
             pane split_direction="vertical" {
                 pane size="60%"
                 pane split_direction="horizontal" {
@@ -58,7 +55,7 @@ layout {
     }
     // horizontal in kitty: all panes side by side
     swap_tiled_layout name="Vert" {
-        tab exact_panes=4 {
+        tab exact_panes=3 {
             pane split_direction="vertical" {
                 pane size="60%"
                 pane
@@ -72,7 +69,7 @@ layout {
     }
     // vertical in kitty: all panes one below another
     swap_tiled_layout name="Horiz" {
-        tab exact_panes=4 {
+        tab exact_panes=3 {
             pane split_direction="horizontal" {
                 pane size="70%"
                 pane
@@ -87,7 +84,7 @@ layout {
     
     // stack: one visible pane, others collapsed as a stack
     swap_tiled_layout name="Stack" {
-        tab max_panes=3 {
+        tab max_panes=2 {
             pane
         }
         tab {
@@ -98,7 +95,7 @@ layout {
     }
     // tall: one big full-height pane + right-side vertical tiling
     swap_tiled_layout name="Tall" {
-        tab max_panes=3 {
+        tab max_panes=2 {
             pane
         }
         tab {
@@ -112,7 +109,7 @@ layout {
     }
     // fat: one big full-width pane + bottom horizontal tiling
     swap_tiled_layout name="Fat" {
-        tab max_panes=3 {
+        tab max_panes=2 {
             pane
         }
         tab {
@@ -126,23 +123,23 @@ layout {
     }
     // grid: balanced 1..6 pane presets
     swap_tiled_layout name="Grid" {
-        tab exact_panes=3 {
+        tab exact_panes=2 {
             pane
+        }
+        tab exact_panes=3 {
+            pane split_direction="vertical" {
+                pane
+                pane
+            }
         }
         tab exact_panes=4 {
             pane split_direction="vertical" {
                 pane
                 pane
+                pane
             }
         }
         tab exact_panes=5 {
-            pane split_direction="vertical" {
-                pane
-                pane
-                pane
-            }
-        }
-        tab exact_panes=6 {
             pane split_direction="horizontal" {
                 pane split_direction="vertical" {
                     pane
@@ -154,7 +151,7 @@ layout {
                 }
             }
         }
-        tab exact_panes=7 {
+        tab exact_panes=6 {
             pane split_direction="horizontal" {
                 pane split_direction="vertical" {
                     pane
