@@ -167,13 +167,13 @@ keybinds clear-defaults=true {
         bind "Shift Super c" { Copy; }
         bind "Alt e" { EditScrollback; SwitchToMode "normal"; }
         bind "Alt f" { ToggleFloatingPanes; }
-        bind "Ctrl Alt n" { MoveTab "right"; }
+        bind "Ctrl Shift n" { MoveTab "right"; }
         bind "Alt n" { TogglePaneInGroup; }
-        bind "Ctrl Alt p" { MoveTab "left"; }
-        bind "Alt p" { NewPane; }
+        bind "Ctrl Shift p" { MoveTab "left"; }
+        bind "Ctrl Alt p" { NewPane; }
         bind "Alt Shift p" { ToggleGroupMarking; }
-        bind "Alt t" { NewTab; }
-        bind "Alt x" { CloseFocus; }
+        bind "Ctrl Alt t" { NewTab; }
+        bind "Ctrl Alt w" { CloseFocus; }
     }
     shared_except "locked" "scroll" "search" "tmux" {
         bind "Ctrl b" { SwitchToMode "tmux"; }
@@ -376,7 +376,7 @@ plugins {
     welcome-screen location="zellij:session-manager" {
         welcome_screen true
     }
-    zjstatus location="file:/home/d6f/.dotfiles/.config/zellij/zjstatus.wasm"
+    zjstatus location="file:~/.config/zellij/zjstatus.wasm"
 }
 
 // Plugins to load in the background when a new session starts
@@ -456,7 +456,7 @@ mouse_mode true
 //   - true (default, enabled)
 //   - false
 // 
-pane_frames false
+pane_frames true
  
 // When attaching to an existing session with other users,
 // should the session be mirrored (true)
@@ -494,7 +494,7 @@ pane_frames false
 // copy_command "wl-copy"                    // wayland
 // copy_command "pbcopy"                     // osx
 // 
-copy_command "wl-copy"
+// copy_command "wl-copy"
  
 // Choose the destination for copied text
 // Allows using the primary selection buffer (on x11/wayland) instead of the system clipboard.
@@ -503,7 +503,7 @@ copy_command "wl-copy"
 //   - system (default)
 //   - primary
 // 
-copy_clipboard "primary"
+// copy_clipboard "primary"
  
 // Enable automatic copying (and clearing) of selection when releasing mouse
 // Default: true
@@ -645,7 +645,7 @@ show_release_notes false
  
 // Whether to enable mouse hover visual effects (frame highlight and help text)
 // default is true
-// mouse_hover_effects false
+mouse_hover_effects false
  
 // Whether to show visual bell indicators (pane/tab frame flash and [!] suffix)
 // default is true
