@@ -15,3 +15,4 @@ gnome-extensions install -f rounded-window-corners@fxgn.shell-extension.zip
 ./gnome-extension-web-install launch-new-instance@gnome-shell-extensions.gcampax.github.com
 ./gnome-extension-web-install places-menu@gnome-shell-extensions.gcampax.github.com
 ./gnome-extension-web-install window-list@gnome-shell-extensions.gcampax.github.com
+./gnome-extension-web-install hidetopbar@mathieu.bidon.ca
