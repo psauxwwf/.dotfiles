@@ -1,6 +1,6 @@
 # Advanced Typst Patterns
 
-For language basics (types, operators, string/array/dict operations), see [basics.md](basics.md).
+For language basics (syntax, imports, functions), see [basics.md](basics.md). For data types and operators, see [types.md](types.md). For labels, references, and everyday styling, see [styling.md](styling.md).
 
 ## XML Parsing
 
@@ -77,12 +77,37 @@ State allows tracking information across a document. Requires `context` to read.
 #context [Count: #counter.get()]
 ```
 
+### Custom Counters
+
+```typst
+#let example-counter = counter("example")
+
+#let example(body) = {
+  example-counter.step()
+  block[*Example #context example-counter.display():* #body]
+}
+```
+
+### State for Headers
+
+```typst
+#let chapter-title = state("chapter", none)
+
+#show heading.where(level: 1): it => {
+  chapter-title.update(it.body)
+  it
+}
+
+#set page(header: context { chapter-title.get() })
+```
+
 ### Final Values
 
 ```typst
 // Get final value (at document end)
+#let my-counter = state("my-counter", 0)
 #context {
-  let final-count = counter.final()
+  let final-count = my-counter.final()
   [Total: #final-count]
 }
 ```
@@ -144,6 +169,17 @@ Query finds elements in the document. Requires `context`.
 }
 ```
 
+### By Label String
+
+```typst
+#context {
+  let target = query(label("ref-mykey"))
+  if target.len() > 0 {
+    [Found at page #target.first().location().page()]
+  }
+}
+```
+
 ### Location-Based
 
 ```typst
@@ -158,57 +194,11 @@ Query finds elements in the document. Requires `context`.
 }
 ```
 
-## Labels and References
+## Closure Workarounds
 
-### Creating Labels
+Closures cannot mutate captured variables (see basics.md "Mutability in Closures"). Beyond the loop accumulation pattern, two more options:
 
-```typst
-= Introduction <intro>
-
-#figure(image("fig.png"), caption: [A figure]) <fig:main>
-```
-
-### Programmatic Labels
-
-```typst
-// Create label from string
-#let key = "my-key"
-#[Some content #label("ref-" + key)]
-
-// Reference with link
-#link(label("ref-" + key))[See here]
-```
-
-### Querying Labels
-
-```typst
-#context {
-  let target = query(label("ref-mykey"))
-  if target.len() > 0 {
-    [Found at page #target.first().location().page()]
-  }
-}
-```
-
-## Working Around Closure Limitations
-
-Closures cannot mutate captured variables. Use these patterns:
-
-### Pattern 1: Accumulate in Loop
-
-```typst
-// ❌ WRONG
-#let results = ()
-#let process(x) = { results.push(x) }  // Error!
-
-// ✅ CORRECT
-#let results = ()
-#for item in items {
-  results.push(transform(item))
-}
-```
-
-### Pattern 2: Fold for Accumulation
+### Fold for Accumulation
 
 ```typst
 // Build dictionary from array
@@ -218,7 +208,7 @@ Closures cannot mutate captured variables. Use these patterns:
 })
 ```
 
-### Pattern 3: State for Cross-Document
+### State for Cross-Document
 
 ```typst
 #let _data = state("data", ())
@@ -233,41 +223,4 @@ Closures cannot mutate captured variables. Use these patterns:
 }
 ```
 
-## Content vs String
-
-```typst
-// Content - rich formatted output
-#let c = [Hello *world*]
-
-// String - plain text
-#let s = "Hello world"
-
-// Convert string to content (implicit in most cases)
-#[#s]
-
-// Check if "empty"
-#let is-empty(x) = {
-  x == none or x == "" or x == []
-}
-
-// Concatenate content
-#let result = [#prefix#body#suffix]
-
-// For strings, use +
-#let combined = prefix-str + body-str + suffix-str
-```
-
-## Performance Tips
-
-1. **Precompute at document end**: Use `context` with `query()` and `.final()` to compute once
-1. **Avoid deep recursion**: Typst has function call depth limits (~256)
-1. **Cache expensive operations**: Store in state, compute once
-1. **Use `.at(key, default: x)` instead of checking then accessing**
-
-```typst
-// ❌ Slower
-#if key in dict { dict.at(key) } else { default }
-
-// ✅ Faster
-#dict.at(key, default: default)
-```
+For performance profiling and optimization, see [perf.md](perf.md).

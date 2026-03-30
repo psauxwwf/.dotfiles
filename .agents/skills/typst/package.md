@@ -1,6 +1,6 @@
 # Typst Package Development
 
-For Typst language basics (syntax, types, functions), see [basics.md](basics.md).
+For Typst language basics (syntax, functions), see [basics.md](basics.md). For types and operators, see [types.md](types.md).
 
 **Complete example**: See [examples/package-example/](examples/package-example/) for a minimal publishable package with submodules.
 
@@ -109,17 +109,7 @@ Modules must form a DAG (no circular imports).
 #let note(body, type: "info") = { ... }
 ```
 
-### Configuration Pattern
-
-```typst
-#let default-config = (color: blue, size: 12pt)
-
-#let configure(..overrides) = {
-  let cfg = default-config
-  for (k, v) in overrides.named() { cfg.insert(k, v) }
-  cfg
-}
-```
+For configuration patterns (default dictionaries, overrides), see [template.md](template.md).
 
 ## Local Development
 
@@ -149,8 +139,8 @@ cp -r . ~/.local/share/typst/packages/local/my-package/0.1.0/
 ### To Typst Universe
 
 1. Fork https://github.com/typst/packages
-1. Add package to `packages/preview/my-package/0.1.0/`
-1. Create pull request
+2. Add package to `packages/preview/my-package/0.1.0/`
+3. Create pull request
 
 ### Versioning
 
@@ -171,7 +161,7 @@ cp -r . ~/.local/share/typst/packages/local/my-package/0.1.0/
 ## Best Practices
 
 1. **Minimal exports**: Only expose what users need
-1. **Sensible defaults**: All optional parameters have defaults
-1. **Document API**: Use `///` comments for all public functions
-1. **Semantic versioning**: Follow semver strictly
-1. **No breaking changes**: Deprecate before removing
+2. **Sensible defaults**: All optional parameters have defaults
+3. **Document API**: Use `///` comments for all public functions
+4. **Semantic versioning**: Follow semver strictly
+5. **No breaking changes**: Deprecate before removing
