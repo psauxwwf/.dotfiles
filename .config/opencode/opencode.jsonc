@@ -89,7 +89,7 @@
         "gateway",
         "run",
         "--secrets",
-        "/home/d6f/.env.docker",
+        "$HOME/.env.docker",
       ],
     },
     // https://opencode.ai/docs/mcp-servers/
