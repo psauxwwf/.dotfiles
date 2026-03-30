@@ -1,6 +1,6 @@
 ---
 description: do git commit
-model: openai/gpt-5.3-codex
+model: openai/gpt-5.4-mini
 subtask: true
 ---
 

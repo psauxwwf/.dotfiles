@@ -91,16 +91,6 @@
       "installedAt": "2026-03-05T18:59:03.947Z",
       "updatedAt": "2026-03-05T19:33:00.326Z"
     },
-    "excalidraw-diagram": {
-      "source": "axtonliu/axton-obsidian-visual-skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/axtonliu/axton-obsidian-visual-skills.git",
-      "skillPath": "excalidraw-diagram/SKILL.md",
-      "skillFolderHash": "dc5677963e87e5d9a1c9b31ccd2bf995b8a63078",
-      "pluginName": "obsidian-visual-skills",
-      "installedAt": "2026-03-06T08:29:41.249Z",
-      "updatedAt": "2026-03-06T08:29:41.249Z"
-    },
     "gh-cli": {
       "source": "github/awesome-copilot",
       "sourceType": "github",
@@ -109,6 +99,15 @@
       "skillFolderHash": "437437f7f20bcdbbdb3081cf164435a388c0a39a",
       "installedAt": "2026-03-17T19:49:07.135Z",
       "updatedAt": "2026-03-17T19:49:07.135Z"
+    },
+    "excalidraw-diagram": {
+      "source": "devil666face/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/devil666face/skills.git",
+      "skillPath": "excalidraw-diagram/SKILL.md",
+      "skillFolderHash": "16fc5376662c78ee892d055b08a3e973c5e91164",
+      "installedAt": "2026-03-30T20:19:24.139Z",
+      "updatedAt": "2026-03-30T20:19:24.139Z"
     }
   },
   "dismissed": {
@@ -116,9 +115,11 @@
   },
   "lastSelectedAgents": [
     "amp",
+    "antigravity",
     "cline",
     "codex",
     "cursor",
+    "deepagents",
     "gemini-cli",
     "github-copilot",
     "kimi-cli",

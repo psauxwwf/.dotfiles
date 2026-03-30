@@ -1,7 +1,7 @@
 ---
 description: available tools
-model: openai/gpt-5.3-codex
-subtask: true
+model: openai/gpt-5.4-mini
+subtask: false
 ---
 
 ### Instructions
