@@ -51,9 +51,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/vercel-labs/agent-browser.git",
       "skillPath": "skills/agent-browser/SKILL.md",
-      "skillFolderHash": "eb296e896859b1a8e32bcdf470646ba1f0e66ed8",
+      "skillFolderHash": "8a7c2d2d628e69f3ebd51e15255917bedb264201",
       "installedAt": "2026-03-04T08:44:08.231Z",
-      "updatedAt": "2026-03-30T19:41:28.296Z"
+      "updatedAt": "2026-03-31T07:13:10.174Z"
     },
     "json-canvas": {
       "source": "kepano/obsidian-skills",
