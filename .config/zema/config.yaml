@@ -1,0 +1,32 @@
+zellij:
+  bin: zellij
+  ls:
+    - ls
+    - --short
+  delete:
+    - delete-session
+    - --force
+    - "{session}"
+  create:
+    - attach
+    - --create-background
+    - "{session}"
+  rename_tab:
+    - action
+    - rename-tab
+    - "{title}"
+  attach:
+    pre:
+      - kitty
+      - "@"
+      - load-config
+      - "{home}/.config/kitty/kitty-no-bind.conf"
+    args:
+      - attach
+      - --create
+      - "{session}"
+    post:
+      - kitty
+      - "@"
+      - load-config
+      - "{home}/.config/kitty/kitty.conf"

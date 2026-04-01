@@ -1,0 +1,24 @@
+zellij:
+  bin: zellij
+  ls:
+    - ls
+    - --short
+  delete:
+    - delete-session
+    - --force
+    - "{session}"
+  create:
+    - attach
+    - --create-background
+    - "{session}"
+  rename_tab:
+    - action
+    - rename-tab
+    - "{title}"
+  attach:
+    pre:
+    args:
+      - attach
+      - --create
+      - "{session}"
+    post:
