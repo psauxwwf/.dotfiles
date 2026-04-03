@@ -1,7 +1,7 @@
 [user]
-	email = in@d6f.ru
-	name = devil666face
-	signingkey = devil666face
+	email = psauxwwf@d6f.ru
+	name = psauxwwf
+	signingkey = psauxwwf
 [credential]
 	helper = store
 [core]
@@ -10,7 +10,7 @@
 [http]
 	sslVerify = false
 [commit]
-	gpgSign = false
+	gpgSign = true
 [init]
 	defaultBranch = master
 [diff]
