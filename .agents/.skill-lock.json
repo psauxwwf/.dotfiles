@@ -42,18 +42,18 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/lucifer1004/claude-skill-typst.git",
       "skillPath": "skills/typst/SKILL.md",
-      "skillFolderHash": "1c1fdceb221aafe1cd4394d8da0ff5beb3309b56",
+      "skillFolderHash": "9945657ecb00e9cab4c5c2896f0f07dd02085be8",
       "installedAt": "2026-03-03T19:14:03.157Z",
-      "updatedAt": "2026-03-30T19:41:23.376Z"
+      "updatedAt": "2026-04-06T15:18:45.862Z"
     },
     "agent-browser": {
       "source": "vercel-labs/agent-browser",
       "sourceType": "github",
       "sourceUrl": "https://github.com/vercel-labs/agent-browser.git",
       "skillPath": "skills/agent-browser/SKILL.md",
-      "skillFolderHash": "8a7c2d2d628e69f3ebd51e15255917bedb264201",
+      "skillFolderHash": "9cf36f060581124f9fec0a26df3904c6869b1593",
       "installedAt": "2026-03-04T08:44:08.231Z",
-      "updatedAt": "2026-03-31T07:13:10.174Z"
+      "updatedAt": "2026-04-06T15:18:53.949Z"
     },
     "json-canvas": {
       "source": "kepano/obsidian-skills",
