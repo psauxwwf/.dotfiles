@@ -1,7 +1,7 @@
 [user]
 	email = in@d6f.ru
 	name = devil666face
-	signingkey = devil666face
+	signingkey = 2764C76C0666DC3C
 [credential]
 	helper = store
 [core]
@@ -10,7 +10,7 @@
 [http]
 	sslVerify = false
 [commit]
-	gpgSign = true
+	gpgsign = true
 [init]
 	defaultBranch = master
 [diff]

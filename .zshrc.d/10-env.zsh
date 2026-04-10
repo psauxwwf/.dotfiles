@@ -8,6 +8,7 @@ export EDITOR=hx
 
 export PATH=$PATH:"$GOPATH/bin"
 export PATH=$PATH:"$HOME/.local/bin"
+export PATH=$PATH:"$HOME/.lmstudio/bin"
 
 # Aider conf
 export AIDER_AUTO_COMMITS=False
