@@ -1,6 +1,7 @@
 wheel
 setuptools
 notebooklm-py[browser]
+# hermes-agent[all] @ git+https://github.com/NousResearch/hermes-agent.git
 # pysocks
 # aider-ce
 # aider-chat
