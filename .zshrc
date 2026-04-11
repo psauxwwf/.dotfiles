@@ -19,3 +19,5 @@ for zshrc_file in "$HOME/.zshrc.d"/*.zsh; do
 	# shellcheck disable=SC1090
 	source "$zshrc_file"
 done
+
+export PATH="$HOME/.local/bin:$PATH"

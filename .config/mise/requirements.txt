@@ -1,5 +1,6 @@
 wheel
 setuptools
+notebooklm-py[browser]
 # pysocks
 # aider-ce
 # aider-chat

@@ -6,9 +6,9 @@
 export GOPATH=~/.go
 export EDITOR=hx
 
-export PATH=$PATH:"$GOPATH/bin"
-export PATH=$PATH:"$HOME/.local/bin"
-export PATH=$PATH:"$HOME/.lmstudio/bin"
+export PATH="$GOPATH/bin:$PATH"
+# export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.lmstudio/bin:$PATH"
 
 # Aider conf
 export AIDER_AUTO_COMMITS=False
@@ -49,3 +49,6 @@ export OPENCODE_EXPERIMENTAL=True
 
 export DOCKER_MCP_USE_CE=1
 # export DOCKER_MCP_IN_CONTAINER=1 # NOT SET THIS )))
+
+export PLAYWRIGHT_BROWSER_PATH=/opt/chromium/chrome
+export PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
