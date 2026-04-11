@@ -7,7 +7,7 @@ export GOPATH=~/.go
 export EDITOR=hx
 
 export PATH="$GOPATH/bin:$PATH"
-# export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.lmstudio/bin:$PATH"
 
 # Aider conf

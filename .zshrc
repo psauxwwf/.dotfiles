@@ -20,4 +20,4 @@ for zshrc_file in "$HOME/.zshrc.d"/*.zsh; do
 	source "$zshrc_file"
 done
 
-export PATH="$HOME/.local/bin:$PATH"
+# export PATH="$HOME/.local/bin:$PATH"
