@@ -1,0 +1,2 @@
+#!/bin/zsh
+exec proxychains4 -q -f ~/.ai/proxychains.conf /usr/local/bin/goose "$@"

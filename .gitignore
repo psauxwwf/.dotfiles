@@ -22,3 +22,6 @@
 /.config/zellij/zjstatus.wasm
 /.gnupg/.#lk0x000055a47c5a2630.aorus.4602
 /.gnupg/.#lk0x00005612a7368630.aorus.10680
+/.pi/agent/mcp-cache.json
+/.pi/agent/sessions
+/.pi/agent/auth.json

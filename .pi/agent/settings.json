@@ -1,47 +1,18 @@
 {
-  "lastChangelogVersion": "0.62.0",
+  "lastChangelogVersion": "0.66.1",
   "showHardwareCursor": false,
   "packages": [
     "npm:@sherif-fanous/pi-dracula",
-    "npm:@zhafron/pi-mcp-tools"
+    "npm:pi-mcp-adapter"
   ],
   "theme": "dracula",
   "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-5.4",
+  "defaultModel": "gpt-5.3-codex",
   "enabledModels": [
     "openai-codex/gpt-5.4",
     "openai-codex/gpt-5.3-codex"
   ],
-  "hideThinkingBlock": true,
-  "mcp": {
-    "MCP_DOCKER": {
-      "type": "local",
-      "enabled": true,
-      "command": [
-        "docker",
-        "mcp",
-        "gateway",
-        "run",
-        "--secrets",
-        "/home/d6f/.env.docker"
-      ]
-    },
-    "MCP_CONTEXT7": {
-      "type": "remote",
-      "enabled": true,
-      "url": "https://mcp.context7.com/mcp"
-    },
-    "MCP_GH_GREP": {
-      "type": "remote",
-      "enabled": true,
-      "url": "https://mcp.grep.app"
-    },
-    "MCP_EXA": {
-      "type": "remote",
-      "enabled": false,
-      "url": "https://mcp.exa.ai/mcp"
-    }
-  },
+  "hideThinkingBlock": false,
   "mcpDisabledTools": [],
   "quietStartup": true,
   "workingVibe": "theme"

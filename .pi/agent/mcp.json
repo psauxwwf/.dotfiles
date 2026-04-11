@@ -1,0 +1,35 @@
+{
+  "mcpServers": {
+    "MCP_EXA": {
+      "type": "remote",
+      "enabled": true,
+      "url": "https://mcp.exa.ai/mcp",
+      "directTools": true
+    },
+    "MCP_CONTEXT7": {
+      "type": "remote",
+      "enabled": true,
+      "url": "https://mcp.context7.com/mcp",
+      "directTools": true
+    },
+    "MCP_GH_GREP": {
+      "type": "remote",
+      "enabled": true,
+      "url": "https://mcp.grep.app",
+      "directTools": true
+    },
+    "MCP_DOCKER": {
+      "type": "local",
+      "enabled": true,
+      "command": "docker",
+      "args": [
+        "mcp",
+        "gateway",
+        "run",
+        "--secrets",
+        "/home/d6f/.env.docker"
+      ],
+      "directTools": true
+    }
+  }
+}

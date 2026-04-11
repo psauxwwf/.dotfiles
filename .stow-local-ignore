@@ -1,6 +1,8 @@
 \.aider\.chat\.history\.md
 \.aider\.input\.history
 \.aider\.tags\.cache\.v4
+\.ai\/proxychains.conf
+\.config\/goose
 \.config\/opencode\/bun\.lock
 \.config\/opencode\/node_modules
 dist
@@ -11,4 +13,4 @@ dist
 \.gitignore
 \.local\/bin\/kitty
 README\.md
-\.pi
+# \.pi

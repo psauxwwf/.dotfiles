@@ -123,6 +123,13 @@ wget https://github.com/max-sixty/worktrunk/releases/latest/download/worktrunk-x
 	chmod +x /usr/local/bin/wt /usr/local/bin/git-wt && \
 	rm -rf worktrunk-x86_64-unknown-linux-musl.tar.xz worktrunk-x86_64-unknown-linux-musl
 
+# goose
+# wget https://github.com/aaif-goose/goose/releases/latest/download/goose-x86_64-unknown-linux-gnu.tar.gz && \
+#   tar -xf goose-x86_64-unknown-linux-gnu.tar.gz && \
+#   mv goose /usr/local/bin && \
+#   chmod +x /usr/local/bin/goose && \
+#   rm -rf goose-x86_64-unknown-linux-gnu.tar.gz
+
 exit 0
 """
 
