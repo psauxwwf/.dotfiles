@@ -18,3 +18,6 @@
 # ./gnome-extension-web-install tiling-assistant@leleat-on-github
 
 gnome-extensions install -f rounded-window-corners@fxgn.shell-extension.zip
+
+sudo dnf install gnome-shell-extension-pop-shell
+python3 pop-shell-patch.py

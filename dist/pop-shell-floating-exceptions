@@ -1,0 +1,2 @@
+#!/bin/bash
+gjs --module /home/d6f/.local/share/gnome-shell/extensions/pop-shell@system76.com/floating_exceptions/main.js
