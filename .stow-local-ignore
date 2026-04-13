@@ -13,4 +13,4 @@ dist
 \.gitignore
 \.local\/bin\/kitty
 README\.md
-# \.pi
+\.pi
