@@ -1,0 +1,42 @@
+lastChangelogVersion: 14.1.2
+theme:
+  dark: dark-dracula
+  light: dark-dracula
+symbolPreset: ascii
+colorBlindMode: false
+statusLine:
+  preset: default
+  separator: ascii
+  showHookStatus: true
+images:
+  blockImages: false
+display:
+  showTokenUsage: true
+modelRoles:
+  default: openai-codex/gpt-5.3-codex
+startup:
+  quiet: true
+edit:
+  mode: hashline
+readLineNumbers: true
+lsp:
+  formatOnWrite: true
+todo:
+  eager: true
+interruptMode: immediate
+doubleEscapeAction: tree
+stt:
+  enabled: true
+notebook:
+  enabled: false
+inspect_image:
+  enabled: true
+checkpoint:
+  enabled: true
+disabledExtensions: []
+disabledProviders:
+  - llama.cpp
+  - ollama
+  - zai
+  - canonical
+treeFilterMode: all

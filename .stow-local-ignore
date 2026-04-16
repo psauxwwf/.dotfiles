@@ -14,3 +14,4 @@ dist
 \.local\/bin\/kitty
 README\.md
 \.pi
+\.omp

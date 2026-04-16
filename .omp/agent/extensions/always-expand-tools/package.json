@@ -1,0 +1,10 @@
+{
+	"name": "pi-extension-always-expand-tools",
+	"version": "1.0.0",
+	"type": "module",
+	"omp": {
+		"extensions": [
+			"./index.ts"
+		]
+	}
+}
