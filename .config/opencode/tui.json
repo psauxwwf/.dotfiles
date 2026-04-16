@@ -3,6 +3,9 @@
   "keybinds": {
     "leader": "ctrl+x",
     "command_list": "<leader>p",
-    "variant_cycle": "<leader>t"
+    "variant_cycle": "<leader>t",
+    "session_share": "<leader>s",
+    "session_fork": "<leader>f",
+    "session_rename": "<leader>r"
   }
 }
