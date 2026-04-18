@@ -2,6 +2,7 @@
 \.aider\.input\.history
 \.aider\.tags\.cache\.v4
 \.ai\/proxychains.conf
+\.config\/crush
 \.config\/goose
 \.config\/opencode\/bun\.lock
 \.config\/opencode\/node_modules
@@ -12,6 +13,7 @@ dist
 \.git
 \.gitignore
 \.local\/bin\/kitty
-README\.md
-\.pi
 \.omp
+\.pi
+README\.md
+skills\-lock\.json
