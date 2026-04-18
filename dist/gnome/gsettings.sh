@@ -59,8 +59,11 @@ gsettings set org.gnome.mutter auto-maximize 'false'
 
 gsettings set org.gnome.desktop.input-sources xkb-options "['grp:alt_shift_toggle', 'caps:backspace']"
 
-# gsettings set org.gnome.mutter experimental-features "[]"
-# gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer', 'xwayland-native-scaling']"
+# forge
+dconf write /org/gnome/shell/extensions/forge/keybindings/window-toggle-float "['<Super>space']"
+dconf write /org/gnome/shell/extensions/forge/keybindings/window-toggle-always-float "['<Shift><Super>space']"
+gsettings set org.gnome.desktop.wm.keybindings switch-input-source "[]"
+gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "[]"
 
 # pop shell
 gsettings set org.gnome.shell.extensions.pop-shell activate-launcher "[]"
@@ -99,3 +102,6 @@ gsettings set org.gnome.shell.extensions.pop-shell toggle-floating "['<Super>spa
 gsettings set org.gnome.shell.extensions.pop-shell toggle-stacking "[]"
 gsettings set org.gnome.shell.extensions.pop-shell toggle-stacking-global "['<Super>w']"
 gsettings set org.gnome.shell.extensions.pop-shell toggle-tiling "[]"
+
+# gsettings set org.gnome.mutter experimental-features "[]"
+# gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer', 'xwayland-native-scaling']"

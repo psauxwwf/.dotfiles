@@ -3,8 +3,8 @@
 ./gnome-extension-web-install auto-move-windows@gnome-shell-extensions.gcampax.github.com
 ./gnome-extension-web-install background-logo@fedorahosted.org
 ./gnome-extension-web-install blur-my-shell@aunetx
-# ./gnome-extension-web-install forge@jmmaranan.com
-# ./gnome-extension-web-install hidetopbar@mathieu.bidon.ca
+./gnome-extension-web-install forge@jmmaranan.com
+./gnome-extension-web-install hidetopbar@mathieu.bidon.ca
 ./gnome-extension-web-install just-perfection-desktop@just-perfection
 ./gnome-extension-web-install launch-new-instance@gnome-shell-extensions.gcampax.github.com
 ./gnome-extension-web-install lock-guard@fthx
@@ -18,5 +18,4 @@
 
 gnome-extensions install -f rounded-window-corners@fxgn.shell-extension.zip
 
-sudo dnf install gnome-shell-extension-pop-shell
-python3 pop-shell-patch.py
+# sudo dnf install gnome-shell-extension-pop-shell
