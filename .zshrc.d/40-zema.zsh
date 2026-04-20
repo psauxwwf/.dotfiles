@@ -1,7 +1,7 @@
 alias zi="zema"
 alias z="zema main"
 
-eval "$(zema -completion)"
+eval "$(zema --completion)"
 
 # _start_session() {
 # 	kitty @ load-config ~/.config/kitty/kitty-no-bind.conf &&

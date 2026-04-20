@@ -1,5 +1,8 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  // "plugin": [
+  //   "opencode-gemini-auth@latest"
+  // ],
   "autoupdate": false,
   "instructions": [
     "AGENTS.md",
@@ -8,6 +11,16 @@
     "lsp": "allow"
   },
   "provider": {
+    // "google": {
+    //   "options": {
+    //     "projectId": "opencode-493919",
+    //   },
+    //   "whitelist": [
+    //     "gemini-3-pro-preview",
+    //     "gemini-3-flash-preview",
+    //     "gemini-3.1-pro-preview",
+    //   ]
+    // },
     "FreeGLM": {
       "npm": "@ai-sdk/openai-compatible",
       "options": {
