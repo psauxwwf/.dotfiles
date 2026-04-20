@@ -22,7 +22,8 @@ readLineNumbers: true
 lsp:
   formatOnWrite: true
 todo:
-  eager: true
+  eager: false
+  enabled: true
 interruptMode: immediate
 doubleEscapeAction: tree
 stt:

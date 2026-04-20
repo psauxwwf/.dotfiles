@@ -13,7 +13,7 @@ dist
 \.git
 \.gitignore
 \.local\/bin\/kitty
-\.omp
 \.pi
+\.omp
 README\.md
 skills\-lock\.json
