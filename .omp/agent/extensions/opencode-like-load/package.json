@@ -1,0 +1,8 @@
+{
+	"name": "pi-extension-opencode-like-load",
+	"version": "1.0.0",
+	"type": "module",
+	"omp": {
+		"extensions": ["./index.ts"]
+	}
+}
