@@ -2,14 +2,14 @@ lastChangelogVersion: 14.1.2
 theme:
   dark: dark-dracula
   light: dark-dracula
-symbolPreset: ascii
+symbolPreset: nerd
 colorBlindMode: false
 statusLine:
-  preset: default
+  preset: minimal
   separator: ascii
   showHookStatus: true
 images:
-  blockImages: false
+  blockImages: true
 display:
   showTokenUsage: true
 modelRoles:
@@ -41,3 +41,4 @@ disabledProviders:
   - zai
   - canonical
 treeFilterMode: all
+clearOnShrink: true
