@@ -163,31 +163,45 @@ async function expandShellMacros(template: string, cwd: string): Promise<string>
 export default function opencodeLikeLoad(pi: ExtensionAPI): void {
 	const commandSpecs = discoverCommands(USER_COMMANDS_DIR);
 
-	for (const spec of commandSpecs) {
-		pi.registerCommand(spec.name, {
-			description: spec.description,
-			handler: async (args, ctx) => {
-				try {
-					const raw = readFileSync(spec.path, "utf8");
-					const { frontmatter, body } = parseFrontmatter(raw);
-					const positionalArgs = normalizeArgs(args);
-					const withArguments = applyArguments(body, positionalArgs);
-
-					if (frontmatter.model) {
-						await pi.setModel(frontmatter.model);
-					}
-
-					const renderedPrompt = await expandShellMacros(withArguments, ctx.cwd);
-					await pi.sendUserMessage(renderedPrompt, { deliverAs: "steer" });
-				} catch (error) {
-					const message = error instanceof Error ? error.message : String(error);
-					ctx.ui.notify(`[/${spec.name}] ${message}`, "error");
-				}
-			},
-		});
-	}
-
 	if (commandSpecs.length === 0) {
 		pi.logger.warn(`No user command templates found in ${USER_COMMANDS_DIR}`);
+		return;
 	}
+
+	let commandsRegistered = false;
+	const registerCommands = () => {
+		if (commandsRegistered) return;
+		commandsRegistered = true;
+
+		for (const spec of commandSpecs) {
+			pi.registerCommand(spec.name, {
+				description: spec.description,
+				handler: async (args, ctx) => {
+					try {
+						const raw = readFileSync(spec.path, "utf8");
+						const { frontmatter, body } = parseFrontmatter(raw);
+						const positionalArgs = normalizeArgs(args);
+						const withArguments = applyArguments(body, positionalArgs);
+
+						if (frontmatter.model) {
+							await pi.setModel(frontmatter.model);
+						}
+
+						const renderedPrompt = await expandShellMacros(withArguments, ctx.cwd);
+						await pi.sendUserMessage(renderedPrompt, { deliverAs: "steer" });
+					} catch (error) {
+						const message = error instanceof Error ? error.message : String(error);
+						ctx.ui.notify(`[/${spec.name}] ${message}`, "error");
+					}
+				},
+			});
+		}
+	};
+
+	// Register slash handlers after runtime initialization.
+	// This keeps native markdown commands as the single autocomplete entry, while
+	// extension handlers still take precedence at execution time.
+	pi.on("session_start", () => {
+		registerCommands();
+	});
 }
