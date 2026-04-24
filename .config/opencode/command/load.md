@@ -6,7 +6,8 @@ model: openai/gpt-5.3-codex
 ### Instructions
 
 1. Load context
-   !`git ls-files | sed 's/^/@/'`
+
+!`git ls-files | sed 's/^/@/'`
 
 2. Study all these files and the repository as a whole and understand why it is needed
 

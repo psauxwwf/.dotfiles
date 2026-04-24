@@ -8,7 +8,8 @@ model: openai/gpt-5.3-codex
 1. Load context
 
 - Include all files that contain `AI:` comments:
-  !`rg -l "AI:" | sed 's/^/@/'`
+
+!`rg -l "AI:" | sed 's/^/@/'`
 
 2. Execute
 
