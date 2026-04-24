@@ -11,19 +11,35 @@
   "permission": {
     "lsp": "allow"
   },
+  "disabled_providers": [
+    "ollama-cloud",
+    "opencode",
+    "perplexity",
+    "perplexity-agent",
+  ],
   "provider": {
+    "openai": {
+      "whitelist": [
+        "gpt-5.3-codex",
+        "gpt-5.4",
+        "gpt-5.4-fast",
+        "gpt-5.5",
+        "gpt-5.5-fast",
+      ]
+    },
     // "google": {
     //   "options": {
     //     "projectId": "opencode-493919",
     //   },
     //   "whitelist": [
-    //     "gemini-3-pro-preview",
-    //     "gemini-3-flash-preview",
     //     "gemini-3.1-pro-preview",
+    //     "gemini-3-flash-preview",
+    //     "gemini-3-pro-preview",
     //   ]
     // },
-    "FreeGLM": {
+    "freeglm": {
       "npm": "@ai-sdk/openai-compatible",
+      "name": "FreeGLM (local)",
       "options": {
         "baseURL": "http://127.0.0.1:5000/v1",
         // "apiKey": "{env:ZAI_API_KEY}",
@@ -36,33 +52,27 @@
         }
       }
     },
-    "LMStudio": {
+    "lmstudio": {
       "npm": "@ai-sdk/openai-compatible",
+      "name": "LM Studio (local)",
+      "blacklist": [
+        "openai/gpt-oss-20b",
+        "qwen/qwen3-30b-a3b-2507",
+        "qwen/qwen3-coder-30b",
+      ],
       "options": {
         "baseURL": "http://127.0.0.1:1234/v1"
-      },
-      "models": {
-        "qwen3-4b-instruct-2507": {
-          "attachment": true,
-          "tool_call": true,
-          "reasoning": true,
-        },
-        "qwen3-vl-2b-instruct": {
-          "attachment": true,
-          "tool_call": true,
-          "reasoning": true,
-        },
       }
     },
-    "Ollama": {
+    "ollama": {
       "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama (local)",
       "options": {
         "baseURL": "http://127.0.0.1:11434/v1"
       },
       "models": {
         "qwen3:1.7b": {
           "attachment": true,
-          // 1.7b может галюцинировать с tools
           "tool_call": false,
           "reasoning": false,
           "limit": {
@@ -74,22 +84,8 @@
             "reasoningEffort": "none", // вместо high/medium/low
             "reasoningSummary": "none",
             "textVerbosity": "low",
-            // - 0.0 — максимально детерминированно, сухо, без креатива.
-            // - 0.1 – 0.2 — чуть гибкости, но всё ещё “по фактам”.
-            // - 0.3 – 0.6 — сбалансированный режим.
-            // - > 0.7 — креатив, болтовня, вариативность.
             "temperature": 0.0,
           }
-        },
-        "glm-4.7:cloud": {
-          "attachment": true,
-          "tool_call": true,
-          "reasoning": true,
-        },
-        "qwen3-coder:480b-cloud": {
-          "attachment": true,
-          "tool_call": true,
-          "reasoning": true,
         }
       }
     }
@@ -107,7 +103,6 @@
         "$HOME/.env.docker",
       ],
     },
-    // https://opencode.ai/docs/mcp-servers/
     "MCP_CONTEXT7": {
       "type": "remote",
       "enabled": true,

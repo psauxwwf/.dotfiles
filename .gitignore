@@ -38,3 +38,4 @@
 /.omp/agent/terminal-sessions
 /.omp/gpu_cache.json
 /.omp/logs
+/.config/opencode/package-lock.json

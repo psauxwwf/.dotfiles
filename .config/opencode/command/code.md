@@ -7,16 +7,17 @@ model: openai/gpt-5.3-codex
 
 1. Load context
 
-- Include all files that contain `AI:` comments:
+- Include this files:
 
 !`rg -l "AI:" | sed 's/^/@/'`
 
 2. Execute
 
-- Treat ONLY comments containing `AI:` as actionable instructions.
-- Implement every `AI:` instruction by changing code as required.
+- Treat ONLY comments containing 'AI:' as actionable instructions.
+- Implement every 'AI:' instruction by changing code as required.
 
 3. Cleanup
 
-- After implementing, delete the `AI:` comment(s) you used.
+- After implementing, delete the 'AI:' comment(s) you used.
 - Do not change any other comments.
+- Do not modify comments with 'AI?'.
