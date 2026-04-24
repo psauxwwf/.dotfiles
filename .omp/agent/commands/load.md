@@ -1,6 +1,5 @@
 ---
 description: load all git tracked files
-model: openai/gpt-5.3-codex
 ---
 
 ### Instructions
