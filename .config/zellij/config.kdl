@@ -539,7 +539,7 @@ attach_to_session true
 //   - true (default)
 //   - false
 // 
-// session_serialization false
+session_serialization true
  
 // Whether pane viewports are serialized along with the session, default is false
 // Options:
@@ -563,7 +563,7 @@ attach_to_session true
  
 // How often in seconds sessions are serialized
 // 
-// serialization_interval 10000
+serialization_interval 30
  
 // Enable or disable writing of session metadata to disk (if disabled, other sessions might not know
 // metadata info on this session)
@@ -674,7 +674,7 @@ web_server_port 8082
 // of this command will be used instead of the discovered RESURRECT_COMMAND
 // can be useful for removing wrappers around commands
 // Note: be sure to escape backslashes and similar characters properly
-// post_command_discovery_hook "echo $RESURRECT_COMMAND | sed <your_regex_here>"
+post_command_discovery_hook "first=\"${RESURRECT_COMMAND%% *}\"; rest=\"${RESURRECT_COMMAND#\"$first\"}\"; case \"$first\" in /usr/local/bin/* ) candidate=\"$HOME/.local/bin/${first#/usr/local/bin/}\"; if [ -x \"$candidate\" ]; then printf '%s%s\\n' \"$candidate\" \"$rest\"; else printf '%s\\n' \"$RESURRECT_COMMAND\"; fi ;; * ) printf '%s\\n' \"$RESURRECT_COMMAND\" ;; esac"
 
 // Number of async worker tasks to spawn per active client.
 //
