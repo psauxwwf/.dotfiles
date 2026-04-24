@@ -3,9 +3,16 @@
   "keybinds": {
     "leader": "ctrl+x",
     "command_list": "<leader>p",
-    "variant_cycle": "<leader>t",
-    "session_share": "<leader>s",
+    "variant_list": "<leader>t",
     "session_fork": "<leader>f",
-    "session_rename": "<leader>r"
+    "session_rename": "<leader>r",
+    "session_parent": "<leader>Up",
+    "terminal_title_toggle": "",
+    "plugin_manager": "",
+    "display_thinking": "",
+    "tool_details": "",
+    "variant_cycle": "",
+    "scrollbar_toggle": "",
+    "session_share": ""
   }
 }
