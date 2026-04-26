@@ -1,5 +1,5 @@
 ---
-description: implement the instructions written in the comments in the code
+description: Implement the instructions written in the comments in the code
 model: openai/gpt-5.3-codex
 ---
 
@@ -20,3 +20,4 @@ model: openai/gpt-5.3-codex
 
 - After implementing, delete the `AI:` comment(s) you used.
 - Do not change any other comments.
+- Do not modify comments with 'AI?'.

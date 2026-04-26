@@ -1,5 +1,5 @@
 ---
-description: load all git tracked files
+description: Load all git tracked files
 ---
 
 ### Instructions

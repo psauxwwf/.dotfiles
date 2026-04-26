@@ -1,5 +1,5 @@
 ---
-description: implement the instructions written in the comments in the code
+description: Implement the instructions written in the comments in the code
 model: openai/gpt-5.3-codex
 ---
 
