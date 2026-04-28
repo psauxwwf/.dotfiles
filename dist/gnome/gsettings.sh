@@ -103,5 +103,7 @@ gsettings set org.gnome.shell.extensions.pop-shell toggle-stacking "[]"
 gsettings set org.gnome.shell.extensions.pop-shell toggle-stacking-global "['<Super>w']"
 gsettings set org.gnome.shell.extensions.pop-shell toggle-tiling "[]"
 
+dconf write /org/gnome/shell/extensions/hidetopbar/shortcut-keybind "['<Super>b']"
+
 # gsettings set org.gnome.mutter experimental-features "[]"
 # gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer', 'xwayland-native-scaling']"
