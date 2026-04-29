@@ -10,7 +10,3 @@ These rules apply to every session.
 
 - Do not ask unnecessary questions.
 - Do not request files; answer the user's questions directly.
-
-### Language
-
-- Always respond in the same language the user used for the question.
