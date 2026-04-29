@@ -76,6 +76,8 @@ gitleaks = "latest"
 trufflehog = "latest"
 ripgrep = "latest"
 fd = "latest"
+worktrunk = "latest"
+llmfit = "latest"
 # mc = "latest"
 
 [tasks.install]
@@ -115,18 +117,8 @@ wget https://github.com/vercel-labs/agent-browser/releases/latest/download/agent
 wget https://github.com/lightpanda-io/browser/releases/download/nightly/lightpanda-x86_64-linux -O /usr/local/bin/lightpanda && \
 chmod +x /usr/local/bin/lightpanda
 
-# llmfit
-curl -fsSL https://llmfit.axjns.dev/install.sh | sh
-
 # protols
 wget https://github.com/coder3101/protols/releases/latest/download/protols-x86_64-unknown-linux-gnu.tar.gz && tar -xf protols-x86_64-unknown-linux-gnu.tar.gz && mv protols /usr/local/bin && chmod +x /usr/local/bin/protols && rm protols-x86_64-unknown-linux-gnu.tar.gz
-
-# wt
-wget https://github.com/max-sixty/worktrunk/releases/latest/download/worktrunk-x86_64-unknown-linux-musl.tar.xz && \
-	tar -xf worktrunk-x86_64-unknown-linux-musl.tar.xz && \
-	mv worktrunk-x86_64-unknown-linux-musl/git-wt worktrunk-x86_64-unknown-linux-musl/wt /usr/local/bin && \
-	chmod +x /usr/local/bin/wt /usr/local/bin/git-wt && \
-	rm -rf worktrunk-x86_64-unknown-linux-musl.tar.xz worktrunk-x86_64-unknown-linux-musl
 
 # goose
 # wget https://github.com/aaif-goose/goose/releases/latest/download/goose-x86_64-unknown-linux-gnu.tar.gz && \
