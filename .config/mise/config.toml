@@ -111,6 +111,10 @@ set -euo pipefail
 # chrome://inspect/#remote-debugging
 wget https://github.com/vercel-labs/agent-browser/releases/latest/download/agent-browser-linux-x64 -O /usr/local/bin/agent-browser && chmod +x /usr/local/bin/agent-browser
 
+# lightpanda
+wget https://github.com/lightpanda-io/browser/releases/download/nightly/lightpanda-x86_64-linux -O /usr/local/bin/lightpanda && \
+chmod +x /usr/local/bin/lightpanda
+
 # llmfit
 curl -fsSL https://llmfit.axjns.dev/install.sh | sh
 
