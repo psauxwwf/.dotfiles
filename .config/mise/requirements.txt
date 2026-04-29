@@ -1,9 +1,9 @@
 wheel
 setuptools
 notebooklm-py[browser]
-markitdown[pptx, docx, xlsx, xls, pdf, audio-transcription, youtube-transcription]
+markitdown[pptx,docx,xlsx,xls,pdf,audio-transcription,youtube-transcription]
 
-# hermes-agent[all] @ git+https://github.com/NousResearch/hermes-agent.git
+# hermes-agent [modal,daytona,dev,messaging,cron,slack,matrix,cli,tts-premium,voice,pty,honcho,mcp,homeassistant,sms,acp,mistral,bedrock,termux,dingtalk,feishu,google,web,rl,yc-bench] @ git+https://github.com/NousResearch/hermes-agent.git
 # pysocks
 # aider-ce
 # aider-chat
