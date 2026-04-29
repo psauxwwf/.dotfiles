@@ -4,6 +4,7 @@ https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/
 https://raw.githubusercontent.com/ilyhalight/voice-over-translation/master/dist/vot.user.js
 https://addons.mozilla.org/en-US/firefox/addon/sponsorblock/
 https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/
+https://addons.mozilla.org/en-US/firefox/addon/keepassxc-browser/
 # https://github.com/mbnuqw/sidebery/releases/download/v5.5.2/sidebery-5.5.2.2.xpi
 ```
 
