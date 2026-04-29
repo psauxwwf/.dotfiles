@@ -16,6 +16,11 @@
       "sourceType": "github",
       "computedHash": "2607fc60629b82b257136dd2a7a373f0a4466c0b49df7746d845d59313c99b21"
     },
+    "lightpanda": {
+      "source": "devil666face/skills",
+      "sourceType": "github",
+      "computedHash": "11cf65edeafb6b0b29195ef6799aa77881bf16b173cc8ced46f50d452f6a90f4"
+    },
     "markitdown": {
       "source": "davila7/claude-code-templates",
       "sourceType": "github",
