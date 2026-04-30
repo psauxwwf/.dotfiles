@@ -10,23 +10,23 @@ _trans_completion() {
 }
 compdef _trans_completion trans
 
-Resume() {
+_resume() {
 	fg
 	zle push-input
 	# shellcheck disable=SC2034
 	BUFFER=""
 	zle accept-line
 }
-zle -N Resume
-bindkey "^Z" Resume
+zle -N _resume
+bindkey "^Z" _resume
 
-ClearScreen() {
+_clear_screen() {
 	zle -I
 	clear
 	zle redisplay
 }
-zle -N ClearScreen
-bindkey "^L" ClearScreen
+zle -N _clear_screen
+bindkey "^L" _clear_screen
 
 y() {
 	local tmp cwd
