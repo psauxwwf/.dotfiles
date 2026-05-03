@@ -1,7 +1,7 @@
 [user]
 	email = in@d6f.ru
 	name = devil666face
-	signingkey = 2764C76C0666DC3C
+	signingkey = devil666face
 [credential]
 	helper = store
 [core]
@@ -22,3 +22,6 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+
+[includeIf "gitdir:~/files/second-brain.md/"]
+    path = ~/files/second-brain.md/.gitconfig
