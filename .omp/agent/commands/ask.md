@@ -1,6 +1,5 @@
 ---
 description: Answer on the questions written in the comments in the code
-model: openai/gpt-5.3-codex
 ---
 
 ### Instructions

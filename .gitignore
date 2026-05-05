@@ -44,3 +44,5 @@
 /.gnupg/.#lk0x0000560fd5aff630.aorus.133700
 /.gnupg/random_seed
 /.omp/plugins/node_modules
+/.omp/plugins/omp-plugins.lock.json
+/.omp/plugins/package.json

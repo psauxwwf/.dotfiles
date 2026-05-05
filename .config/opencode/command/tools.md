@@ -1,6 +1,5 @@
 ---
 description: Available tools
-model: openai/gpt-5.4-fast
 ---
 
 ### Instructions
