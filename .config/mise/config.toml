@@ -29,12 +29,18 @@ python = "3.12.13"
 go = "latest"
 golangci-lint = "latest"
 golangci-lint-langserver = "latest"
+"github:coder3101/protols" = "latest"
+"github:go-delve/delve" = "latest"
+"github:a-h/templ" = "latest"
 
 # AI
 # opencode = "latest"
 "npm:skills" = "latest"
 "npm:opensrc" = "latest"
 "npm:@oh-my-pi/pi-coding-agent" = "latest"
+"github:lightpanda-io/browser" = "latest"
+"github:vercel-labs/agent-browser" = "latest"
+# "github:aaif-goose/goose" = "latest"
 # "npm:@gitlawb/openclaude" = "latest"
 # "npm:@mariozechner/pi-coding-agent" = "latest"
 # "npm:agent-browser" = "latest"
@@ -62,7 +68,7 @@ cloudflared = "latest"
 dust = "latest"
 helix = "latest"
 jq = "latest"
-lazydocker = "v0.24.4"
+lazydocker = "latest"  # "v0.24.4"
 lazygit = "latest"
 lsd = "latest"
 rclone = "latest"
@@ -111,44 +117,22 @@ exit 1
 [tasks.wget]
 run = """
 set -euo pipefail
-
-# agent-browser
-# chrome://inspect/#remote-debugging
-wget https://github.com/vercel-labs/agent-browser/releases/latest/download/agent-browser-linux-x64 -O /usr/local/bin/agent-browser && chmod +x /usr/local/bin/agent-browser
-
-# lightpanda
-wget https://github.com/lightpanda-io/browser/releases/download/nightly/lightpanda-x86_64-linux -O /usr/local/bin/lightpanda && \
-chmod +x /usr/local/bin/lightpanda
-
-# protols
-wget https://github.com/coder3101/protols/releases/latest/download/protols-x86_64-unknown-linux-gnu.tar.gz && tar -xf protols-x86_64-unknown-linux-gnu.tar.gz && mv protols /usr/local/bin && chmod +x /usr/local/bin/protols && rm protols-x86_64-unknown-linux-gnu.tar.gz
-
-# goose
-# wget https://github.com/aaif-goose/goose/releases/latest/download/goose-x86_64-unknown-linux-gnu.tar.gz && \
-#   tar -xf goose-x86_64-unknown-linux-gnu.tar.gz && \
-#   mv goose /usr/local/bin && \
-#   chmod +x /usr/local/bin/goose && \
-#   rm -rf goose-x86_64-unknown-linux-gnu.tar.gz
-
 exit 0
 """
 
 [tasks.pip]
 run = """
 set -euo pipefail
-pip install --no-cache-dir --upgrade -r ~/.config/mise/requirements.txt && exit 0
-exit 1
+pip install --no-cache-dir --upgrade -r ~/.config/mise/requirements.txt
+exit 0
 """
 
 [tasks.golang]
 run = """
 set -euo pipefail
 go install golang.org/x/tools/gopls@latest && \
-  go install github.com/go-delve/delve/cmd/dlv@latest && \
-  go install golang.org/x/tools/cmd/goimports@latest && \
-  go install github.com/a-h/templ/cmd/templ@latest && \
-  exit 0
-exit 1
+  go install golang.org/x/tools/cmd/goimports@latest
+exit 0
 """
 
 [tasks.npm]
@@ -158,9 +142,8 @@ npm i -g \
 	typescript \
 	typescript-language-server \
 	@vue/language-server \
-	@vue/typescript-plugin \
-  && exit 0
-exit 1
+	@vue/typescript-plugin
+exit 0
 """
 
 [tasks.prune]
@@ -173,9 +156,8 @@ mise prune && \
   npm cache clean --force && \
   npm dedup && \
   rm -rf ~/.bun/install/cache && \
-  rm -rf ~/.bun/cache && \
-  exit 0
-exit 1
+  rm -rf ~/.bun/cache
+exit 0
 """
 
 [settings]
