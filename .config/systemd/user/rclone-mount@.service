@@ -5,9 +5,9 @@ After=network-online.target
 
 [Service]
 Type=simple
-ExecStartPre=mkdir -p %h/gd/%i
+ExecStartPre=mkdir -p %h/drive/%i
 ExecStartPre=mkdir -p %h/.cache/rclone/%i
-ExecStart=rclone mount %i: %h/gd/%i \
+ExecStart=rclone mount %i: %h/drive/%i \
 	--config %h/.config/rclone/rclone.conf \
 	--dir-cache-time 1000h \
 	--poll-interval 30s \
@@ -31,7 +31,7 @@ ExecStart=rclone mount %i: %h/gd/%i \
 	--low-level-retries 10 \
 	--umask 002 \
 	--log-level INFO
-ExecStop=/bin/fusermount -uz %h/gd/%i
+ExecStop=/bin/fusermount -uz %h/drive/%i
 Restart=always
 RestartSec=10
 
