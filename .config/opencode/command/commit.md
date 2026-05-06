@@ -1,5 +1,6 @@
 ---
 description: Git commit
+agent: commiter
 subtask: true
 ---
 
@@ -13,7 +14,7 @@ subtask: true
 
 4. Final reply must be exactly one short sentence only.
 
-5. When finishing the subagent task, do not run any additional commands. Just reply with the final status sentence.
+5. Do not delegate any work back to the parent agent.
 
 6. If everything succeeded, reply: `Everything is fine.`
 
