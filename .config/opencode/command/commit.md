@@ -1,6 +1,5 @@
 ---
 description: Git commit
-agent: commiter
 subtask: true
 ---
 
@@ -16,8 +15,6 @@ subtask: true
 
 5. Do not delegate any work back to the parent agent.
 
-6. If everything succeeded, reply: `Everything is fine.`
+6. If something failed, reply: `Error: <brief reason>.`
 
-7. If something failed, reply: `Error: <brief reason>.`
-
-8. Do not include any other details, logs, bullets, or explanations.
+7. Do not include any other details, logs, bullets, or explanations.
