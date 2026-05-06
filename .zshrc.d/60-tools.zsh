@@ -5,6 +5,17 @@ alias default-ssh-agent='eval "$(ssh-agent -s)"'
 alias laz='lazygit'
 alias lad='lazydocker'
 
+chpwd() {
+	if [[ -d .venv ]]; then
+		source .venv/bin/activate
+	elif [[ -d venv ]]; then
+		source venv/bin/activate
+	elif [[ -n "$VIRTUAL_ENV" ]]; then
+		deactivate
+	fi
+}
+chpwd
+
 _trans_completion() {
 	_files
 }
