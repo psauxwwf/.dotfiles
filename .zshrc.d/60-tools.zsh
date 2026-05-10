@@ -1,5 +1,6 @@
 alias open='xdg-open'
-alias ls='lsd'
+alias ls='lsd --icon=never --date "+%Y-%m-%d %H:%M"'
+alias l='lsd --icon=never --git --long --total-size --date "+%Y-%m-%d %H:%M" --blocks permission,user,group,size,date,name,git'
 alias docker-compose='docker compose'
 alias default-ssh-agent='eval "$(ssh-agent -s)"'
 alias laz='lazygit'
