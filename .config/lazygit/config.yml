@@ -1,6 +1,40 @@
 gui:
-  showIcons: true
-
-# git:
-#   log:
-#     showWholeGraph: true # брать все ветки, а не только текущую
+  nerdFontsVersion: ""
+  # nerdFontsVersion: "3"
+  border: rounded
+  # showPanelJumps: false
+  showListFooter: false
+  showRandomTip: false
+  authorColors:
+    "*": "#bd93f9"
+  theme:
+    activeBorderColor:
+      - "#ff79c6"
+      - bold
+    inactiveBorderColor:
+      - "#bd93f9"
+    searchingActiveBorderColor:
+      - "#8be9fd"
+      - bold
+    optionsTextColor:
+      - "#bd93f9"
+    selectedLineBgColor:
+      - "#44475a"
+    inactiveViewSelectedLineBgColor:
+      - "#44475a"
+    cherryPickedCommitFgColor:
+      - "#282a36"
+    cherryPickedCommitBgColor:
+      - "#8be9fd"
+    markedBaseCommitFgColor:
+      - "#282a36"
+    markedBaseCommitBgColor:
+      - "#f1fa8c"
+    unstagedChangesColor:
+      - "#ff5555"
+    defaultFgColor:
+      - "#f8f8f2"
+git:
+  log:
+    showGraph: never
+    # showWholeGraph: true # брать все ветки, а не только текущую

@@ -1,0 +1,19 @@
+gui:
+  border: "rounded"
+  showBottomLine: false
+  expandFocusedSidePanel: false
+  # containerStatusHealthStyle: "short"
+  theme:
+    activeBorderColor:
+      - magenta
+      - bold
+    inactiveBorderColor:
+      - blue
+    selectedLineBgColor:
+      - black
+    optionsTextColor:
+      - magenta
+logs:
+  timestamps: false
+  since: "60m"
+  tail: ""
