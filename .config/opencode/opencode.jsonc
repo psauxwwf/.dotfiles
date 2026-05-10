@@ -21,6 +21,11 @@
   ],
   "provider": {
     "openai": {
+      "options": {
+        "headers": {
+          "User-Agent": "codex_cli_rs/0.129.0 (Fedora 43; x86_64) kitty"
+        }
+      },
       "whitelist": [
         "gpt-5.3-codex",
         "gpt-5.4",
@@ -32,6 +37,9 @@
     "google": {
       "options": {
         "projectId": "opencode-493919",
+        "headers": {
+          "User-Agent": "GeminiCLI/0.41.2/gemini-3.1-pro-preview (linux; x64; terminal)"
+        }
       },
       "whitelist": [
         "gemini-3.1-pro-preview",
