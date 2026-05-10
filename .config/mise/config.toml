@@ -91,6 +91,7 @@ llmfit = "latest"
 "github:psauxwwf/olcrtc" = "latest"
 "github:psauxwwf/t2s" = "v05.10.15"
 "github:psauxwwf/krot" = "v05.10.15"
+"github:psauxwwf/zema" = "v05.10.16"
 # mc = "latest"
 
 [tasks.install]
