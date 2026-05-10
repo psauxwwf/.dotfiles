@@ -14,7 +14,7 @@ symbol = "━"
 style = "current_line"
 
 [character]
-error_symbol = "[x](bold red)"
+error_symbol = "[>](bold red)"
 success_symbol = "[>](bold green)"
 
 [cmd_duration]
@@ -29,18 +29,18 @@ style = 'comment'
 [directory]
 format = " [$path]($style)[$read_only]($read_only_style) "
 style = "bold green"
-read_only = " [ro]"
+read_only = " 🔒"
 
 [git_branch]
 style = "bold pink"
-symbol = "± "
+symbol = "🌿 "
 
 [git_status]
 style = "bold red"
 
 [hostname]
 style = "bold purple"
-ssh_symbol = "ssh "
+ssh_symbol = "🔐 "
 ssh_only = false
 
 [username]
@@ -67,194 +67,194 @@ red = "#ff5555"
 yellow = "#f1fa8c"
 
 [aws]
-symbol = "AWS "
+symbol = "☁️ "
 style = "bold orange"
 
 [buf]
-symbol = "BUF "
+symbol = "📦 "
 
 [bun]
-symbol = "BUN "
+symbol = "🍞 "
 
 [c]
-symbol = "C "
+symbol = "🔧 "
 
 [cpp]
-symbol = "C++ "
+symbol = "⚙️ "
 
 [cmake]
-symbol = "CMake "
+symbol = "🛠️ "
 
 [conda]
-symbol = "○ "
+symbol = "🧪 "
 
 [crystal]
-symbol = "◇ "
+symbol = "🔮 "
 
 [dart]
-symbol = "Dart "
+symbol = "🎯 "
 
 [deno]
-symbol = "Deno "
+symbol = "🦕 "
 
 [docker_context]
-symbol = "Docker "
+symbol = "🐳 "
 
 [elixir]
-symbol = "Elixir "
+symbol = "💧 "
 
 [elm]
-symbol = "Elm "
+symbol = "🌳 "
 
 [fennel]
-symbol = "Fn "
+symbol = "🌿 "
 
 [fortran]
-symbol = "F "
+symbol = "📐 "
 
 [fossil_branch]
-symbol = "± "
+symbol = "🌿 "
 
 [gcloud]
-symbol = "GCP "
+symbol = "☁️ "
 
 [git_commit]
-tag_symbol = ' tag '
+tag_symbol = ' 🏷️ '
 
 [golang]
-symbol = "Go "
+symbol = "🐹 "
 
 [gradle]
-symbol = "Gradle "
+symbol = "🐘 "
 
 [guix_shell]
-symbol = "Guix "
+symbol = "📦 "
 
 [haskell]
-symbol = "λ "
+symbol = "🎓 "
 
 [haxe]
-symbol = "Hx "
+symbol = "🪓 "
 
 [hg_branch]
-symbol = "± "
+symbol = "🌿 "
 
 [java]
-symbol = "Java "
+symbol = "☕ "
 
 [julia]
-symbol = "Julia "
+symbol = "🟣 "
 
 [kotlin]
-symbol = "Kt "
+symbol = "🟪 "
 
 [lua]
-symbol = "Lua "
+symbol = "🌙 "
 
 [memory_usage]
-symbol = "RAM "
+symbol = "🧠 "
 
 [meson]
-symbol = "Meson "
+symbol = "🧱 "
 
 [nim]
-symbol = "Nim "
+symbol = "👑 "
 
 [nix_shell]
-symbol = "Nix "
+symbol = "❄️ "
 
 [nodejs]
-symbol = "Node "
+symbol = "🟢 "
 
 [ocaml]
-symbol = "OCaml "
+symbol = "🐫 "
 
 [os.symbols]
-Alpaquita = "alp "
-Alpine = "alp "
-AlmaLinux = "alma "
-Amazon = "amz "
-Android = "andr "
-AOSC = "aosc "
-Arch = "arch "
-Artix = "art "
-CachyOS = "cachy "
-CentOS = "cent "
-Debian = "deb "
-DragonFly = "dfly "
-Emscripten = "ems "
-EndeavourOS = "ende "
-Fedora = "fed "
-FreeBSD = "fbsd "
-Garuda = "gar "
-Gentoo = "gen "
-HardenedBSD = "hbsd "
-Illumos = "illu "
-Kali = "kali "
-Linux = "linux "
-Mabox = "mabox "
-Macos = "mac "
-Manjaro = "manj "
-Mariner = "mrnr "
-MidnightBSD = "mbsd "
-Mint = "mint "
-NetBSD = "nbsd "
-NixOS = "nix "
-Nobara = "noba "
-OpenBSD = "obsd "
-openSUSE = "suse "
-OracleLinux = "ol "
-Pop = "pop "
-Raspbian = "rasp "
-Redhat = "rhat "
-RedHatEnterprise = "rhel "
-RockyLinux = "rocky "
-Redox = "redox "
-Solus = "solus "
-SUSE = "suse "
-Ubuntu = "ubnt "
-Unknown = "? "
-Void = "void "
-Windows = "win "
+Alpaquita = "🦙 "
+Alpine = "🏔️ "
+AlmaLinux = "💙 "
+Amazon = "🛒 "
+Android = "🤖 "
+AOSC = "🅰️ "
+Arch = "🏹 "
+Artix = "🧩 "
+CachyOS = "💨 "
+CentOS = "💠 "
+Debian = "🌀 "
+DragonFly = "🐉 "
+Emscripten = "🌐 "
+EndeavourOS = "🚀 "
+Fedora = "🎩 "
+FreeBSD = "🆓 "
+Garuda = "🦅 "
+Gentoo = "🧬 "
+HardenedBSD = "🛡️ "
+Illumos = "💡 "
+Kali = "🗡️ "
+Linux = "🐧 "
+Mabox = "📦 "
+Macos = "🍎 "
+Manjaro = "🌲 "
+Mariner = "⛵ "
+MidnightBSD = "🌙 "
+Mint = "🌿 "
+NetBSD = "🚩 "
+NixOS = "❄️ "
+Nobara = "🎩 "
+OpenBSD = "🐡 "
+openSUSE = "🦎 "
+OracleLinux = "🔴 "
+Pop = "🍿 "
+Raspbian = "🍓 "
+Redhat = "🎩 "
+RedHatEnterprise = "🎩 "
+RockyLinux = "🪨 "
+Redox = "🧪 "
+Solus = "☀️ "
+SUSE = "🦎 "
+Ubuntu = "🟠 "
+Unknown = "❓ "
+Void = "🕳️ "
+Windows = "🪟 "
 
 [package]
-symbol = "pkg "
+symbol = "📦 "
 
 [perl]
-symbol = "pl "
+symbol = "🐪 "
 
 [php]
-symbol = "php "
+symbol = "🐘 "
 
 [pijul_channel]
-symbol = "± "
+symbol = "🌿 "
 
 [pixi]
-symbol = "pixi "
+symbol = "✨ "
 
 [python]
-symbol = "py "
+symbol = "🐍 "
 
 [rlang]
-symbol = "R "
+symbol = "📊 "
 
 [ruby]
-symbol = "rb "
+symbol = "💎 "
 
 [rust]
-symbol = "rs "
+symbol = "🦀 "
 
 [scala]
-symbol = "sc "
+symbol = "🟥 "
 
 [status]
-symbol = "! "
+symbol = "❌ "
 
 [swift]
-symbol = "sw "
+symbol = "🕊️ "
 
 [xmake]
-symbol = "xm "
+symbol = "🛠️ "
 
 [zig]
-symbol = "zig "
+symbol = "⚡ "
