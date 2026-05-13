@@ -19,6 +19,12 @@ If the user uses `LB:` in their message
 1. Load the `lightpanda` skill.
 2. Use `lightpanda` for all web requests.
 
+### SK Trigger
+
+If the user uses `SK:<skill-name>` in their message
+
+1. Load the skill named `<skill-name>`.
+
 ### Language
 
 - Always respond in the same language the user used for the question.

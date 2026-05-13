@@ -1,13 +1,13 @@
 [user]
-	email = in@d6f.ru
-	name = devil666face
-	signingkey = devil666face
+	email = psauxwwf@d6f.ru
+	name = psauxwwf
+	signingkey = psauxwwf
 [credential]
 	helper = store
 [core]
 	autocrlf = false
 	editor = hx
-	sshCommand = ssh -i ~/.ssh/id_ed25519_git_devil666face -o IdentitiesOnly=yes
+	sshCommand = ssh -i ~/.ssh/id_ed25519_git_psauxwwf -o IdentitiesOnly=yes
 [http]
 	sslVerify = false
 [commit]
