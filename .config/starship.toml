@@ -19,7 +19,7 @@ success_symbol = "[>](bold green)"
 
 [cmd_duration]
 style = "bold yellow"
-format = "[$duration]($style)"
+format = "[$duration]($style) "
 
 [time]
 disabled = false
