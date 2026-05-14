@@ -92,7 +92,7 @@ llmfit = "latest"
 "github:Achno/gowall" = "latest"
 "github:psauxwwf/olcrtc" = "latest"
 "github:psauxwwf/t2s" = "latest"
-"github:psauxwwf/krot" = "latest"
+"github:psauxwwf/krot" = "v05.13.17"
 "github:psauxwwf/zema" = "latest"
 # mc = "latest"
 
