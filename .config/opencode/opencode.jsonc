@@ -7,6 +7,7 @@
   "autoupdate": false,
   "instructions": [
     "AGENTS.md",
+    // "GRAYMATTER.md",
   ],
   "permission": {
     "lsp": "allow"
@@ -123,6 +124,15 @@
       "enabled": true,
       "url": "https://mcp.grep.app"
     },
+    // "graymatter": {
+    //   "command": [
+    //     "graymatter",
+    //     "mcp",
+    //     "serve"
+    //   ],
+    //   "enabled": true,
+    //   "type": "local"
+    // },
     // "MCP_EXA": {
     //   "type": "remote",
     //   "enabled": false,
