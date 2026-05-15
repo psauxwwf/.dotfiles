@@ -98,27 +98,10 @@ llmfit = "latest"
 
 [tasks.install]
 run = """
-mise run pkg
 mise run wget
 mise run pip
 mise run golang
 mise run npm
-"""
-
-[tasks.pkg]
-run = """
-set -euo pipefail
-pkg="\
-poppler-utils \
-"
-ins() {
-  local pm="$1"
-  sudo "$pm" install -y "$pkg"
-}
-for pm in apt-get dnf; do
-  command -v "$pm" >/dev/null && ins "$pm" && exit 0
-done
-exit 1
 """
 
 [tasks.wget]
