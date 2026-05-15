@@ -18,6 +18,11 @@ sudo mv JetBrainsMono /usr/share/fonts
 fc-cache -fv
 rm JetBrainsMono.zip
 
+wget https://github.com/ful1e5/Bibata_Cursor/releases/download/v2.0.7/Bibata-Modern-Ice.tar.xz
+tar -xf Bibata-Modern-Ice.tar.xz
+sudo mv Bibata-Modern-Ice /usr/share/icons
+rm Bibata-Modern-Ice.tar.xz
+
 gsettings set org.gnome.desktop.wm.preferences button-layout ':'
 
 wget https://github.com/hardpixel/unite-shell/releases/download/v84/unite-v84.zip
