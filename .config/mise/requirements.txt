@@ -2,7 +2,7 @@ wheel
 setuptools
 notebooklm-py[browser]
 markitdown[pptx,docx,xlsx,xls,pdf,audio-transcription,youtube-transcription]
-huggingface_hub[cli]
+huggingface_hub
 
 # hermes-agent [modal,daytona,dev,messaging,cron,slack,matrix,cli,tts-premium,voice,pty,honcho,mcp,homeassistant,sms,acp,mistral,bedrock,termux,dingtalk,feishu,google,web,rl,yc-bench] @ git+https://github.com/NousResearch/hermes-agent.git
 # pysocks
