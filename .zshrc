@@ -14,6 +14,11 @@ plugins=(
 # shellcheck disable=SC1091
 [[ ! -f $ZSH/oh-my-zsh.sh ]] || source "$ZSH/oh-my-zsh.sh"
 
+if ! (( ${+functions[compdef]} )); then
+	autoload -Uz compinit
+	compinit -i -d "$ZSH_COMPDUMP"
+fi
+
 export STARSHIP_CONFIG="$HOME/.config/starship.unicode.toml"
 
 for zshrc_file in "$HOME/.zshrc.d"/*.zsh; do
