@@ -150,6 +150,7 @@ mise prune && \
   uv cache clean && \
   npm cache clean --force && \
   npm dedup && \
+  go clean -cache -modcache -testcache -fuzzcache && \
   rm -rf ~/.bun/install/cache && \
   rm -rf ~/.bun/cache
 exit 0
