@@ -106,12 +106,14 @@ mise run npm
 
 [tasks.wget]
 run = """
+#!/usr/bin/env bash
 set -euo pipefail
 exit 0
 """
 
 [tasks.pip]
 run = """
+#!/usr/bin/env bash
 set -euo pipefail
 pip install --no-cache-dir --upgrade -r ~/.config/mise/requirements.txt
 exit 0
@@ -119,6 +121,7 @@ exit 0
 
 [tasks.golang]
 run = """
+#!/usr/bin/env bash
 set -euo pipefail
 go install golang.org/x/tools/gopls@latest && \
   go install golang.org/x/tools/cmd/goimports@latest
@@ -127,6 +130,7 @@ exit 0
 
 [tasks.npm]
 run = """
+#!/usr/bin/env bash
 set -euo pipefail
 npm i -g \
 	typescript \
@@ -138,6 +142,7 @@ exit 0
 
 [tasks.prune]
 run = """
+#!/usr/bin/env bash
 set -euo pipefail
 mise prune && \
   mise cache clear && \

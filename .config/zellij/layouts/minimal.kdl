@@ -7,14 +7,14 @@ layout {
             plugin location="compact-bar"
         }
     }
-        // left main pane (60%) + right stacked panes
+        // left main pane (55%) + right stacked panes
     swap_tiled_layout name="Lstack" {
         tab max_panes=2 {
             pane
         }
         tab {
             pane split_direction="vertical" {
-                pane size="60%"
+                pane size="55%"
                 pane stacked=true {
                     children
                 }
@@ -28,13 +28,13 @@ layout {
         }
         tab exact_panes=3 {
             pane split_direction="vertical" {
-                pane size="60%"
+                pane size="55%"
                 pane
             }
         }
         tab exact_panes=4 {
             pane split_direction="vertical" {
-                pane size="60%"
+                pane size="55%"
                 pane split_direction="horizontal" {
                     pane
                     pane
@@ -43,7 +43,7 @@ layout {
         }
         tab {
             pane split_direction="vertical" {
-                pane size="60%"
+                pane size="55%"
                 pane split_direction="horizontal" {
                     pane
                     pane split_direction="horizontal" {
@@ -57,7 +57,7 @@ layout {
     swap_tiled_layout name="Vert" {
         tab exact_panes=3 {
             pane split_direction="vertical" {
-                pane size="60%"
+                pane size="55%"
                 pane
             }
         }
@@ -71,7 +71,7 @@ layout {
     swap_tiled_layout name="Horiz" {
         tab exact_panes=3 {
             pane split_direction="horizontal" {
-                pane size="70%"
+                pane size="60%"
                 pane
             }
         }
@@ -100,7 +100,7 @@ layout {
         }
         tab {
             pane split_direction="vertical" {
-                pane size="60%"
+                pane size="55%"
                 pane split_direction="horizontal" {
                     children
                 }
@@ -114,7 +114,7 @@ layout {
         }
         tab {
             pane split_direction="horizontal" {
-                pane size="60%"
+                pane size="55%"
                 pane split_direction="vertical" {
                     children
                 }
