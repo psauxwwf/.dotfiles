@@ -34,7 +34,7 @@ golangci-lint-langserver = "latest"
 "github:a-h/templ" = "latest"
 
 # AI
-# opencode = "latest"
+opencode = "latest"
 "npm:skills" = "latest"
 "npm:opensrc" = "latest"
 "npm:@oh-my-pi/pi-coding-agent" = "latest"
