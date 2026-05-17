@@ -1,2 +1,2 @@
 #!/bin/zsh
-exec proxychains4 -q -f ~/.ai/proxychains.conf /usr/local/bin/opencode "$@"
+exec proxychains4 -q /usr/local/bin/opencode "$@"

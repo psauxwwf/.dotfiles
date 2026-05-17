@@ -5,6 +5,11 @@ alias docker-compose='docker compose'
 alias default-ssh-agent='eval "$(ssh-agent -s)"'
 alias laz='lazygit'
 alias lad='lazydocker'
+alias pr='proxychains4 -q -f /etc/proxychains.conf'
+
+proxy() {
+	HTTP_PROXY=$PROXY HTTPS_PROXY=$PROXY ALL_PROXY=$PROXY NO_PROXY=$NO_PROXY "$@"
+}
 
 chpwd() {
 	if [[ -d .venv ]]; then
@@ -250,3 +255,5 @@ oconnect() {
 		echo -e "${OPENCONNECT_PASSWORD}\nyes\n"
 	) | sudo openconnect "$OPENCONNECT_SERVER" --user="$OPENCONNECT_USERNAME" --passwd-on-stdin --allow-insecure-crypto --no-system-trust
 }
+
+compdef _opencode_yargs_completions opencode
