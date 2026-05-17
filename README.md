@@ -102,7 +102,7 @@ gnome-tweaks
 ### Set configs via stow
 
 ```bash
-stow --verbose=1 .
+stow --no-folding --verbose=1 .
 ```
 
 ### Install mise and all dev tools
