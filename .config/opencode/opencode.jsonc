@@ -1,5 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "shell": "/bin/zsh",
   "plugin": [
     // "opencode-openloop@latest",
     "opencode-gemini-auth@latest",
