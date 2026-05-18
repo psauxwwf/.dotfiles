@@ -4,26 +4,25 @@
     "agent-browser": {
       "source": "vercel-labs/agent-browser",
       "sourceType": "github",
-      "computedHash": "c19a532a3777698b80b35270939a1dc559da451381971b3e1e78174d1ab54863"
-    },
-    "gh-cli": {
-      "source": "github/awesome-copilot",
-      "sourceType": "github",
-      "computedHash": "cbe644b0c6760ae2a1eaafa39133920d889331327065d92a131675a665273e56"
+      "skillPath": "skills/agent-browser/SKILL.md",
+      "computedHash": "edad4d958bc4baf821e3391bb9889a03a8bbc0e4d7f54ee4a5f30837654fed83"
     },
     "git-commit": {
       "source": "github/awesome-copilot",
       "sourceType": "github",
+      "skillPath": "skills/git-commit/SKILL.md",
       "computedHash": "2607fc60629b82b257136dd2a7a373f0a4466c0b49df7746d845d59313c99b21"
     },
     "lightpanda": {
-      "source": "devil666face/skills",
+      "source": "psauxwwf/skills",
       "sourceType": "github",
+      "skillPath": "lightpanda/SKILL.md",
       "computedHash": "11cf65edeafb6b0b29195ef6799aa77881bf16b173cc8ced46f50d452f6a90f4"
     },
     "markitdown": {
       "source": "davila7/claude-code-templates",
       "sourceType": "github",
+      "skillPath": "cli-tool/components/skills/scientific/markitdown/SKILL.md",
       "computedHash": "2f5a663e88f112dea8e7bdae3cfb4c57e03fd2ff82d7bf1a6e1e6d2b0c3a6fc2"
     }
   }
