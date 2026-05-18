@@ -1,0 +1,274 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+URL=""
+AUTO_MODE=false
+LANGS=""
+TITLE=""
+DESCRIPTION=""
+SOURCE_URL=""
+TMP_DIR=""
+YT_DLP_CMD=""
+
+print_usage() {
+	echo "Usage: $0 [-l <language>] [-a] <video_url>" >&2
+	echo "Example 1: $0 -l ru https://youtu.be/F1Ulyh55w7E" >&2
+	echo "Example 2: $0 -l en https://youtu.be/F1Ulyh55w7E" >&2
+	echo "Example 3: $0 -a https://www.youtube.com/watch?v=xxxx" >&2
+}
+
+ensure_yt_dlp_installed() {
+	local candidates=(
+		yt-dlp
+		yt-dlp_linux
+		yt-dlp_linux_aarch64
+		yt-dlp_musllinux
+		yt-dlp_musllinux_aarch64
+	)
+	local cmd=""
+
+	for cmd in "${candidates[@]}"; do
+		if command -v "$cmd" >/dev/null 2>&1; then
+			YT_DLP_CMD="$cmd"
+			return
+		fi
+	done
+
+	while IFS= read -r cmd; do
+		case "$cmd" in
+		yt-dlp*)
+			if command -v "$cmd" >/dev/null 2>&1; then
+				YT_DLP_CMD="$cmd"
+				return
+			fi
+			;;
+		esac
+	done < <(compgen -c)
+
+	echo "Error: no 'yt-dlp*' command found in PATH." >&2
+	echo "Please install yt-dlp: https://github.com/yt-dlp/yt-dlp?tab=readme-ov-file#recommended" >&2
+	exit 1
+}
+
+if [ $# -lt 1 ]; then
+	print_usage
+	exit 1
+fi
+
+while getopts ":l:ah" opt; do
+	case "$opt" in
+	l)
+		LANGS="$OPTARG"
+		;;
+	a)
+		AUTO_MODE=true
+		;;
+	h)
+		print_usage
+		exit 0
+		;;
+	:)
+		echo "Error: option -$OPTARG requires a value." >&2
+		print_usage
+		exit 1
+		;;
+	\?)
+		echo "Unknown option: -$OPTARG" >&2
+		print_usage
+		exit 1
+		;;
+	esac
+done
+
+shift $((OPTIND - 1))
+
+if [ "$#" -ne 1 ]; then
+	echo "Error: provide exactly one video URL as the last argument." >&2
+	print_usage
+	exit 1
+fi
+
+URL="$1"
+
+if [ -z "$URL" ]; then
+	echo "Error: video URL is required." >&2
+	print_usage
+	exit 1
+fi
+
+if [ "$AUTO_MODE" = true ]; then
+	LANGS=".*-orig"
+elif [ -z "$LANGS" ]; then
+	LANGS="en"
+elif [[ "$LANGS" == *,* ]]; then
+	echo "Error: provide only one language (for example: ru or en)." >&2
+	exit 1
+fi
+
+download_subs() {
+	local sub_langs="$1"
+	"$YT_DLP_CMD" \
+		--sleep-requests 1 \
+		--retries 3 \
+		--skip-download \
+		--write-subs \
+		--write-auto-subs \
+		--sub-langs "$sub_langs" \
+		--sub-format "vtt/srt/best" \
+		-o "$TMP_DIR/%(title)s.%(ext)s" \
+		"$URL" \
+		>/dev/null
+}
+
+fetch_video_metadata() {
+	TITLE="$("$YT_DLP_CMD" --skip-download --print "%(title)s" "$URL")"
+	DESCRIPTION="$("$YT_DLP_CMD" --skip-download --print "%(description)s" "$URL")"
+	SOURCE_URL="$("$YT_DLP_CMD" --skip-download --print "%(webpage_url)s" "$URL")"
+}
+
+to_inline_text() {
+	local value="$1"
+	value="${value//$'\r'/ }"
+	value="${value//$'\n'/ }"
+	printf '%s' "$value"
+}
+
+print_yaml_multiline_field() {
+	local key="$1"
+	local value="$2"
+	echo "$key: |"
+	if [ -z "$value" ]; then
+		echo "  "
+		return
+	fi
+	printf '%s\n' "$value" | while IFS= read -r line || [ -n "$line" ]; do
+		echo "  $line"
+	done
+}
+
+print_text_from_file() {
+	local file_path="$1"
+	awk '
+	/^WEBVTT$/ {next}
+	/^[[:space:]]*$/ {next}
+	/^[0-9]+$/ {next}
+	/^[0-9][0-9]:[0-9][0-9]:[0-9][0-9][.,][0-9][0-9][0-9][[:space:]]+-->[[:space:]]+[0-9][0-9]:[0-9][0-9]:[0-9][0-9][.,][0-9][0-9][0-9]/ {next}
+	/^(NOTE|Kind:|Language:)/ {next}
+	{
+		line=$0
+		gsub(/<[^>]+>/, "", line)
+		gsub(/[[:space:]]+/, " ", line)
+		sub(/^ /, "", line)
+		sub(/ $/, "", line)
+		if (line != "" && line != prev) {
+			if (text != "") {
+				text = text " " line
+			} else {
+				text = line
+			}
+			prev=line
+		}
+	}
+	END {
+		gsub(/[[:space:]]+/, " ", text)
+		sub(/^ /, "", text)
+		sub(/ $/, "", text)
+
+		n = 0
+		while (match(text, /\./)) {
+			s = substr(text, 1, RSTART)
+			text = substr(text, RSTART + 1)
+			gsub(/[[:space:]]+/, " ", s)
+			sub(/^ /, "", s)
+			sub(/ $/, "", s)
+			if (s != "") {
+				n++
+				sent[n] = s
+			}
+		}
+
+		gsub(/[[:space:]]+/, " ", text)
+		sub(/^ /, "", text)
+		sub(/ $/, "", text)
+		if (text != "") {
+			n++
+			sent[n] = text
+		}
+
+		for (i = 1; i <= n; i++) {
+			out = sent[i]
+			while (length(out) < 88 && i < n) {
+				i++
+				out = out " " sent[i]
+			}
+			gsub(/[[:space:]]+/, " ", out)
+			sub(/^ /, "", out)
+			sub(/ $/, "", out)
+			if (out != "") {
+				print out
+			}
+		}
+	}
+	' "$file_path"
+}
+
+print_markdown_output() {
+	local found_any=false
+	local subtitles_text=""
+	local file_text=""
+	shopt -s nullglob
+	for file_path in "$TMP_DIR"/*.vtt "$TMP_DIR"/*.srt; do
+		if [ -f "$file_path" ]; then
+			found_any=true
+			file_text="$(print_text_from_file "$file_path")"
+			if [ -n "$file_text" ]; then
+				if [ -n "$subtitles_text" ]; then
+					subtitles_text+=$'\n\n'
+				fi
+				subtitles_text+="$file_text"
+			fi
+		fi
+	done
+	shopt -u nullglob
+
+	if [ "$found_any" = false ]; then
+		echo "Warning: subtitles were downloaded, but no .vtt/.srt file was found in temp dir." >&2
+		return
+	fi
+
+	title_md="$(to_inline_text "$TITLE")"
+	url_md="$(to_inline_text "$SOURCE_URL")"
+
+	echo "---"
+	echo
+	echo "title: $title_md"
+	print_yaml_multiline_field "description" "$DESCRIPTION"
+	echo "url: $url_md"
+	echo
+	echo "---"
+	echo
+	echo "$subtitles_text"
+}
+
+TMP_DIR="$(mktemp -d)"
+trap 'rm -rf "$TMP_DIR"' EXIT
+
+ensure_yt_dlp_installed
+
+fetch_video_metadata
+
+if download_subs "$LANGS"; then
+	print_markdown_output
+	exit 0
+fi
+
+if [ "$AUTO_MODE" = false ]; then
+	echo "Failed to download language '$LANGS'. Trying fallback: --auto (only *-orig)..." >&2
+	if download_subs ".*-orig"; then
+		print_markdown_output
+		exit 0
+	fi
+fi
+
+echo "Error: failed to download subtitles for '$LANGS' and with --auto fallback." >&2
+exit 1

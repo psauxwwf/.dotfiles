@@ -7,11 +7,23 @@
       "skillPath": "skills/agent-browser/SKILL.md",
       "computedHash": "edad4d958bc4baf821e3391bb9889a03a8bbc0e4d7f54ee4a5f30837654fed83"
     },
+    "excalidraw-diagram": {
+      "source": "psauxwwf/skills",
+      "sourceType": "github",
+      "skillPath": "excalidraw-diagram/SKILL.md",
+      "computedHash": "c74398d3464fff3a11d2413ba8d96c66dc0e14461df10a7a65d73180808160d2"
+    },
     "git-commit": {
       "source": "github/awesome-copilot",
       "sourceType": "github",
       "skillPath": "skills/git-commit/SKILL.md",
       "computedHash": "2607fc60629b82b257136dd2a7a373f0a4466c0b49df7746d845d59313c99b21"
+    },
+    "json-canvas": {
+      "source": "kepano/obsidian-skills",
+      "sourceType": "github",
+      "skillPath": "skills/json-canvas/SKILL.md",
+      "computedHash": "56cbac74a93e4fba97f4d44bccfdeaae89e545b223f47df392c7705e01e6c543"
     },
     "lightpanda": {
       "source": "psauxwwf/skills",
@@ -24,6 +36,30 @@
       "sourceType": "github",
       "skillPath": "cli-tool/components/skills/scientific/markitdown/SKILL.md",
       "computedHash": "2f5a663e88f112dea8e7bdae3cfb4c57e03fd2ff82d7bf1a6e1e6d2b0c3a6fc2"
+    },
+    "obsidian-bases": {
+      "source": "kepano/obsidian-skills",
+      "sourceType": "github",
+      "skillPath": "skills/obsidian-bases/SKILL.md",
+      "computedHash": "ed0a53502693e56c67575a9958daca9a3a1ac7ba483367f400b4cad9488bfb3c"
+    },
+    "obsidian-cli": {
+      "source": "kepano/obsidian-skills",
+      "sourceType": "github",
+      "skillPath": "skills/obsidian-cli/SKILL.md",
+      "computedHash": "f46ae626875f7e47c410c2ee93896c4526024ebe127719e8fb430261b5677edc"
+    },
+    "obsidian-markdown": {
+      "source": "kepano/obsidian-skills",
+      "sourceType": "github",
+      "skillPath": "skills/obsidian-markdown/SKILL.md",
+      "computedHash": "cacc9058a35ad3fd4985b4c31121bff8202f1337c39808c1326ded6a19a7915f"
+    },
+    "yotube-transcribe": {
+      "source": "psauxwwf/skills",
+      "sourceType": "github",
+      "skillPath": "yotube-transcribe/SKILL.md",
+      "computedHash": "7d73f4a5487a2b9fa7d1f438e4f9888441d02ee246a0a9d9e486daf2f1ea6d09"
     }
   }
 }
