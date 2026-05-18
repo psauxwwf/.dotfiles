@@ -1,2 +1,13 @@
 #!/bin/zsh
-exec proxychains4 -q /usr/local/bin/opencode "$@"
+
+target="/usr/local/bin/opencode"
+
+if [[ ! -x "$target" ]]; then
+	target="$(mise which opencode)"
+fi
+
+if [[ "$OPENCODE_PROXY" == "true" ]]; then
+	exec proxychains4 -q "$target" "$@"
+fi
+
+exec "$target" "$@"
