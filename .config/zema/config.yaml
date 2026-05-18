@@ -17,16 +17,8 @@ zellij:
     - "{title}"
   attach:
     pre:
-      - kitty
-      - "@"
-      - load-config
-      - "{home}/.config/kitty/kitty-no-bind.conf"
     args:
       - attach
       - --create
       - "{session}"
     post:
-      - kitty
-      - "@"
-      - load-config
-      - "{home}/.config/kitty/kitty.conf"
