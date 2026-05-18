@@ -1,2 +1,3 @@
 #!/bin/zsh
-exec proxychains4 -q /usr/local/bin/opencode "$@"
+target="$(mise which opencode)" || exit 1
+exec proxychains4 -q "$target" "$@"
