@@ -55,3 +55,4 @@
 /.pi/agent/auth.json
 /.pi/agent/mcp-cache.json
 /.pi/agent/sessions
+/.config/go/
