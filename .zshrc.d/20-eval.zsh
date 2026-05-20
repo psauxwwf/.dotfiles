@@ -1,13 +1,29 @@
 _zsh_cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 
+_cache_has_no_bash_complete() {
+	! grep -q '^complete ' "$1" 2>/dev/null
+}
+
 _cache_eval() {
 	local cache_file="$1"
 	shift
+	local validator=""
 	local -a deps
 	deps=()
-	while [[ ${1:-} == --dep ]]; do
-		deps+=("$2")
-		shift 2
+	while (($# > 0)); do
+		case "$1" in
+		--dep)
+			deps+=("$2")
+			shift 2
+			;;
+		--validator)
+			validator="$2"
+			shift 2
+			;;
+		*)
+			break
+			;;
+		esac
 	done
 	local bin="$1"
 	shift
@@ -26,9 +42,16 @@ _cache_eval() {
 				break
 			}
 		done
+		if [[ -n "$validator" ]] && ! "$validator" "$cache_file"; then
+			regen=1
+		fi
 	fi
 	if ((regen)); then
 		"$bin_path" "$@" >|"${cache_file}.tmp" && mv -f -- "${cache_file}.tmp" "$cache_file"
+	fi
+	if [[ -n "$validator" ]] && ! "$validator" "$cache_file"; then
+		rm -f -- "$cache_file"
+		return 0
 	fi
 	[[ -r "$cache_file" ]] || return 0
 	# shellcheck disable=SC1090
@@ -60,7 +83,7 @@ _cache_eval "$_zsh_cache_dir/completions/mise.zsh" mise activate zsh
 _cache_eval "$_zsh_cache_dir/completions/starship.zsh" starship init zsh
 _cache_eval "$_zsh_cache_dir/completions/zoxide.zsh" zoxide init zsh --cmd cd
 _cache_eval "$_zsh_cache_dir/completions/ykman.zsh" --dep ykman env _YKMAN_COMPLETE=zsh_source ykman
-_cache_eval "$_zsh_cache_dir/completions/opencode.zsh" opencode completion zsh
+_cache_eval "$_zsh_cache_dir/completions/opencode.zsh" --validator _cache_has_no_bash_complete opencode completion zsh
 _cache_eval "$_zsh_cache_dir/completions/wt.zsh" wt config shell init zsh
 
 _cache_comp task --completion zsh
