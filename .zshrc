@@ -3,6 +3,11 @@ export ZSH="$HOME/.oh-my-zsh"
 # Keep OMZ caches/dumps out of $HOME and speed up completion init.
 export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
 export ZSH_COMPDUMP="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump-${ZSH_VERSION}"
+
+if [[ -z ${TERM:-} || $TERM == dumb ]]; then
+	export TERM=xterm-256color
+fi
+
 mkdir -p -- "${ZSH_CACHE_DIR}" "${ZSH_COMPDUMP:h}" 2>/dev/null || true
 
 # shellcheck disable=SC2034
