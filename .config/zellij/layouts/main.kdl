@@ -56,14 +56,14 @@ layout {
             }
         }
     }
-    // left main pane (55%) + right stacked panes
+    // left main pane (50%) + right stacked panes
     swap_tiled_layout name="LSTACK" {
         tab max_panes=2 {
             pane
         }
         tab {
             pane split_direction="vertical" {
-                pane size="55%"
+                pane size="50%"
                 pane stacked=true {
                     children
                 }
@@ -77,13 +77,13 @@ layout {
         }
         tab exact_panes=3 {
             pane split_direction="vertical" {
-                pane size="55%"
+                pane size="50%"
                 pane
             }
         }
         tab exact_panes=4 {
             pane split_direction="vertical" {
-                pane size="55%"
+                pane size="50%"
                 pane split_direction="horizontal" {
                     pane
                     pane
@@ -92,7 +92,7 @@ layout {
         }
         tab {
             pane split_direction="vertical" {
-                pane size="55%"
+                pane size="50%"
                 pane split_direction="horizontal" {
                     pane
                     pane split_direction="horizontal" {
@@ -106,7 +106,7 @@ layout {
     swap_tiled_layout name="VERT" {
         tab exact_panes=3 {
             pane split_direction="vertical" {
-                pane size="55%"
+                pane size="50%"
                 pane
             }
         }
@@ -149,7 +149,7 @@ layout {
         }
         tab {
             pane split_direction="vertical" {
-                pane size="55%"
+                pane size="50%"
                 pane split_direction="horizontal" {
                     children
                 }
@@ -163,7 +163,7 @@ layout {
         }
         tab {
             pane split_direction="horizontal" {
-                pane size="55%"
+                pane size="50%"
                 pane split_direction="vertical" {
                     children
                 }
