@@ -11,7 +11,7 @@ _get_ssh_hosts() {
 
 ssh() {
 	if [[ -z $1 ]]; then
-		session=$(fzf --reverse --height=10 --border <<<"$(_get_ssh_hosts)")
+		session=$(fzf --reverse --height=10 <<<"$(_get_ssh_hosts)")
 		[[ -z $session ]] && return 1
 		/usr/bin/ssh "$session"
 	else
