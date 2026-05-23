@@ -63,6 +63,9 @@ typstyle = "latest"
 ghorg = "latest"
 buildifier = "latest"
 buf = "latest"
+"github:Feel-ix-343/markdown-oxide" = "latest"
+"github:iwe-org/iwe" = "latest"
+"github:psauxwwf/simple-completion-language-server" = "latest"
 
 # Utils
 chisel = "latest"
