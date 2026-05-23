@@ -63,6 +63,10 @@ typstyle = "latest"
 ghorg = "latest"
 buildifier = "latest"
 buf = "latest"
+"github:Feel-ix-343/markdown-oxide" = "latest"
+"github:iwe-org/iwe" = "latest"
+"github:psauxwwf/simple-completion-language-server" = "latest"
+tombi = "latest"
 
 # Utils
 chisel = "latest"
@@ -95,6 +99,7 @@ llmfit = "latest"
 "github:psauxwwf/krot" = "v05.13.17"
 "github:psauxwwf/zema" = "latest"
 "github:Julien-cpsn/ATAC" = "latest"
+# "github:danmartuszewski/hop" = "latest"
 # mc = "latest"
 
 [tasks.install]
