@@ -5,7 +5,7 @@
       "source": "vercel-labs/agent-browser",
       "sourceType": "github",
       "skillPath": "skills/agent-browser/SKILL.md",
-      "computedHash": "edad4d958bc4baf821e3391bb9889a03a8bbc0e4d7f54ee4a5f30837654fed83"
+      "computedHash": "228f87d57035100d9dc6efcfc05aafd4b6e3962adacaa04b8217ab2fadb15dc8"
     },
     "git-commit": {
       "source": "github/awesome-copilot",
@@ -17,7 +17,7 @@
       "source": "psauxwwf/skills",
       "sourceType": "github",
       "skillPath": "lightpanda/SKILL.md",
-      "computedHash": "11cf65edeafb6b0b29195ef6799aa77881bf16b173cc8ced46f50d452f6a90f4"
+      "computedHash": "a32d328ce630def07457b1b4ff52f80d5402b7f14af6b39ca12f3848b6e69c98"
     },
     "markitdown": {
       "source": "davila7/claude-code-templates",
