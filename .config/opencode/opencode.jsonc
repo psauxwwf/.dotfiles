@@ -3,11 +3,11 @@
   "shell": "/bin/zsh",
   "plugin": [
     // "opencode-openloop@latest",
-    "opencode-gemini-auth@latest",
+    "opencode-gemini-auth@latest"
   ],
   "autoupdate": false,
   "instructions": [
-    "AGENTS.md",
+    "AGENTS.md"
     // "GRAYMATTER.md",
   ],
   "permission": {
@@ -19,7 +19,7 @@
     "perplexity",
     "perplexity-agent",
     "google-vertex",
-    "google-vertex-anthropic",
+    "google-vertex-anthropic"
   ],
   "provider": {
     "openai": {
@@ -33,7 +33,7 @@
         "gpt-5.4",
         "gpt-5.4-fast",
         "gpt-5.5",
-        "gpt-5.5-fast",
+        "gpt-5.5-fast"
       ]
     },
     "google": {
@@ -46,21 +46,21 @@
       "whitelist": [
         "gemini-3.1-pro-preview",
         "gemini-3-flash-preview",
-        "gemini-3-pro-preview",
+        "gemini-3-pro-preview"
       ]
     },
     "freeglm": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "FreeGLM (local)",
       "options": {
-        "baseURL": "http://127.0.0.1:5000/v1",
+        "baseURL": "http://127.0.0.1:5000/v1"
         // "apiKey": "{env:ZAI_API_KEY}",
       },
       "models": {
         "glm-4.7-flash": {
           "attachment": true,
           "tool_call": true,
-          "reasoning": true,
+          "reasoning": true
         }
       }
     },
@@ -70,7 +70,7 @@
       "blacklist": [
         "openai/gpt-oss-20b",
         "qwen/qwen3-30b-a3b-2507",
-        "qwen/qwen3-coder-30b",
+        "qwen/qwen3-coder-30b"
       ],
       "options": {
         "baseURL": "http://127.0.0.1:1234/v1"
@@ -96,7 +96,7 @@
             "reasoningEffort": "none", // вместо high/medium/low
             "reasoningSummary": "none",
             "textVerbosity": "low",
-            "temperature": 0.0,
+            "temperature": 0.0
           }
         }
       }
@@ -112,8 +112,8 @@
         "gateway",
         "run",
         "--secrets",
-        "$HOME/.env.docker",
-      ],
+        "$HOME/.env.docker"
+      ]
     },
     "MCP_CONTEXT7": {
       "type": "remote",
@@ -124,7 +124,7 @@
       "type": "remote",
       "enabled": true,
       "url": "https://mcp.grep.app"
-    },
+    }
     // "graymatter": {
     //   "command": [
     //     "graymatter",
@@ -159,5 +159,5 @@
     //   ],
     //   "environment": {},
     // },
-  },
+  }
 }
