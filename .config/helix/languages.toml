@@ -136,6 +136,12 @@ file-types = ["conf"]
 language-servers = ["scls"]
 
 [[language]]
+name = "log"
+scope = "source.log"
+file-types = ["log"]
+language-servers = ["scls"]
+
+[[language]]
 name = "cpp"
 auto-format = true
 formatter = { command = "clang-format", args = [
