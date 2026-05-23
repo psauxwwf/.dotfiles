@@ -23,10 +23,10 @@ max-wrap = 5
 
 # https://docs.helix-editor.com/master/editor.html?highlight=auto-pairs#editorauto-pairs-section
 [editor.auto-pairs]
-'(' = ')'
-'{' = '}'
-'[' = ']'
-'<' = '>'
+'(' = ")"
+'{' = "}"
+'[' = "]"
+'<' = ">"
 
 [editor.inline-diagnostics]
 cursor-line = "info"
@@ -43,13 +43,14 @@ select = "underline"
 hidden = false
 
 [editor.whitespace.render]
-nbsp = 'all'
-tab = 'all'
-space = 'all'
+nbsp = "all"
+tab = "all"
+space = "all"
+
 [editor.whitespace.characters]
-space = '·'
-tab = '│'
-tabpad = ' '
+space = "·"
+tab = "│"
+tabpad = " "
 
 [keys.insert]
 A-h = "move_char_left"
@@ -94,4 +95,4 @@ g = { a = "code_action" }
 #   ":theme onelight",
 # ]
 
-#"space" = { "t" = ":sh wezterm cli split-pane --bottom --percent 30 --cwd $(pwd)"}
+# "space" = { "t" = ":sh wezterm cli split-pane --bottom --percent 30 --cwd $(pwd)"}
