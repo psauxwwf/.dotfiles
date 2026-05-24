@@ -81,7 +81,7 @@ language-servers = ["scls"]
 
 [[language]]
 name = "toml"
-language-servers = ["scls", "taplo", "tombi"]
+language-servers = ["taplo", "tombi", "scls"]
 auto-format = true
 formatter = { command = "tombi", args = [
   "format",
@@ -198,12 +198,17 @@ formatter = { command = "goimports" }
 
 [[language]]
 name = "docker-compose"
+language-servers = [
+  "docker-compose-langserver",
+  "yaml-language-server",
+  "scls",
+]
 auto-format = true
 formatter = { command = "prettier", args = ["--parser", "yaml"] }
 
 [[language]]
 name = "yaml"
-language-servers = ["scls", "yaml-language-server", "ansible-language-server"]
+language-servers = ["yaml-language-server", "ansible-language-server", "scls"]
 auto-format = true
 formatter = { command = "prettier", args = ["--parser", "yaml"] }
 # [language-server.yaml-language-server.config.yaml]
@@ -217,7 +222,7 @@ formatter = { command = "terraform", args = ["fmt", "-"] }
 
 [[language]]
 name = "markdown"
-language-servers = ["scls", "iwe", "marksman", "markdown-oxide"]
+language-servers = ["iwe", "marksman", "markdown-oxide", "scls"]
 auto-format = true
 formatter = { command = "prettier", args = ["--parser", "markdown"] }
 
@@ -245,13 +250,13 @@ formatter = { command = "prettier", args = ["--parser", "scss"] }
 
 [[language]]
 name = "json"
-language-servers = ["scls", "vscode-json-language-server"]
+language-servers = ["vscode-json-language-server", "scls"]
 auto-format = true
 formatter = { command = "prettier", args = ["--parser", "json"] }
 
 [[language]]
 name = "jsonc"
-language-servers = ["scls", "vscode-json-language-server"]
+language-servers = ["vscode-json-language-server", "scls"]
 auto-format = true
 formatter = { command = "prettier", args = ["--parser", "json"] }
 
