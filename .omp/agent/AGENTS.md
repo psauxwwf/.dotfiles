@@ -22,9 +22,3 @@ If the user uses `LB:` in their message
 ### Language
 
 - Always respond in the same language the user used for the question.
-
-### Skill loading hardening
-
-- Do not open `skill://...` with `read`.
-- Resolve skills via filesystem path: `~/.agents/skills/<skill>/SKILL.md`.
-- If skill file is unavailable, continue with installed CLI/tool and report fallback.
