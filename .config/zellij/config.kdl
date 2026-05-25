@@ -170,6 +170,7 @@ keybinds clear-defaults=true {
         bind "Ctrl Shift n" { MoveTab "right"; }
         bind "Alt n" { TogglePaneInGroup; }
         bind "Ctrl Shift p" { MoveTab "left"; }
+        bind "Ctrl Alt n" { NewTab; GoToPreviousTab; CloseTab; }
         bind "Ctrl Alt p" { NewPane; }
         bind "Alt Shift p" { ToggleGroupMarking; }
         bind "Ctrl Alt t" { NewTab; }
