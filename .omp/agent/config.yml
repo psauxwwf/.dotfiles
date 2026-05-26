@@ -1,4 +1,4 @@
-lastChangelogVersion: 15.4.2
+lastChangelogVersion: 15.4.3
 theme:
   dark: dark-dracula
   light: dark-dracula
@@ -8,19 +8,22 @@ statusLine:
   preset: minimal
   separator: ascii
   showHookStatus: true
+  sessionAccent: true
 images:
   blockImages: true
 display:
   showTokenUsage: true
 modelRoles:
-  default: openai/gpt-5.4
+  default: zai/glm-5.1
 startup:
   quiet: true
 edit:
   mode: hashline
+  fuzzyMatch: true
 readLineNumbers: true
 lsp:
   formatOnWrite: true
+  diagnosticsOnEdit: true
 todo:
   eager: false
   enabled: true
@@ -41,3 +44,30 @@ disabledProviders:
   - canonical
 treeFilterMode: all
 clearOnShrink: true
+read:
+  summarize:
+    prose: true
+  toolResultPreview: false
+python:
+  kernelMode: session
+github:
+  enabled: true
+tools:
+  discoveryMode: all
+mcp:
+  discoveryMode: true
+  notifications: true
+task:
+  isolation:
+    commits: generic
+  eager: true
+  enableLsp: true
+exa:
+  enableResearcher: true
+  enableWebsets: true
+branchSummary:
+  enabled: false
+ttsr:
+  enabled: true
+  contextMode: discard
+readHashLines: false
