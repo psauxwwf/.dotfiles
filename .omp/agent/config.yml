@@ -1,4 +1,4 @@
-lastChangelogVersion: 15.2.4
+lastChangelogVersion: 15.4.2
 theme:
   dark: dark-dracula
   light: dark-dracula
@@ -38,7 +38,6 @@ disabledExtensions: []
 disabledProviders:
   - llama.cpp
   - ollama
-  - zai
   - canonical
 treeFilterMode: all
 clearOnShrink: true

@@ -6,10 +6,7 @@
     "opencode-gemini-auth@latest"
   ],
   "autoupdate": false,
-  "instructions": [
-    "AGENTS.md"
-    // "GRAYMATTER.md",
-  ],
+  "instructions": ["AGENTS.md"],
   "permission": {
     "lsp": "allow"
   },
@@ -49,21 +46,27 @@
         "gemini-3-pro-preview"
       ]
     },
-    "freeglm": {
-      "npm": "@ai-sdk/openai-compatible",
-      "name": "FreeGLM (local)",
+    "zai-coding-plan": {
       "options": {
-        "baseURL": "http://127.0.0.1:5000/v1"
-        // "apiKey": "{env:ZAI_API_KEY}",
+        "apiKey": "{env:ZAI_API_KEY}"
       },
-      "models": {
-        "glm-4.7-flash": {
-          "attachment": true,
-          "tool_call": true,
-          "reasoning": true
-        }
-      }
+      "whitelist": ["glm-5-turbo", "glm-5.1", "glm-5v-turbo"]
     },
+    // "freeglm": {
+    //   "npm": "@ai-sdk/openai-compatible",
+    //   "name": "FreeGLM (local)",
+    //   "options": {
+    //     "baseURL": "http://127.0.0.1:5000/v1"
+    //     // "apiKey": "{env:ZAI_API_KEY}",
+    //   },
+    //   "models": {
+    //     "glm-4.7-flash": {
+    //       "attachment": false,
+    //       "tool_call": true,
+    //       "reasoning": true
+    //     }
+    //   }
+    // },
     "lmstudio": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "LM Studio (local)",
@@ -74,6 +77,13 @@
       ],
       "options": {
         "baseURL": "http://127.0.0.1:1234/v1"
+      },
+      "models": {
+        "qwen3.5-4b-uncensored-hauhaucs-aggressive": {
+          "attachment": false,
+          "tool_call": true,
+          "reasoning": true
+        }
       }
     },
     "ollama": {
@@ -82,24 +92,7 @@
       "options": {
         "baseURL": "http://127.0.0.1:11434/v1"
       },
-      "models": {
-        "qwen3:1.7b": {
-          "attachment": true,
-          "tool_call": false,
-          "reasoning": false,
-          "limit": {
-            "context": 40000,
-            "output": 4096
-          },
-          "options": {
-            // отключает thinking
-            "reasoningEffort": "none", // вместо high/medium/low
-            "reasoningSummary": "none",
-            "textVerbosity": "low",
-            "temperature": 0.0
-          }
-        }
-      }
+      "models": {}
     }
   },
   "mcp": {
