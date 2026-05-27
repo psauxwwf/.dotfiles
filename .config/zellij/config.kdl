@@ -172,7 +172,6 @@ keybinds clear-defaults=true {
         bind "Ctrl Shift p" { MoveTab "left"; }
         bind "Ctrl Alt n" { NewTab; ToggleTab; CloseTab; }
         bind "Ctrl Alt p" { NewPane; }
-        bind "Ctrl Alt x" { NewPane; SwitchFocus; CloseFocus; }
         bind "Alt Shift p" { ToggleGroupMarking; }
         bind "Ctrl Alt t" { NewTab; }
         bind "Ctrl Alt w" { CloseFocus; }
