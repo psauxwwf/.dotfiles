@@ -42,15 +42,19 @@
       },
       "whitelist": [
         "gemini-3.1-pro-preview",
-        "gemini-3-flash-preview",
-        "gemini-3-pro-preview"
+        "gemini-3-flash-preview"
+        // "gemini-3-pro-preview"
       ]
     },
     "zai-coding-plan": {
       "options": {
         "apiKey": "{env:ZAI_API_KEY}"
       },
-      "whitelist": ["glm-5-turbo", "glm-5.1", "glm-5v-turbo"]
+      "whitelist": [
+        "glm-5-turbo",
+        "glm-5.1"
+        // "glm-5v-turbo",
+      ]
     },
     // "freeglm": {
     //   "npm": "@ai-sdk/openai-compatible",
