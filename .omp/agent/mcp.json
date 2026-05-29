@@ -4,13 +4,7 @@
     "MCP_DOCKER": {
       "type": "stdio",
       "command": "docker",
-      "args": [
-        "mcp",
-        "gateway",
-        "run",
-        "--secrets",
-        "$HOME/.env.docker"
-      ]
+      "args": ["mcp", "gateway", "run", "--secrets", "$HOME/.env.docker"]
     },
     "MCP_CONTEXT7": {
       "type": "http",
@@ -19,6 +13,10 @@
     "MCP_GH_GREP": {
       "type": "http",
       "url": "https://mcp.grep.app"
+    },
+    "MCP_EXA": {
+      "type": "http",
+      "url": "https://mcp.exa.ai/mcp"
     }
   }
 }

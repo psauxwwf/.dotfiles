@@ -1,4 +1,4 @@
-lastChangelogVersion: 15.5.3
+lastChangelogVersion: 15.5.13
 theme:
   dark: dark-dracula
   light: dark-dracula
@@ -13,6 +13,7 @@ images:
   blockImages: true
 display:
   showTokenUsage: true
+  shimmer: classic
 modelRoles:
   default: zai/glm-5.1
 startup:
@@ -28,9 +29,10 @@ todo:
   eager: false
   enabled: true
 interruptMode: immediate
-doubleEscapeAction: tree
+doubleEscapeAction: branch
 stt:
   enabled: true
+  modelName: base
 notebook:
   enabled: false
 inspect_image:
@@ -41,7 +43,6 @@ disabledExtensions: []
 disabledProviders:
   - llama.cpp
   - ollama
-  - canonical
 treeFilterMode: all
 clearOnShrink: true
 read:
@@ -55,13 +56,15 @@ github:
 tools:
   discoveryMode: all
 mcp:
-  discoveryMode: true
-  notifications: true
+  discoveryMode: false
+  notifications: false
 task:
   isolation:
     commits: generic
   eager: true
   enableLsp: true
+  simple: schema-free
+  showResolvedModelBadge: true
 exa:
   enableResearcher: true
   enableWebsets: true
@@ -71,3 +74,9 @@ ttsr:
   enabled: true
   contextMode: discard
 readHashLines: false
+compaction:
+  strategy: context-full
+providers:
+  webSearch: auto
+retry:
+  fallbackRevertPolicy: cooldown-expiry

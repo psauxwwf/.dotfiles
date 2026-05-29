@@ -94,44 +94,31 @@ fd = "latest"
 worktrunk = "latest"
 llmfit = "latest"
 "github:Achno/gowall" = "latest"
-# "github:psauxwwf/olcrtc" = "latest"
 "github:psauxwwf/t2s" = "latest"
 "github:psauxwwf/krot" = "v05.13.17"
 "github:psauxwwf/zema" = "latest"
 "github:Julien-cpsn/ATAC" = "latest"
+# "github:jetify-com/devbox" = "latest"
+# "github:psauxwwf/olcrtc" = "latest"
 # "github:danmartuszewski/hop" = "latest"
 # mc = "latest"
 
 [tasks.install]
-run = """
-mise run wget
-mise run pip
-mise run golang
-mise run npm
-"""
-
-[tasks.wget]
-run = """
-#!/usr/bin/env bash
-set -euo pipefail
-exit 0
-"""
+depends = ["pip", "golang", "npm"]
 
 [tasks.pip]
 run = """
 #!/usr/bin/env bash
 set -euo pipefail
 pip install --no-cache-dir --upgrade -r ~/.config/mise/requirements.txt
-exit 0
 """
 
 [tasks.golang]
 run = """
 #!/usr/bin/env bash
 set -euo pipefail
-go install golang.org/x/tools/gopls@latest && \
-  go install golang.org/x/tools/cmd/goimports@latest
-exit 0
+go install golang.org/x/tools/gopls@latest
+go install golang.org/x/tools/cmd/goimports@latest
 """
 
 [tasks.npm]
@@ -139,27 +126,23 @@ run = """
 #!/usr/bin/env bash
 set -euo pipefail
 npm i -g \
-	typescript \
-	typescript-language-server \
-	@vue/language-server \
-	@vue/typescript-plugin
-exit 0
+  typescript \
+  typescript-language-server \
+  @vue/language-server \
+  @vue/typescript-plugin
 """
 
 [tasks.prune]
 run = """
 #!/usr/bin/env bash
 set -euo pipefail
-mise prune && \
-  mise cache clear && \
-  pip cache purge && \
-  uv cache clean && \
-  npm cache clean --force && \
-  npm dedup && \
-  go clean -cache -modcache -testcache -fuzzcache && \
-  rm -rf ~/.bun/install/cache && \
-  rm -rf ~/.bun/cache
-exit 0
+mise prune
+mise cache clear
+pip cache purge
+uv cache clean
+npm cache clean --force && npm dedup
+go clean -cache -modcache -testcache -fuzzcache
+rm -rf ~/.bun/install/cache ~/.bun/cache
 """
 
 [settings]
