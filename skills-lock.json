@@ -24,6 +24,12 @@
       "sourceType": "github",
       "skillPath": "cli-tool/components/skills/scientific/markitdown/SKILL.md",
       "computedHash": "2f5a663e88f112dea8e7bdae3cfb4c57e03fd2ff82d7bf1a6e1e6d2b0c3a6fc2"
+    },
+    "taskfiles": {
+      "source": "ionfury/homelab",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/taskfiles/SKILL.md",
+      "computedHash": "0697ccace6dd803e3f2c47adf9e767445c3c0b291c0704835d381582ac38162a"
     }
   }
 }
