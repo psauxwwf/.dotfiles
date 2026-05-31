@@ -19,7 +19,7 @@ if ! (( ${+functions[compdef]} )); then
 	compinit -i -d "$ZSH_COMPDUMP"
 fi
 
-export STARSHIP_CONFIG="$HOME/.config/starship.unicode.toml"
+export STARSHIP_CONFIG="$HOME/.config/starship.emoji.toml"
 
 for zshrc_file in "$HOME/.zshrc.d"/*.zsh; do
 	[[ -r $zshrc_file ]] || continue
