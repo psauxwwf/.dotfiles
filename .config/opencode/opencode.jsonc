@@ -121,6 +121,11 @@
       "type": "remote",
       "enabled": true,
       "url": "https://mcp.grep.app"
+    },
+    "MCP_HOP": {
+      "type": "local",
+      "enabled": false,
+      "command": ["hop", "mcp", "--allow-exec"]
     }
     // "graymatter": {
     //   "command": [

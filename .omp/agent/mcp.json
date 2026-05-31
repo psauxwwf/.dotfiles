@@ -14,9 +14,10 @@
       "type": "http",
       "url": "https://mcp.grep.app"
     },
-    "MCP_EXA": {
-      "type": "http",
-      "url": "https://mcp.exa.ai/mcp"
+    "MCP_HOP": {
+      "type": "stdio",
+      "command": "hop",
+      "args": ["mcp", "--allow-exec"]
     }
   }
 }
