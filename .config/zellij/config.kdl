@@ -175,6 +175,7 @@ keybinds clear-defaults=true {
         bind "Alt Shift p" { ToggleGroupMarking; }
         bind "Ctrl Alt t" { NewTab; }
         bind "Ctrl Alt w" { CloseFocus; }
+        bind "Ctrl g" { SwitchToMode "locked"; }
     }
     shared_except "locked" "scroll" "search" "tmux" {
         bind "Ctrl b" { SwitchToMode "tmux"; }
@@ -228,7 +229,6 @@ keybinds clear-defaults=true {
         bind "d" { Detach; }
     }
     tmux {
-        bind "g" { SwitchToMode "locked"; }
         bind "m" { SwitchToMode "move"; }
         bind "o" { SwitchToMode "session"; }
         bind "p" { SwitchToMode "pane"; }
